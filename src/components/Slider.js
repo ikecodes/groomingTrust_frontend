@@ -1,9 +1,11 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import NavLg from './NavLg';
+import NavSm from './NavSm';
 const Slider = () => {
   return (
-    <div className='position-relative'>
+    <div className='position-relative slider_container'>
+      <NavSm />
       <NavLg />
       <Carousel>
         <Carousel.Item interval={1000}>

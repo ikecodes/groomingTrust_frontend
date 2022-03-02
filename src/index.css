@@ -44,6 +44,20 @@ table {
   border-spacing: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: none;
+  background-color: #999bcb;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #6063ad;
+  outline: none;
+}
+
 .slider_image_box {
   position: relative;
   width: 100%;
@@ -62,4 +76,9 @@ table {
   background-position: center;
   background-size: cover;
   background: black;
+}
+
+.slider_container .carousel-inner {
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
 }

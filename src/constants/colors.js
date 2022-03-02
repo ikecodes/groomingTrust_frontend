@@ -1,7 +1,9 @@
 const colors = {
-  primary: '#C383BF',
-  secondary: '#9A9BC6',
-  tertiary: '#5C61B3',
+  primary: '#C386C0',
+  secondary: '#999BCB',
+  tertiary: '#6063AD',
+  textColor: '#14274A',
+  headerColor: '#14274A4D',
 };
 
 export default colors;
