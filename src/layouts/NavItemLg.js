@@ -22,7 +22,7 @@ const NavItemLg = ({ name }) => {
 };
 
 const NavItem = styled.li`
-  color: #fff;
+  color: ${colors.white};
   font-weight: 500;
   text-transform: capitalize;
   cursor: pointer;
@@ -32,7 +32,7 @@ const NavItem = styled.li`
 `;
 const ContainerMenu = styled.ul`
   position: absolute;
-  background-color: #fff;
+  background-color: ${colors.white};
   border-radius: 10px;
   padding: 1.2rem;
   left: -50%;

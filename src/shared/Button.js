@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../constants/colors';
+import colors from '../constants/colors';
 const ButtonComponent = ({ title, primary }) => {
   return <Button primary={primary}>{title}</Button>;
 };
@@ -9,8 +9,12 @@ const Button = styled.button`
   background-color: ${(props) =>
     props.primary ? colors.primary : colors.tertiary};
   text-transform: capitalize;
-  color: #fff;
+  color: ${colors.white};
   padding: 4px 15px;
   border-radius: 5px;
+  transition: all 0.2s linear;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 export default ButtonComponent;

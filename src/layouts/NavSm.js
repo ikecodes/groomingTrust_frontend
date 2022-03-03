@@ -12,7 +12,7 @@ const NavSm = () => {
     <>
       <AnimatingContainer>
         <MenuIcon open onClick={() => setIsAnimating(true)}>
-          <BiMenuAltLeft size={30} color='#fff' />
+          <BiMenuAltLeft size={30} color={colors.white} />
         </MenuIcon>
         <NavContainer>
           <div className='ms-4'>
@@ -35,7 +35,7 @@ const NavSm = () => {
           </div>
         </NavContainer>
         <MenuIcon close onClick={() => setIsAnimating(false)}>
-          <FaTimes size={30} color='#fff' />
+          <FaTimes size={30} color={colors.white} />
         </MenuIcon>
       </AnimatingContainer>
     </>
@@ -60,7 +60,7 @@ const NavContainer = styled.div`
   height: 100vh;
   background: ${colors.secondary};
   position: absolute;
-  color: #fff;
+  color: ${colors.white};
   display: flex;
   flex-direction: column;
   justify-content: center;

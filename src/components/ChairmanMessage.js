@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import ChairmanImage from '../assets/images/chairman.jpg';
-import PrimaryButton from './shared/Button';
+import PrimaryButton from '../shared/Button';
 const ChairmanMessage = () => {
   return (
     <Container>
@@ -12,7 +12,7 @@ const ChairmanMessage = () => {
             <ImageBox src={ChairmanImage} alt='chairman' />
           </div>
           <div className='col-lg-6'>
-            <h1>Chairman's message</h1>
+            <h2 className='my-3'>Chairman's message</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
               deleniti corporis dolor sint? Qui animi doloremque, necessitatibus
@@ -34,7 +34,7 @@ const ChairmanMessage = () => {
 };
 
 const Container = styled.section`
-  margin: 4rem 0;
+  margin: 7rem 0;
   color: ${colors.textColor};
 `;
 const ImageBox = styled.img`

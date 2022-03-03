@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import NavLg from './NavLg';
-import NavSm from './NavSm';
+import NavLg from '../layouts/NavLg';
+import NavSm from '../layouts/NavSm';
 const Slider = () => {
   return (
     <div className='position-relative slider_container'>

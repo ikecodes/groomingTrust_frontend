@@ -4,6 +4,8 @@ const colors = {
   tertiary: '#6063AD',
   textColor: '#14274A',
   headerColor: '#14274A4D',
+  white: '#fff',
+  black: '#000',
 };
 
 export default colors;
