@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
-              <li className='my-2'>about us</li>
+              <li className='mb-2'>about us</li>
               <li className='my-2'>contact</li>
               <li className='my-2'>terms & condition</li>
             </ul>
@@ -41,24 +41,28 @@ const Footer = () => {
           </div>
           <div className='col-lg-3'>
             <p className='pb-2'>Subscribe to our newsletter</p>
-            <Form.Control
-              type='email'
-              placeholder='Email Address'
-              aria-describedby='Input your email'
-            />
-            <span className='mt-2'>
+            <div className='d-flex'>
+              <Form.Control
+                type='email'
+                placeholder='Email'
+                aria-describedby='Input your email'
+              />
+
               <Button title='subscribe' primary />
-            </span>
+            </div>
           </div>
         </div>
+      </div>
+      <div className='text-center text-capitalize'>
+        <p className='m-0 py-3'>the grooming endownment &copy;2022 </p>
       </div>
     </Container>
   );
 };
 
 const Container = styled.footer`
-  margin: 4rem 0 0;
-  padding: 5rem 0;
+  margin-top: 4rem;
+  padding-top: 5rem;
   color: ${colors.white};
   background-color: ${colors.tertiary};
 `;

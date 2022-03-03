@@ -8,7 +8,7 @@ const EventsCard = () => {
     <div className='col-lg-4 mb-3'>
       <CardContainer className='shadow-lg'>
         <Card>
-          <CardImage className='rounded-botton' alt='' src={EventImg} />
+          <CardImage alt='event' src={EventImg} />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>

@@ -4,6 +4,7 @@ const colors = {
   tertiary: '#6063AD',
   textColor: '#14274A',
   headerColor: '#14274A4D',
+  overlay: '#4C509780',
   white: '#fff',
   black: '#000',
 };

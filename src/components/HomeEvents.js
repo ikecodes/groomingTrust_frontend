@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from '../constants/colors';
+import Section from '../layouts/Section';
 import EventsCard from './EventsCard';
 
 const Events = () => {
   return (
-    <Container>
+    <Section>
       <div className='container'>
         <Header className='my-3'>events</Header>
         <div className='row'>
@@ -14,14 +15,9 @@ const Events = () => {
           <EventsCard />
         </div>
       </div>
-    </Container>
+    </Section>
   );
 };
-
-const Container = styled.section`
-  margin: 7rem 0;
-  color: ${colors.textColor};
-`;
 
 const Header = styled.h1`
   color: ${colors.headerColor};

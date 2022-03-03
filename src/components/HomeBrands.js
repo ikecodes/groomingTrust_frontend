@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../constants/colors';
 import BrandImg from '../assets/images/brand.jpg';
+import Section from '../layouts/Section';
 const HomeBrands = () => {
   return (
-    <Container>
+    <Section>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-3'>
@@ -21,14 +21,10 @@ const HomeBrands = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </Section>
   );
 };
 
-const Container = styled.section`
-  margin: 4rem 0;
-  color: ${colors.textColor};
-`;
 const ImageBox = styled.img`
   width: 100%;
   height: auto;

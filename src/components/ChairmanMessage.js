@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import colors from '../constants/colors';
 import ChairmanImage from '../assets/images/chairman.jpg';
 import PrimaryButton from '../shared/Button';
+import Section from '../layouts/Section';
 const ChairmanMessage = () => {
   return (
-    <Container>
+    <Section>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-6'>
@@ -25,22 +26,20 @@ const ChairmanMessage = () => {
               quod id quasi voluptates optio debitis ducimus, eos odit fugiat
               commodi voluptatem.
             </p>
-            <PrimaryButton title='read more' primary />
+            <Link to='/chairman-message'>
+              <PrimaryButton title='read more' primary />
+            </Link>
           </div>
         </div>
       </div>
-    </Container>
+    </Section>
   );
 };
 
-const Container = styled.section`
-  margin: 7rem 0;
-  color: ${colors.textColor};
-`;
 const ImageBox = styled.img`
   border-radius: 2rem;
   width: 100%;
   height: auto;
-  background-size: cover;
+  object-fit: contain;
 `;
 export default ChairmanMessage;

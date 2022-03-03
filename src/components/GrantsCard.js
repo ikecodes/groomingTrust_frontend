@@ -34,7 +34,7 @@ const GrantsCard = () => {
 const ImageBox = styled.img`
   width: 100%;
   height: auto;
-  background-size: cover;
+  object-fit: contain;
 `;
 const Container = styled.div`
   border-left: 1px solid ${colors.textColor};
