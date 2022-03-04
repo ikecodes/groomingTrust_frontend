@@ -14,9 +14,7 @@ const Header = () => {
         <h1>header text</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
-          fuga delectus debitis dicta commodi unde architecto! Praesentium
-          velit, nostrum explicabo quas, atque a corporis itaque, magni enim
-          ducimus debitis quos!
+          fuga delectus debitis dicta commodi unde architecto!
         </p>
       </TextBox>
       <Overlay></Overlay>

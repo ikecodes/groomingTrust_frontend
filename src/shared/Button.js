@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from '../constants/colors';
-const ButtonComponent = ({ title, primary }) => {
-  return <Button primary={primary}>{title}</Button>;
+const Button = ({ title, primary, handleClick }) => {
+  return (
+    <B primary={primary} onClick={handleClick}>
+      {title}
+    </B>
+  );
 };
 
-const Button = styled.button`
+const B = styled.button`
   background-color: ${(props) =>
     props.primary ? colors.primary : colors.tertiary};
   text-transform: capitalize;
@@ -17,4 +21,4 @@ const Button = styled.button`
     transform: scale(1.05);
   }
 `;
-export default ButtonComponent;
+export default Button;
