@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ChairmanImg from '../assets/images/chairman.jpg';
-import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
 import Section from '../layouts/Section';
 const ChairmanMessage = () => {

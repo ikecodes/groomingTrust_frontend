@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import FamilyImg from '../assets/images/family.jpg';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
+import Image from '../shared/Image';
 const GrantsCard = () => {
   return (
     <div className='row my-5 flex-md-row-reverse'>
       <div className='col-lg-6'>
-        <ImageBox src={FamilyImg} alt='family' />
+        <Image src={FamilyImg} alt='family' h={100} unit='%' />
       </div>
       <div className='col-lg-6'>
         <Container>
@@ -31,11 +32,6 @@ const GrantsCard = () => {
   );
 };
 
-const ImageBox = styled.img`
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-`;
 const Container = styled.div`
   border-left: 1px solid ${colors.textColor};
   padding-left: 1.5rem;

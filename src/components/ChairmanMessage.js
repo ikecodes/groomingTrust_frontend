@@ -1,16 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import ChairmanImage from '../assets/images/chairman.jpg';
 import PrimaryButton from '../shared/Button';
 import Section from '../layouts/Section';
+import Image from '../shared/Image';
 const ChairmanMessage = () => {
   return (
     <Section>
       <div className='container'>
         <div className='row'>
           <div className='col-lg-6'>
-            <ImageBox src={ChairmanImage} alt='chairman' />
+            <Image
+              src={ChairmanImage}
+              alt='chairman'
+              h={100}
+              unit='%'
+              rounded
+            />
           </div>
           <div className='col-lg-6'>
             <h2 className='my-3'>Chairman's message</h2>
@@ -36,10 +42,4 @@ const ChairmanMessage = () => {
   );
 };
 
-const ImageBox = styled.img`
-  border-radius: 2rem;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-`;
 export default ChairmanMessage;

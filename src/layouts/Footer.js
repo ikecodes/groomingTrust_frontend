@@ -54,7 +54,9 @@ const Footer = () => {
         </div>
       </div>
       <div className='text-center text-capitalize'>
-        <p className='m-0 py-3'>the grooming endownment &copy;2022 </p>
+        <p className='m-0 py-3 text-capitalize'>
+          &copy;2022 grooming trust endownment.
+        </p>
       </div>
     </Container>
   );
