@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ChairmanMessage from './pages/ChairmanMessage';
 import About from './pages/About';
-import StaffAndTrustees from './pages/StaffAndTrustees';
+import StaffsAndTrustees from './pages/StaffsAndTrustees';
 import Gallery from './pages/Gallery';
+import GalleryImages from './pages/GalleryImages';
 import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 
@@ -17,11 +18,12 @@ function App() {
         <Route path='/chairman-message' exact element={<ChairmanMessage />} />
         <Route path='/about' exact element={<About />} />
         <Route
-          path='/staff-and-trustees'
+          path='/staffs-and-trustees'
           exact
-          element={<StaffAndTrustees />}
+          element={<StaffsAndTrustees />}
         />
         <Route path='/gallery' exact element={<Gallery />} />
+        <Route path='/gallery-images' exact element={<GalleryImages />} />
         <Route path='/frequently-asked-questions' exact element={<Faqs />} />
         <Route path='/contact' exact element={<Contact />} />
       </Routes>

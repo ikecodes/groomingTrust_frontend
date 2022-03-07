@@ -18,14 +18,14 @@ const Header = () => {
         </p>
       </TextBox>
       <Overlay></Overlay>
-      <Image src={HeaderImg} h={60} unit='vh' />
+      <Image src={HeaderImg} h={50} unit='vh' />
     </Container>
   );
 };
 
 const Container = styled.div`
   position: relative;
-  height: 60vh;
+  height: 50vh;
   margin-bottom: 5rem;
 `;
 

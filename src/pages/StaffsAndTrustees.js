@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout';
 import StaffImg from '../assets/images/staff.jpg';
 import StaffTrusteeCard from '../components/StaffTrusteeCard';
 
-const StaffAndTrustees = () => {
+const StaffsAndTrustees = () => {
   const [active, setActive] = useState('staff');
   return (
     <Layout>
@@ -60,4 +60,4 @@ const TypeContainer = styled.div`
   }
 `;
 
-export default StaffAndTrustees;
+export default StaffsAndTrustees;
