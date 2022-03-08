@@ -13,7 +13,7 @@ const NavbarLg = () => {
           </div>
           <div className='col-lg-8 justify-self-start mt-3'>
             <NavMenu>
-              <ul className='d-flex justify-content-around align-items-center'>
+              <ul className='d-flex justify-content-evenly align-items-center'>
                 <NavItemLg name='about' />
                 <NavItemLg name='portfolio' />
                 <NavItemLg name='grants' />

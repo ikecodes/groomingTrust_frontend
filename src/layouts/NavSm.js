@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import { FaTimes } from 'react-icons/fa';
@@ -11,13 +10,13 @@ const NavSm = () => {
   return (
     <>
       <OpenIcon onClick={() => setIsAnimating(true)}>
-        <BiMenuAltLeft size={30} color={colors.white} />
+        <BiMenuAltLeft size={40} color={colors.white} />
       </OpenIcon>
       <AnimatingContainer
         className={isAnimating ? 'clicked' : ''}
-        onClick={() => setIsAnimating(false)}
+        onClick={(e) => setIsAnimating(false)}
       >
-        <NavContainer>
+        <NavContainer onClick={(e) => e.stopPropagation()}>
           <div className='ms-4'>
             <Heading>about</Heading>
             <ul>
@@ -49,6 +48,7 @@ const OpenIcon = styled.span`
   position: absolute;
   top: 1rem;
   z-index: 100;
+  font-weight: 600;
   right: 2rem;
   display: none;
   @media (max-width: 768px) {
@@ -59,7 +59,7 @@ const CloseIcon = styled.span`
   position: absolute;
   top: 1rem;
   z-index: 100;
-  right: 5rem;
+  right: 6rem;
 `;
 
 const AnimatingContainer = styled.div`
@@ -95,7 +95,7 @@ const NavContainer = styled.div`
     margin: 1rem 0;
   }
 `;
-const Heading = styled.h4`
+const Heading = styled.h6`
   color: ${colors.primary};
   text-transform: uppercase;
   font-weight: bold;

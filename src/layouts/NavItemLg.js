@@ -21,7 +21,7 @@ const NavItemLg = ({ name }) => {
 
 const NavItem = styled.li`
   color: ${colors.white};
-  font-weight: 600;
+  font-weight: 500;
   text-transform: capitalize;
   cursor: pointer;
   &:hover {
@@ -45,7 +45,7 @@ const ContainerMenu = styled.ul`
 `;
 const ContainerItem = styled.li`
   white-space: nowrap;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: capitalize;
   font-weight: 500;
   cursor: pointer;

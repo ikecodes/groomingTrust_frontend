@@ -81,6 +81,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .slider_container .carousel-inner {
-  border-bottom-left-radius: 5rem;
-  border-bottom-right-radius: 5rem;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
 }
