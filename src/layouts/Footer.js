@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <Container>
       <div className='container'>
-        <div className='row'>
+        <div className='row gap-4 gap-md-0'>
           <div className='col-lg-3'>
             <ImageBox src={Logo} />
             <p className='pt-2'>
@@ -40,7 +40,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col-lg-3'>
-            <p className='pb-2'>Subscribe to our newsletter</p>
+            <p className='p-0'>Subscribe to our newsletter</p>
             <div className='d-flex'>
               <Form.Control
                 type='email'
@@ -48,14 +48,13 @@ const Footer = () => {
                 className='rounded-0'
                 aria-describedby='Input your email'
               />
-
               <Button title='subscribe' primary norounded />
             </div>
           </div>
         </div>
       </div>
       <div className='text-center text-capitalize'>
-        <p className='m-0 py-3 text-capitalize'>
+        <p className='m-0 pt-5 pb-2 text-capitalize'>
           &copy;2022 grooming trust endownment.
         </p>
       </div>

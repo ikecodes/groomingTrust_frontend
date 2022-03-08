@@ -10,20 +10,18 @@ const NavItemLg = ({ name }) => {
       onMouseLeave={() => setShow(false)}
     >
       <NavItem>{name}</NavItem>
-      {show && (
-        <ContainerMenu>
-          <ContainerItem className='my-3'>grooming endownment</ContainerItem>
-          <ContainerItem className='my-3'>staff and trusties</ContainerItem>
-          <ContainerItem className='my-3'>gallery</ContainerItem>
-        </ContainerMenu>
-      )}
+      <ContainerMenu className={`p-3 ${show ? 'hovered' : ''}`}>
+        <ContainerItem className='my-3'>grooming endownment</ContainerItem>
+        <ContainerItem className='my-3'>staff and trusties</ContainerItem>
+        <ContainerItem className='my-3'>gallery</ContainerItem>
+      </ContainerMenu>
     </div>
   );
 };
 
 const NavItem = styled.li`
   color: ${colors.white};
-  font-weight: 500;
+  font-weight: 600;
   text-transform: capitalize;
   cursor: pointer;
   &:hover {
@@ -34,8 +32,16 @@ const ContainerMenu = styled.ul`
   position: absolute;
   background-color: ${colors.white};
   border-radius: 10px;
-  padding: 1.2rem;
   left: -50%;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in;
+  &.hovered {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 const ContainerItem = styled.li`
   white-space: nowrap;
