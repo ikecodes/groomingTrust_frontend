@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from '../constants/colors';
-const Button = ({ title, primary, handleClick }) => {
+const Button = ({ title, primary, handleClick, norounded }) => {
   return (
-    <B primary={primary} onClick={handleClick}>
+    <B primary={primary} norounded={norounded} onClick={handleClick}>
       {title}
     </B>
   );
@@ -15,7 +15,7 @@ const B = styled.button`
   text-transform: capitalize;
   color: ${colors.white};
   padding: 4px 15px;
-  border-radius: 5px;
+  border-radius: ${(props) => (props.norounded ? '0' : '5px')};
   transition: all 0.2s linear;
   &:hover {
     transform: scale(1.05);

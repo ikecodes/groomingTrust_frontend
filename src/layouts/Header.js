@@ -12,10 +12,7 @@ const Header = () => {
       <NavbarLg />
       <TextBox>
         <h1>header text</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
-          fuga delectus debitis dicta commodi unde architecto!
-        </p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
       </TextBox>
       <Overlay></Overlay>
       <Image src={HeaderImg} h={50} unit='vh' />

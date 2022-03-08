@@ -29,7 +29,7 @@ const NavbarLg = () => {
 
 const NavContainer = styled.nav`
   width: 100%;
-  z-index: 100;
+  z-index: 90;
 `;
 const NavMenu = styled.div`
   @media (max-width: 768px) {

@@ -10,10 +10,13 @@ const NavSm = () => {
 
   return (
     <>
-      <AnimatingContainer>
-        <MenuIcon open onClick={() => setIsAnimating(true)}>
-          <BiMenuAltLeft size={30} color={colors.white} />
-        </MenuIcon>
+      <OpenIcon onClick={() => setIsAnimating(true)}>
+        <BiMenuAltLeft size={30} color={colors.white} />
+      </OpenIcon>
+      <AnimatingContainer
+        className={isAnimating ? 'clicked' : ''}
+        onClick={() => setIsAnimating(false)}
+      >
         <NavContainer>
           <div className='ms-4'>
             <Heading>about</Heading>
@@ -33,43 +36,67 @@ const NavSm = () => {
               <li>faq</li>
             </ul>
           </div>
+          <CloseIcon onClick={() => setIsAnimating(false)}>
+            <FaTimes size={30} color={colors.white} />
+          </CloseIcon>
         </NavContainer>
-        <MenuIcon close onClick={() => setIsAnimating(false)}>
-          <FaTimes size={30} color={colors.white} />
-        </MenuIcon>
       </AnimatingContainer>
     </>
   );
 };
 
-const MenuIcon = styled.span`
+const OpenIcon = styled.span`
   position: absolute;
   top: 1rem;
-  z-index: ${(props) => (props.open ? 90 : 100)};
+  z-index: 100;
   right: 2rem;
-`;
-
-const AnimatingContainer = styled.div`
   display: none;
   @media (max-width: 768px) {
     display: block;
   }
 `;
-const NavContainer = styled.div`
+const CloseIcon = styled.span`
+  position: absolute;
+  top: 1rem;
+  z-index: 100;
+  right: 5rem;
+`;
+
+const AnimatingContainer = styled.div`
+  display: none;
+  position: fixed;
   width: 100%;
   height: 100vh;
-  background: ${colors.secondary};
+  z-index: 100;
+  background-color: rgb(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: all 0.3s ease-in;
+  &.clicked {
+    transform: translateX(0);
+  }
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+const NavContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: ${colors.tertiary};
   position: absolute;
   color: ${colors.white};
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-transform: capitalize;
-  z-index: 100;
-  gap: 0.5rem;
+  transform: translateX(20%);
+  gap: 2rem;
+  & li {
+    margin: 1rem 0;
+  }
 `;
 const Heading = styled.h4`
-  color: ${colors.tertiary};
+  color: ${colors.primary};
   text-transform: uppercase;
   font-weight: bold;
 `;

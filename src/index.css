@@ -62,6 +62,7 @@ body::-webkit-scrollbar-thumb {
   outline: none;
 }
 
+/* //////////////////////////////////////// FOR HOME PAGE CAROUSEL */
 .slider_image_box {
   position: relative;
   width: 100%;

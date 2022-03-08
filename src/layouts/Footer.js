@@ -45,10 +45,11 @@ const Footer = () => {
               <Form.Control
                 type='email'
                 placeholder='Email'
+                className='rounded-0'
                 aria-describedby='Input your email'
               />
 
-              <Button title='subscribe' primary />
+              <Button title='subscribe' primary norounded />
             </div>
           </div>
         </div>
