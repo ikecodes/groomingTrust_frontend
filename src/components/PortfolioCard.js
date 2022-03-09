@@ -2,12 +2,13 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import EventImg from '../assets/images/event.jpg';
+import colors from '../constants/colors';
 
-const EventsCard = () => {
+const PortfolioCard = () => {
   return (
     <div className='col-lg-4 col-md-6 mb-3'>
-      <CardContainer className='shadow-lg'>
-        <Card>
+      <CardContainer>
+        <Card className='border-0 bg-transparent'>
           <CardImage alt='event' src={EventImg} />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
@@ -23,11 +24,13 @@ const EventsCard = () => {
 };
 
 const CardContainer = styled.div`
+  background-color: ${colors.grey};
+  padding: 1rem;
   border-radius: 1rem;
-  overflow: hidden;
 `;
 const CardImage = styled.img`
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  /* border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem; */
 `;
-export default EventsCard;
+
+export default PortfolioCard;

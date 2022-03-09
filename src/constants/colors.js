@@ -7,6 +7,7 @@ const colors = {
   overlay: '#4C509780',
   white: '#fff',
   black: '#000',
+  grey: '#F2F2F2',
 };
 
 export default colors;

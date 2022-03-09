@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { BiMenuAltLeft } from 'react-icons/bi';
+// import { HiMenuAlt2 } from 'react-icons/hi';
+import { RiMenu4Fill } from 'react-icons/ri';
 import { FaTimes } from 'react-icons/fa';
 import colors from '../constants/colors';
 
@@ -10,7 +11,7 @@ const NavSm = () => {
   return (
     <>
       <OpenIcon onClick={() => setIsAnimating(true)}>
-        <BiMenuAltLeft size={40} color={colors.white} />
+        <RiMenu4Fill size={45} color={colors.white} />
       </OpenIcon>
       <AnimatingContainer
         className={isAnimating ? 'clicked' : ''}
@@ -48,8 +49,8 @@ const OpenIcon = styled.span`
   position: absolute;
   top: 1rem;
   z-index: 100;
-  font-weight: 600;
-  right: 2rem;
+  font-weight: 700;
+  right: 1.5rem;
   display: none;
   @media (max-width: 768px) {
     display: block;
@@ -57,7 +58,7 @@ const OpenIcon = styled.span`
 `;
 const CloseIcon = styled.span`
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   z-index: 100;
   right: 6rem;
 `;

@@ -1,35 +1,38 @@
 import React, { useState } from 'react';
-
 import styled from 'styled-components';
+import PortfolioCard from '../components/PortfolioCard';
 import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
-import StaffImg from '../assets/images/staff.jpg';
-import StaffTrusteeCard from '../components/StaffTrusteeCard';
 
-const StaffsAndTrustees = () => {
-  const [active, setActive] = useState('staff');
+const Portfolio = () => {
+  const [active, setActive] = useState('health');
   return (
     <Layout>
       <TypeContainer>
         <h6
-          className={`${active === 'staff' ? 'activeClass' : ''}`}
-          onClick={() => setActive('staff')}
+          className={`${active === 'health' ? 'activeClass' : ''}`}
+          onClick={() => setActive('health')}
         >
-          staff
+          health
         </h6>
         <h6
-          className={`${active === 'trustees' ? 'activeClass' : ''}`}
-          onClick={() => setActive('trustees')}
+          className={`${active === 'education' ? 'activeClass' : ''}`}
+          onClick={() => setActive('education')}
         >
-          trustees
+          education
+        </h6>
+        <h6
+          className={`${active === 'investment' ? 'activeClass' : ''}`}
+          onClick={() => setActive('investment')}
+        >
+          investment
         </h6>
       </TypeContainer>
 
       <div className='row'>
-        <StaffTrusteeCard active={active} image={StaffImg} />
-        <StaffTrusteeCard active={active} image={StaffImg} />
-        <StaffTrusteeCard active={active} image={StaffImg} />
-        <StaffTrusteeCard active={active} image={StaffImg} />
+        <PortfolioCard />
+        <PortfolioCard />
+        <PortfolioCard />
       </div>
     </Layout>
   );
@@ -60,4 +63,4 @@ const TypeContainer = styled.div`
   }
 `;
 
-export default StaffsAndTrustees;
+export default Portfolio;

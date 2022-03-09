@@ -9,6 +9,7 @@ import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 
 import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
         <Route path='/gallery' exact element={<Gallery />} />
         <Route path='/gallery-images' exact element={<GalleryImages />} />
         <Route path='/frequently-asked-questions' exact element={<Faqs />} />
-        <Route path='/contact' exact element={<Contact />} />
+        <Route path='/contact-us' exact element={<Contact />} />
+        <Route path='/portfolio' exact element={<Portfolio />} />
       </Routes>
     </BrowserRouter>
   );

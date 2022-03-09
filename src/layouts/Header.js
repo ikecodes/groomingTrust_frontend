@@ -12,18 +12,27 @@ const Header = () => {
       <NavbarLg />
       <TextBox>
         <h1>header text</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Sequi placeat
+          voluptatibus maxime quam fugit labore ducimus illo quos ipsa debitis
+          veritatis sed recusandae numquam fuga cumque, dolor consectetur vero
+          similique!
+        </p>
       </TextBox>
       <Overlay></Overlay>
-      <Image src={HeaderImg} h={50} unit='vh' />
+      <Image src={HeaderImg} h={100} unit='vh' />
     </Container>
   );
 };
 
 const Container = styled.div`
   position: relative;
-  height: 50vh;
+  height: 100vh;
   margin-bottom: 5rem;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  overflow: hidden;
 `;
 
 const TextBox = styled.div`

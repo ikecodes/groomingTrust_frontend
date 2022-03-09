@@ -18,8 +18,14 @@ const Slider = () => {
             />
           </div>
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h1>First slide label</h1>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              maxime modi a. Ipsa esse id sed possimus odio voluptatem,
+              similique, maiores libero a mollitia quod vel consectetur
+              perspiciatis voluptate? Temporibus.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
@@ -33,8 +39,14 @@ const Slider = () => {
           </div>
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h1>Second slide label</h1>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              maxime modi a. Ipsa esse id sed possimus odio voluptatem,
+              similique, maiores libero a mollitia quod vel consectetur
+              perspiciatis voluptate? Temporibus.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -47,9 +59,13 @@ const Slider = () => {
             />
           </div>
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h1>Third slide label</h1>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              maxime modi a. Ipsa esse id sed possimus odio voluptatem,
+              similique, maiores libero a mollitia quod vel consectetur
+              perspiciatis voluptate? Temporibus.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

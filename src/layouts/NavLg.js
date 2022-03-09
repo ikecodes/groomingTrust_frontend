@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../assets/images/logo-placeholder.png';
 import NavItemLg from './NavItemLg';
@@ -9,7 +10,9 @@ const NavbarLg = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-lg-4'>
-            <Image src={Logo} />
+            <Link to='/'>
+              <Image src={Logo} />
+            </Link>
           </div>
           <div className='col-lg-8 justify-self-start mt-3'>
             <NavMenu>
