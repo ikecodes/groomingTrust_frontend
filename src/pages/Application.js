@@ -130,9 +130,8 @@ const Application = () => {
                 cols='30'
                 rows='5'
                 className='form-control'
-              >
-                Type...
-              </textarea>
+                placeholder='Type...'
+              ></textarea>
             </div>
           </div>
           <Button title='apply' primary />

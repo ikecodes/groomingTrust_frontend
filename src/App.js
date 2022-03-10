@@ -12,8 +12,8 @@ import Portfolio from './pages/Portfolio';
 // import Grants from './pages/Grants';
 import GrantsView from './pages/GrantsView';
 import Application from './pages/Application';
-import News from './pages/News';
-import NewsView from './pages/NewsView';
+import Blog from './pages/Blog';
+import BlogView from './pages/BlogView';
 import Press from './pages/Press';
 
 import Home from './pages/Home';
@@ -38,8 +38,8 @@ function App() {
         {/* <Route path='/grants' exact element={<Grants />} /> */}
         <Route path='/grants-view' exact element={<GrantsView />} />
         <Route path='/application' exact element={<Application />} />
-        <Route path='/news' exact element={<News />} />
-        <Route path='/news-view' exact element={<NewsView />} />
+        <Route path='/blog' exact element={<Blog />} />
+        <Route path='/blog-view' exact element={<BlogView />} />
         <Route path='/press' exact element={<Press />} />
       </Routes>
     </BrowserRouter>
