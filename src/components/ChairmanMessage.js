@@ -32,7 +32,7 @@ const ChairmanMessage = () => {
               quod id quasi voluptates optio debitis ducimus, eos odit fugiat
               commodi voluptatem.
             </p>
-            <Link to='/chairman-message'>
+            <Link to='/chairmans-message'>
               <PrimaryButton title='read more' primary />
             </Link>
           </div>

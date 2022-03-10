@@ -9,7 +9,7 @@ import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 
-// import Grants from './pages/Grants';
+import Grants from './pages/Grants';
 import GrantsView from './pages/GrantsView';
 import Application from './pages/Application';
 import Blog from './pages/Blog';
@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' exact element={<Home />} />
-        <Route path='/chairman-message' exact element={<ChairmanMessage />} />
+        <Route path='/chairmans-message' exact element={<ChairmanMessage />} />
         <Route path='/about' exact element={<About />} />
         <Route
           path='/staffs-and-trustees'
@@ -35,7 +35,7 @@ function App() {
         <Route path='/frequently-asked-questions' exact element={<Faqs />} />
         <Route path='/contact-us' exact element={<Contact />} />
         <Route path='/portfolio' exact element={<Portfolio />} />
-        {/* <Route path='/grants' exact element={<Grants />} /> */}
+        <Route path='/grants' exact element={<Grants />} />
         <Route path='/grants-view' exact element={<GrantsView />} />
         <Route path='/application' exact element={<Application />} />
         <Route path='/blog' exact element={<Blog />} />

@@ -1,41 +1,41 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import { HiMenuAlt2 } from 'react-icons/hi';
 import { RiMenu4Fill } from 'react-icons/ri';
 import { FaTimes } from 'react-icons/fa';
 import colors from '../constants/colors';
-
+import menus from '../constants/menus';
 const NavSm = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   return (
     <>
       <OpenIcon onClick={() => setIsAnimating(true)}>
-        <RiMenu4Fill size={45} color={colors.white} />
+        <RiMenu4Fill size={40} color={colors.white} />
       </OpenIcon>
       <AnimatingContainer
         className={isAnimating ? 'clicked' : ''}
         onClick={(e) => setIsAnimating(false)}
       >
         <NavContainer onClick={(e) => e.stopPropagation()}>
-          <div className='ms-4'>
-            <Heading>about</Heading>
-            <ul>
-              <li>grooming endownment</li>
-              <li>staff and trusties</li>
-              <li>gallery</li>
-              <li>faq</li>
-            </ul>
-          </div>
-          <div className='ms-4'>
-            <Heading>portfolio</Heading>
-            <ul>
-              <li>grooming endownment</li>
-              <li>staff and trusties</li>
-              <li>gallery</li>
-              <li>faq</li>
-            </ul>
-          </div>
+          {menus.map((menu) => (
+            <div className='ms-4' key={menu.id}>
+              <Heading>
+                <Link to={menu.path}>{menu.name}</Link>
+              </Heading>
+
+              <List>
+                {menu.sub.length > 0 &&
+                  menu.sub.map((item) => (
+                    <li key={item.id}>
+                      <Link to={item.path}>{item.name} </Link>{' '}
+                    </li>
+                  ))}
+              </List>
+            </div>
+          ))}
+
           <CloseIcon onClick={() => setIsAnimating(false)}>
             <FaTimes size={30} color={colors.white} />
           </CloseIcon>
@@ -100,5 +100,17 @@ const Heading = styled.h6`
   color: ${colors.primary};
   text-transform: uppercase;
   font-weight: bold;
+  & a,
+  a:link {
+    color: ${colors.primary};
+    text-decoration: none;
+  }
+`;
+const List = styled.ul`
+  & a,
+  a:link {
+    color: ${colors.white};
+    text-decoration: none;
+  }
 `;
 export default NavSm;

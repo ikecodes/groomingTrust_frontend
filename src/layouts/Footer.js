@@ -3,8 +3,9 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import colors from '../constants/colors';
-import Logo from '../assets/images/logo-placeholder.png';
+import Logo from '../assets/images/Logo.png';
 import Button from '../shared/Button';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <Container>
@@ -12,14 +13,18 @@ const Footer = () => {
         <div className='row gap-4 gap-md-0'>
           <div className='col-lg-3'>
             <ImageBox src={Logo} />
-            <p className='pt-2'>
+            <p className='pt-4'>
               No. 45 plot no be my area na klock area be this.
             </p>
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
-              <li className='mb-2'>about us</li>
-              <li className='my-2'>contact</li>
+              <Link to='/about'>
+                <li className='mb-2'>about us</li>
+              </Link>
+              <Link to='/contact-us'>
+                <li className='my-2'>contact</li>
+              </Link>
               <li className='my-2'>terms & condition</li>
             </ul>
           </div>
@@ -67,10 +72,20 @@ const Container = styled.footer`
   padding-top: 5rem;
   color: ${colors.white};
   background-color: ${colors.tertiary};
+
+  & a,
+  a:link {
+    color: ${colors.white};
+    text-decoration: none;
+  }
+  & a:hover,
+  a:active {
+    color: ${colors.primary};
+  }
 `;
 
 const ImageBox = styled.img`
-  width: 10rem;
+  width: 12rem;
   height: auto;
   background-size: cover;
 `;

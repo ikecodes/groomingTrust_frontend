@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import FamilyImg from '../assets/images/family.jpg';
 import colors from '../constants/colors';
@@ -25,7 +26,9 @@ const GrantsCard = () => {
             Autem tenetur non numquam officiis id laudantium esse perspiciatis
             cupiditate culpa.
           </p>
-          <Button title='apply' primary />
+          <Link to='/application'>
+            <Button title='apply' primary />
+          </Link>
         </Container>
       </div>
     </div>

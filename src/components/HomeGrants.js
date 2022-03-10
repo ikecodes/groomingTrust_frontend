@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
@@ -13,7 +14,9 @@ const Grants = () => {
         <GrantsCard />
       </div>
       <div className='d-flex justify-content-center'>
-        <Button title='see more' />
+        <Link to='/grants'>
+          <Button title='see more' />
+        </Link>
       </div>
     </Container>
   );

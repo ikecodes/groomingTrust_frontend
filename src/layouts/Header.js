@@ -42,7 +42,7 @@ const TextBox = styled.div`
   color: ${colors.white};
   top: 50%;
   left: 50%;
-  z-index: 90;
+  z-index: 20;
   transform: translate(-50%, -50%);
 `;
 

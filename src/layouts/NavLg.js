@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../assets/images/logo-placeholder.png';
+import Logo from '../assets/images/Logo.png';
 import NavItemLg from './NavItemLg';
+import menus from '../constants/menus';
 
 const NavbarLg = () => {
   return (
@@ -17,10 +18,9 @@ const NavbarLg = () => {
           <div className='col-lg-8 justify-self-start mt-3'>
             <NavMenu>
               <ul className='d-flex justify-content-evenly align-items-center'>
-                <NavItemLg name='about' />
-                <NavItemLg name='portfolio' />
-                <NavItemLg name='grants' />
-                <NavItemLg name='news' />
+                {menus.map((menu) => (
+                  <NavItemLg key={menu.id} menu={menu} />
+                ))}
               </ul>
             </NavMenu>
           </div>
@@ -41,7 +41,7 @@ const NavMenu = styled.div`
 `;
 const Image = styled.img`
   height: auto;
-  width: 6rem;
+  width: 12rem;
 `;
 
 export default NavbarLg;

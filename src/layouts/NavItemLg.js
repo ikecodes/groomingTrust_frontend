@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import colors from '../constants/colors';
 import styled from 'styled-components';
-const NavItemLg = ({ name }) => {
+const NavItemLg = ({ menu }) => {
   const [show, setShow] = useState(false);
   return (
     <div
@@ -9,27 +10,39 @@ const NavItemLg = ({ name }) => {
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      <NavItem>{name}</NavItem>
-      <ContainerMenu className={`p-3 ${show ? 'hovered' : ''}`}>
-        <ContainerItem className='my-3'>grooming endownment</ContainerItem>
-        <ContainerItem className='my-3'>staff and trusties</ContainerItem>
-        <ContainerItem className='my-3'>gallery</ContainerItem>
-      </ContainerMenu>
+      <NavItem>
+        <Link to={menu.path}>{menu.name}</Link>
+      </NavItem>
+      {menu.sub.length > 0 && (
+        <ContainerMenu className={`p-3 ${show ? 'hovered' : ''}`}>
+          {menu.sub.map((item) => (
+            <ContainerItem className='my-3' key={item.id}>
+              <Link to={item.path}>{item.name}</Link>
+            </ContainerItem>
+          ))}
+        </ContainerMenu>
+      )}
     </div>
   );
 };
 
 const NavItem = styled.li`
-  color: ${colors.white};
   font-weight: 500;
   text-transform: capitalize;
   cursor: pointer;
-  &:hover {
+  & a {
+    color: ${colors.white};
+    text-decoration: none;
+  }
+  & a:hover,
+  a:active {
     color: ${colors.primary}; // <Thing> when hovered
   }
 `;
 const ContainerMenu = styled.ul`
   position: absolute;
+  z-index: 100;
+  width: 170px;
   background-color: ${colors.white};
   border-radius: 10px;
   left: -50%;
@@ -49,7 +62,12 @@ const ContainerItem = styled.li`
   text-transform: capitalize;
   font-weight: 500;
   cursor: pointer;
-  &:hover {
+  & a {
+    color: ${colors.black};
+    text-decoration: none;
+  }
+  & a:hover,
+  a:active {
     color: ${colors.primary}; // <Thing> when hovered
   }
 `;
