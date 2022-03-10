@@ -6,7 +6,7 @@ const menus = [
     sub: [
       {
         id: '1',
-        name: 'about',
+        name: 'about us',
         path: '/about',
       },
       {

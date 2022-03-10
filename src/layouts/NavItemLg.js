@@ -14,7 +14,7 @@ const NavItemLg = ({ menu }) => {
         <Link to={menu.path}>{menu.name}</Link>
       </NavItem>
       {menu.sub.length > 0 && (
-        <ContainerMenu className={`p-3 ${show ? 'hovered' : ''}`}>
+        <ContainerMenu className={`px-3 py-1 ${show ? 'hovered' : ''}`}>
           {menu.sub.map((item) => (
             <ContainerItem className='my-3' key={item.id}>
               <Link to={item.path}>{item.name}</Link>

@@ -14,21 +14,18 @@ const Header = () => {
         <h1>header text</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Sequi placeat
-          voluptatibus maxime quam fugit labore ducimus illo quos ipsa debitis
-          veritatis sed recusandae numquam fuga cumque, dolor consectetur vero
-          similique!
+          dolor sit amet consectetur adipisicing elit.
         </p>
       </TextBox>
-      <Overlay></Overlay>
-      <Image src={HeaderImg} h={100} unit='vh' />
+      <Overlay />
+      <Image src={HeaderImg} h={60} unit='vh' />
     </Container>
   );
 };
 
 const Container = styled.div`
   position: relative;
-  height: 100vh;
+  height: 60vh;
   margin-bottom: 5rem;
   border-bottom-left-radius: 3rem;
   border-bottom-right-radius: 3rem;
@@ -50,6 +47,6 @@ const Overlay = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: ${colors.overlay};
+  background-color: rgb(96, 99, 173, 0.6);
 `;
 export default Header;

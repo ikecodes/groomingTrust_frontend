@@ -41,7 +41,7 @@ const NavMenu = styled.div`
 `;
 const Image = styled.img`
   height: auto;
-  width: 12rem;
+  width: 11rem;
 `;
 
 export default NavbarLg;
