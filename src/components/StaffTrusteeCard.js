@@ -7,13 +7,13 @@ const StaffTrusteeCard = ({ active, image }) => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <div className='col-lg-3 col-md-6'>
+    <div className='col-lg-3 col-md-6 mb-5'>
       <StaffTrusteeModal
         show={modalShow}
         image={image}
         onHide={() => setModalShow(false)}
       />
-      <Card className='border-0 text-center '>
+      <Card className='border-0 text-center shadow '>
         <Image alt={active} src={image} h={15} unit='rem' rounded />
         <Card.Body>
           <Card.Title>Minor M. Shaw</Card.Title>

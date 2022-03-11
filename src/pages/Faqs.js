@@ -6,40 +6,32 @@ const Faqs = () => {
   return (
     <Layout header='FAQs'>
       <FAQContainer>
-        <div className='mb-4'>
-          <h4 className='text-capitalize'>how are the top companies chosen?</h4>
+        <div className='mb-5 border-bottom'>
+          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-            molestiae ab maiores hic ex ipsa? Corporis quam natus deleniti
-            accusantium sit? Odio hic, iusto expedita at fugit velit?
-            Dignissimos!
           </p>
         </div>
-        <div className='mb-4'>
-          <h4 className='text-capitalize'>how are the top companies chosen?</h4>
+        <div className='mb-5 border-bottom'>
+          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-            molestiae ab maiores hic ex ipsa? Corporis quam natus deleniti
-            accusantium sit? Odio hic, iusto expedita at fugit velit?
-            Dignissimos!
+            molestiae ab maiores hic ex
           </p>
         </div>
-        <div className='mb-4'>
-          <h4 className='text-capitalize'>how are the top companies chosen?</h4>
+        <div className='mb-5 border-bottom'>
+          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-            molestiae ab maiores hic ex ipsa? Corporis quam natus deleniti
-            accusantium sit? Odio hic, iusto expedita at fugit velit?
-            Dignissimos!
+            molestiae ab maiores hic ex ipsa?
           </p>
         </div>
-        <div className='mb-4'>
-          <h4 className='text-capitalize'>how are the top companies chosen?</h4>
+        <div className='mb-5 border-bottom'>
+          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
             molestiae ab maiores hic ex ipsa? Corporis quam natus deleniti
-            accusantium sit? Odio hic, iusto expedita at fugit velit?
-            Dignissimos!
+            accusantium sit? Odio hi
           </p>
         </div>
       </FAQContainer>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Image from '../shared/Image';
@@ -8,7 +9,9 @@ const GalleryCard = ({ image }) => {
     <div className='col-lg-6 my-3'>
       <div className='position-relative'>
         <Image src={image} h={100} unit='%' />
-        <Tag>#Health talk week planning</Tag>
+        <Link to='/gallery-view'>
+          <Tag>#Health talk week planning</Tag>
+        </Link>
       </div>
     </div>
   );

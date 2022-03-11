@@ -3,10 +3,11 @@ import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import EventImg from '../assets/images/event.jpg';
 import colors from '../constants/colors';
+import Button from '../shared/Button';
 
 const BlogCard = () => {
   return (
-    <div className='col-lg-4 col-md-6 mb-3'>
+    <div className='col-lg-4 col-md-6 mb-5'>
       <CardContainer>
         <Card className='border-0 bg-transparent'>
           <Card.Title className='my-3 text-capitalize fw-bolder fs-6'>
@@ -21,6 +22,7 @@ const BlogCard = () => {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
+            <Button title='read more' norounded />
           </Card.Body>
         </Card>
       </CardContainer>

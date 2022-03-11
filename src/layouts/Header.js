@@ -12,7 +12,10 @@ const Header = ({ headerText }) => {
       <NavbarLg />
       <TextBox>
         <h1 className='fw-bold'>{headerText}</h1>
-        {/* <p>Lorem, ipsum dolor sit amet</p> */}
+        <p>
+          Lorem, ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit.
+        </p>
       </TextBox>
       <Overlay />
       <Image src={HeaderImg} h={60} unit='vh' />
