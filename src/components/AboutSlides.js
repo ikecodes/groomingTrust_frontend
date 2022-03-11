@@ -14,14 +14,66 @@ const AboutSlides = () => {
             <Carousel.Item interval={1000}>
               <Avatar src={ProfileImg} alt='User 1' />
               <figure className='position-relative'>
-                <QuoteSymbol>&ldquo;</QuoteSymbol>
+                <div className='text-start'>
+                  <QuoteSymbol>&ldquo;</QuoteSymbol>
+                </div>
                 <Quote className='my-1'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Aliquam fugiat autem mollitia maiores ex fugit recusandae
                   illum. Totam minus facilis, aperiam recusandae velit molestias
                   mollitia quas voluptas dignissimos eaque doloribus?
                 </Quote>
-                <QuoteSymbol>&rdquo;</QuoteSymbol>
+                <div className='text-end'>
+                  <QuoteSymbol>&rdquo;</QuoteSymbol>
+                </div>
+                <figcaption>
+                  <div className='text-uppercase'>
+                    <p className='text-capitalize mt-4'>John Williams</p>
+                    <p>marketing head</p>
+                    <p>&nbsp;</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </Carousel.Item>
+            <Carousel.Item interval={500}>
+              <Avatar src={ProfileImg} alt='User 1' />
+              <figure className='position-relative'>
+                <div className='text-start'>
+                  <QuoteSymbol>&ldquo;</QuoteSymbol>
+                </div>
+                <Quote className='my-1'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquam fugiat autem mollitia maiores ex fugit recusandae
+                  illum. Totam minus facilis, aperiam recusandae velit molestias
+                  mollitia quas voluptas dignissimos eaque doloribus?
+                </Quote>
+                <div className='text-end'>
+                  <QuoteSymbol>&rdquo;</QuoteSymbol>
+                </div>
+                <figcaption>
+                  <div className='text-uppercase'>
+                    <p className='text-capitalize mt-4'>John Williams</p>
+                    <p>marketing head</p>
+                    <p>&nbsp;</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Avatar src={ProfileImg} alt='User 1' />
+              <figure className='position-relative'>
+                <div className='text-start'>
+                  <QuoteSymbol>&ldquo;</QuoteSymbol>
+                </div>
+                <Quote className='my-1'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquam fugiat autem mollitia maiores ex fugit recusandae
+                  illum. Totam minus facilis, aperiam recusandae velit molestias
+                  mollitia quas voluptas dignissimos eaque doloribus?
+                </Quote>
+                <div className='text-end'>
+                  <QuoteSymbol>&rdquo;</QuoteSymbol>
+                </div>
                 <figcaption>
                   <div className='text-uppercase'>
                     <p className='text-capitalize mt-4'>John Williams</p>
