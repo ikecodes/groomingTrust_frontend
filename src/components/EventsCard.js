@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import EventImg from '../assets/images/event.jpg';
+import Button from '../shared/Button';
 
 const EventsCard = () => {
   return (
@@ -15,6 +16,7 @@ const EventsCard = () => {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
+            <Button title='read more' />
           </Card.Body>
         </Card>
       </CardContainer>

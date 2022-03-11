@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MdArrowDropDown } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import colors from '../constants/colors';
 import styled from 'styled-components';
@@ -12,6 +13,7 @@ const NavItemLg = ({ menu }) => {
     >
       <NavItem>
         <Link to={menu.path}>{menu.name}</Link>
+        {menu.sub.length > 0 && <MdArrowDropDown size={20} color='#C386C0' />}
       </NavItem>
       {menu.sub.length > 0 && (
         <ContainerMenu className={`px-3 py-1 ${show ? 'hovered' : ''}`}>
@@ -28,6 +30,9 @@ const NavItemLg = ({ menu }) => {
 
 const NavItem = styled.li`
   font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-transform: capitalize;
   cursor: pointer;
   & a {
@@ -36,6 +41,9 @@ const NavItem = styled.li`
   }
   & a:hover,
   a:active {
+    color: ${colors.primary}; // <Thing> when hovered
+  }
+  &:hover {
     color: ${colors.primary}; // <Thing> when hovered
   }
 `;

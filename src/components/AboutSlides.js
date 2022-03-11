@@ -14,15 +14,12 @@ const AboutSlides = () => {
             <Carousel.Item interval={1000}>
               <Avatar src={ProfileImg} alt='User 1' />
               <figure className='position-relative'>
+                <QuoteSymbol>&ldquo;</QuoteSymbol>
                 <Quote className='my-3'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Aliquam fugiat autem mollitia maiores ex fugit recusandae
                   illum. Totam minus facilis, aperiam recusandae velit molestias
-                  mollitia quas voluptas dignissimos eaque doloribus? lor Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-                  fugiat autem mollitia maiores ex fugit recusandae illum. Totam
-                  minus facilis, aperiam recusandae velit molestias mollitia
-                  quas voluptas dignissimos eaque doloribus? lor
+                  mollitia quas voluptas dignissimos eaque doloribus?
                 </Quote>
                 <figcaption>
                   <div className='text-uppercase'>
@@ -31,6 +28,7 @@ const AboutSlides = () => {
                     <p>&nbsp;</p>
                   </div>
                 </figcaption>
+                <QuoteSymbol>&rdquo;</QuoteSymbol>
               </figure>
             </Carousel.Item>
           </Carousel>
@@ -45,19 +43,25 @@ const SliderContainer = styled.div`
 const SliderBox = styled.div`
   background-color: ${colors.tertiary};
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   border-radius: 2rem;
 `;
 
 const Quote = styled.blockquote`
-  &::before {
-    content: '“';
+  z-index: 200;
+  /* &::before {
+    content: '';
     font-size: 10rem;
     position: absolute;
-    top: 10;
+    top: -6.5rem;
+    z-index: 1;
     left: 0;
     color: ${colors.primary};
-  }
+  } */
+`;
+const QuoteSymbol = styled.blockquote`
+  color: ${colors.primary};
+  font-size: 2rem;
 `;
 
 const Avatar = styled.img`
