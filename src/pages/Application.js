@@ -8,6 +8,7 @@ const Application = () => {
   return (
     <Layout header='application'>
       <FormContainer>
+        <FormHeader className='py-2'>grant application</FormHeader>
         <form action=''>
           <div className='row mb-4'>
             <div className='col-lg-3 form-group'>
@@ -141,10 +142,20 @@ const Application = () => {
   );
 };
 
+const FormHeader = styled.h4`
+  background-color: ${colors.overlay};
+  color: ${colors.white};
+  text-transform: capitalize;
+  text-align: center;
+`;
 const FormContainer = styled.div`
   width: 80%;
   margin: 2rem auto;
   color: ${colors.textColor}!important;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export default Application;
