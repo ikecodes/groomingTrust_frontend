@@ -5,7 +5,7 @@ import EventImg from '../assets/images/event.jpg';
 
 const EventsCard = () => {
   return (
-    <div className='col-lg-4 col-md-6 mb-3'>
+    <div className='col-lg-4 col-md-6 mb-5'>
       <CardContainer className='shadow-lg'>
         <Card>
           <CardImage alt='event' src={EventImg} />

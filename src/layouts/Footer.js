@@ -14,38 +14,38 @@ const Footer = () => {
           <div className='col-lg-3'>
             <ImageBox src={Logo} />
             <p className='pt-4'>
-              No. 45 plot no be my area na klock area be this.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
               <Link to='/about'>
-                <li className='mb-2'>about us</li>
+                <li className='mb-3'>about us</li>
               </Link>
               <Link to='/contact-us'>
-                <li className='my-2'>contact</li>
+                <li className='my-3'>contact</li>
               </Link>
-              <li className='my-2'>terms & condition</li>
+              <li className='my-3'>terms & condition</li>
             </ul>
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
-              <li className='mb-2 d-flex gap-3 align-items-center'>
-                <FaFacebook size={20} />
+              <li className='mb-3 d-flex gap-3 align-items-center'>
+                <FaFacebook size={25} />
                 <span>facebook</span>
               </li>
-              <li className='my-2 d-flex gap-3 align-items-center'>
-                <FaTwitter size={20} />
+              <li className='my-3 d-flex gap-3 align-items-center'>
+                <FaTwitter size={25} />
                 <span>twitter</span>
               </li>
-              <li className='my-2 d-flex gap-3 align-items-center'>
-                <FaInstagram size={20} />
+              <li className='my-3 d-flex gap-3 align-items-center'>
+                <FaInstagram size={25} />
                 <span>instagram</span>
               </li>
             </ul>
           </div>
           <div className='col-lg-3'>
-            <p className='p-0'>Subscribe to our newsletter</p>
+            <p className='p-0 m-0 mb-1'>Subscribe to our newsletter</p>
             <div className='d-flex'>
               <Form.Control
                 type='email'

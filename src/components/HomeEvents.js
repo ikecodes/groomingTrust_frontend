@@ -8,7 +8,7 @@ const Events = () => {
   return (
     <Section>
       <div className='container'>
-        <Header className='my-3'>events</Header>
+        <Header className='my-3'>recent updates</Header>
         <div className='row'>
           <EventsCard />
           <EventsCard />
