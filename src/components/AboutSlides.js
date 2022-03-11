@@ -15,12 +15,13 @@ const AboutSlides = () => {
               <Avatar src={ProfileImg} alt='User 1' />
               <figure className='position-relative'>
                 <QuoteSymbol>&ldquo;</QuoteSymbol>
-                <Quote className='my-3'>
+                <Quote className='my-1'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Aliquam fugiat autem mollitia maiores ex fugit recusandae
                   illum. Totam minus facilis, aperiam recusandae velit molestias
                   mollitia quas voluptas dignissimos eaque doloribus?
                 </Quote>
+                <QuoteSymbol>&rdquo;</QuoteSymbol>
                 <figcaption>
                   <div className='text-uppercase'>
                     <p className='text-capitalize mt-4'>John Williams</p>
@@ -28,7 +29,6 @@ const AboutSlides = () => {
                     <p>&nbsp;</p>
                   </div>
                 </figcaption>
-                <QuoteSymbol>&rdquo;</QuoteSymbol>
               </figure>
             </Carousel.Item>
           </Carousel>
@@ -59,7 +59,7 @@ const Quote = styled.blockquote`
     color: ${colors.primary};
   } */
 `;
-const QuoteSymbol = styled.blockquote`
+const QuoteSymbol = styled.span`
   color: ${colors.primary};
   font-size: 2rem;
 `;
