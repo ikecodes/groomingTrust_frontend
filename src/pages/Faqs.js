@@ -4,7 +4,7 @@ import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
 const Faqs = () => {
   return (
-    <Layout>
+    <Layout header='FAQs'>
       <FAQContainer>
         <div className='mb-4'>
           <h4 className='text-capitalize'>how are the top companies chosen?</h4>

@@ -6,7 +6,7 @@ import Button from '../shared/Button';
 
 const GrantsView = () => {
   return (
-    <Layout>
+    <Layout header='grants'>
       <Container>
         <h2 className='my-3 text-capitalize'>
           apply for child and family well-being grants

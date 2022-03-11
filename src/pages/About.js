@@ -7,7 +7,7 @@ import AboutSlides from '../components/AboutSlides';
 
 const About = () => {
   return (
-    <Layout>
+    <Layout header='about us'>
       <Section>
         <Image src={AboutImg1} alt='about' h={50} unit='vh' />
       </Section>

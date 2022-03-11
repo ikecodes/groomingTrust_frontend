@@ -7,7 +7,7 @@ import Image from '../shared/Image';
 
 const GalleryImages = () => {
   return (
-    <Layout>
+    <Layout header='gallery'>
       <div>
         <Tag>#Health talk 2022</Tag>
         <div className='row justify-content-center'>

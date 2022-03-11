@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout';
 import Button from '../shared/Button';
 const Contact = () => {
   return (
-    <Layout>
+    <Layout header='contact us'>
       <Container>
         <h2 className='my-3 text-capitalize'>we are here for you</h2>
         <p className='mb-5'>

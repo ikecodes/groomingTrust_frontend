@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout';
 const Portfolio = () => {
   const [active, setActive] = useState('health');
   return (
-    <Layout>
+    <Layout header='portfolio'>
       <TypeContainer>
         <h6
           className={`${active === 'health' ? 'activeClass' : ''}`}

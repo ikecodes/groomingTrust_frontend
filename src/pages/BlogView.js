@@ -6,7 +6,7 @@ import colors from '../constants/colors';
 import Image from '../shared/Image';
 const BlogView = () => {
   return (
-    <Layout>
+    <Layout header='blogs'>
       <div className='row justify-content-center'>
         <div className='col-lg-6 mb-5'>
           <Image src={BlogImg} h={100} unit='%' />

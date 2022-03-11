@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout';
 
 const Blog = () => {
   return (
-    <Layout>
+    <Layout header='blog'>
       <div className='row'>
         <BlogCard />
         <BlogCard />

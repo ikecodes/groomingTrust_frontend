@@ -6,7 +6,7 @@ import GalleryCard from '../components/GalleryCard';
 
 const Gallery = () => {
   return (
-    <Layout>
+    <Layout header='gallery'>
       <div className='row'>
         <GalleryCard image={GalleryImg} />
         <GalleryCard image={GalleryImg} />

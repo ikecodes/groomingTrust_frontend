@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout';
 
 const Press = () => {
   return (
-    <Layout>
+    <Layout header='press'>
       <div className='row'>
         <PressCard />
         <PressCard />

@@ -9,7 +9,7 @@ import StaffTrusteeCard from '../components/StaffTrusteeCard';
 const StaffsAndTrustees = () => {
   const [active, setActive] = useState('staff');
   return (
-    <Layout>
+    <Layout header='staffs & trustees'>
       <TypeContainer>
         <h6
           className={`${active === 'staff' ? 'activeClass' : ''}`}

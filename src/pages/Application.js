@@ -6,7 +6,7 @@ import Button from '../shared/Button';
 
 const Application = () => {
   return (
-    <Layout>
+    <Layout header='application'>
       <FormContainer>
         <form action=''>
           <div className='row mb-4'>

@@ -5,17 +5,14 @@ import HeaderImg from '../assets/images/family.jpg';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Image from '../shared/Image';
-const Header = () => {
+const Header = ({ headerText }) => {
   return (
     <Container>
       <NavSm />
       <NavbarLg />
       <TextBox>
-        <h1>header text</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit.
-        </p>
+        <h1 className='fw-bold'>{headerText}</h1>
+        {/* <p>Lorem, ipsum dolor sit amet</p> */}
       </TextBox>
       <Overlay />
       <Image src={HeaderImg} h={60} unit='vh' />
@@ -41,6 +38,10 @@ const TextBox = styled.div`
   left: 50%;
   z-index: 20;
   transform: translate(-50%, -50%);
+  & h1 {
+    font-size: 3rem;
+    /* white-space: nowrap; */
+  }
 `;
 
 const Overlay = styled.div`
