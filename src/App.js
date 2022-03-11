@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import ChairmanMessage from './pages/ChairmanMessage';
 import About from './pages/About';
 import StaffsAndTrustees from './pages/StaffsAndTrustees';
@@ -8,7 +9,6 @@ import GalleryView from './pages/GalleryView';
 import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
-
 import Grants from './pages/Grants';
 import GrantsView from './pages/GrantsView';
 import Application from './pages/Application';
@@ -16,7 +16,8 @@ import Blog from './pages/Blog';
 import BlogView from './pages/BlogView';
 import Press from './pages/Press';
 
-import Home from './pages/Home';
+//////////////////////////ADMIN
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
         <Route path='/blog' exact element={<Blog />} />
         <Route path='/blog-view' exact element={<BlogView />} />
         <Route path='/press' exact element={<Press />} />
+
+        {/*ADMIN ////////////////////////////////////////////////////////////////// */}
+        <Route path='/login' exact element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
