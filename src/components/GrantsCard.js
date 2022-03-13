@@ -9,13 +9,11 @@ import { Slide } from 'react-reveal';
 const GrantsCard = () => {
   return (
     <div className='row my-5 flex-md-row-reverse'>
-      <div className='col-lg-6'>
-        <Slide right>
+      <Slide right>
+        <div className='col-lg-6'>
           <Image src={FamilyImg} alt='family' h={100} unit='%' />
-        </Slide>
-      </div>
-      <div className='col-lg-6'>
-        <Slide left>
+        </div>
+        <div className='col-lg-6'>
           <Container>
             <h2 className='my-3'>Child & Family Well-Being</h2>
             <p>
@@ -34,8 +32,8 @@ const GrantsCard = () => {
               <Button title='apply' primary />
             </Link>
           </Container>
-        </Slide>
-      </div>
+        </div>
+      </Slide>
     </div>
   );
 };
