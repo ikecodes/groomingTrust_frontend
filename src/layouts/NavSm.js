@@ -6,6 +6,7 @@ import { RiMenu4Fill } from 'react-icons/ri';
 import { FaTimes } from 'react-icons/fa';
 import colors from '../constants/colors';
 import menus from '../constants/menus';
+import { Slide } from 'react-reveal';
 const NavSm = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -21,18 +22,20 @@ const NavSm = () => {
         <NavContainer onClick={(e) => e.stopPropagation()}>
           {menus.map((menu) => (
             <div className='ms-4' key={menu.id}>
-              <Heading>
-                <Link to={menu.path}>{menu.name}</Link>
-              </Heading>
+              <Slide right>
+                <Heading>
+                  <Link to={menu.path}>{menu.name}</Link>
+                </Heading>
 
-              <List>
-                {menu.sub.length > 0 &&
-                  menu.sub.map((item) => (
-                    <li key={item.id}>
-                      <Link to={item.path}>{item.name} </Link>{' '}
-                    </li>
-                  ))}
-              </List>
+                <List>
+                  {menu.sub.length > 0 &&
+                    menu.sub.map((item) => (
+                      <li key={item.id}>
+                        <Link to={item.path}>{item.name} </Link>{' '}
+                      </li>
+                    ))}
+                </List>
+              </Slide>
             </div>
           ))}
 
