@@ -3,11 +3,11 @@ import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import EventImg from '../assets/images/event.jpg';
 import Button from '../shared/Button';
-import { Slide } from 'react-reveal';
+import { Fade } from 'react-reveal';
 
 const EventsCard = () => {
   return (
-    <Slide left>
+    <Fade bottom>
       <div className='col-lg-4 col-md-6 mb-5'>
         <CardContainer className='shadow-lg'>
           <Card>
@@ -23,7 +23,7 @@ const EventsCard = () => {
           </Card>
         </CardContainer>
       </div>
-    </Slide>
+    </Fade>
   );
 };
 

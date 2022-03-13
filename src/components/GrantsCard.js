@@ -5,11 +5,11 @@ import FamilyImg from '../assets/images/family.jpg';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
 import Image from '../shared/Image';
-import { Slide } from 'react-reveal';
+import { Fade } from 'react-reveal';
 const GrantsCard = () => {
   return (
     <div className='row my-5 flex-md-row-reverse'>
-      <Slide right>
+      <Fade left>
         <div className='col-lg-6'>
           <Image src={FamilyImg} alt='family' h={100} unit='%' />
         </div>
@@ -33,7 +33,7 @@ const GrantsCard = () => {
             </Link>
           </Container>
         </div>
-      </Slide>
+      </Fade>
     </div>
   );
 };
