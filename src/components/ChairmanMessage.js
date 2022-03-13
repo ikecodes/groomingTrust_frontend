@@ -11,7 +11,7 @@ const ChairmanMessage = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-lg-6'>
-            <Slide right>
+            <Slide left>
               <Image
                 src={ChairmanImage}
                 alt='chairman'
