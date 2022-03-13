@@ -7,7 +7,7 @@ import { Slide } from 'react-reveal';
 
 const EventsCard = () => {
   return (
-    <Slide bottom>
+    <Slide left>
       <div className='col-lg-4 col-md-6 mb-5'>
         <CardContainer className='shadow-lg'>
           <Card>

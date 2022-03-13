@@ -22,7 +22,7 @@ const ChairmanMessage = () => {
             </Slide>
           </div>
           <div className='col-lg-6'>
-            <Slide right>
+            <Slide bottom>
               <h2 className='my-3'>Chairman's message</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
