@@ -13,8 +13,8 @@ const BlogCard = () => {
           <Card.Title className='my-3 text-capitalize fw-bolder fs-6'>
             new targets
           </Card.Title>
-          <Card.Text className='border-bottom pb-3 text-capitalize'>
-            june 19th, 2020
+          <Card.Text className='border-bottom pb-3 fw-light text-capitalize'>
+            chukwudi ekene | june 19th, 2020
           </Card.Text>
           <CardImage alt='event' src={EventImg} />
           <Card.Body>

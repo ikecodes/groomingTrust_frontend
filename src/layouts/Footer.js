@@ -72,6 +72,11 @@ const Container = styled.footer`
   padding-top: 5rem;
   color: ${colors.white};
   background-color: ${colors.tertiary};
+  background-image: linear-gradient(
+    to top right,
+    ${colors.tertiary},
+    ${colors.primary} 200%
+  );
 
   & a,
   a:link {

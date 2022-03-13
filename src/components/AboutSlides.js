@@ -96,7 +96,7 @@ const SliderBox = styled.div`
   background-color: ${colors.tertiary};
   text-align: center;
   padding: 2rem 2rem;
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
 `;
 
 const Quote = styled.blockquote`
@@ -119,6 +119,6 @@ const QuoteSymbol = styled.span`
 const Avatar = styled.img`
   height: 5rem;
   width: 5rem;
-  border-radius: 2rem;
+  border-radius: 50%;
 `;
 export default AboutSlides;

@@ -26,7 +26,7 @@ const menus = [
       },
       {
         id: '5',
-        name: 'contact',
+        name: 'contact us',
         path: '/contact-us',
       },
     ],
