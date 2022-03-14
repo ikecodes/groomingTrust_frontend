@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
@@ -34,7 +35,9 @@ const GrantsView = () => {
           <p className='mt-2'>22nd January, 2022</p>
         </div>
         <div className='text-center mt-5'>
-          <Button title='apply now' primary />
+          <Link to='/application'>
+            <Button title='apply now' primary />
+          </Link>
         </div>
       </Container>
     </Layout>
