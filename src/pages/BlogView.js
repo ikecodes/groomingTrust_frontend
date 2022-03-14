@@ -15,7 +15,7 @@ const BlogView = () => {
 
       <div className='row'>
         <div className='col-lg-12'>
-          <div>
+          <div className='text-center'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut velit
             officiis exercitationem sunt porro quam incidunt impedit eveniet
             molestias laboriosam ipsam dolor, illum ex adipisci expedita
@@ -31,7 +31,7 @@ const BlogView = () => {
             ducimus sunt dolorum obcaecati accusantium assumenda, praesentium
             suscipit culpa nam repellendus incidunt totam voluptatum magnam
           </div>
-          <div className='mt-3 text-capitalize'>
+          <div className='mt-3 text-capitalize text-center'>
             <Deadline className='p-1 rounded'>published</Deadline>
             <p className='mt-2'>
               22nd January, 2022
