@@ -7,12 +7,15 @@ import Image from '../shared/Image';
 const BlogView = () => {
   return (
     <Layout header='blog'>
-      <div className='row justify-content-center'>
-        <div className='col-lg-6 mb-5'>
+      <div className='row justify-content-center mb-3'>
+        <div className='col-lg-8'>
           <Image src={BlogImg} h={100} unit='%' />
         </div>
-        <div className='col-lg-6 mb-5'>
-          <BlogContent>
+      </div>
+
+      <div className='row'>
+        <div className='col-lg-12'>
+          <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut velit
             officiis exercitationem sunt porro quam incidunt impedit eveniet
             molestias laboriosam ipsam dolor, illum ex adipisci expedita
@@ -23,16 +26,26 @@ const BlogView = () => {
             illum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             Fuga ducimus sunt dolorum obcaecati accusantium assumenda,
             praesentium suscipit culpa nam repellendus incidunt totam voluptatum
-            magnam deserunt quidem aut necessitatibus impedit. Incidunt.
-          </BlogContent>
+            magnam deserunt quidem aut necessitatibus impedit. Incidunt. illum.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga
+            ducimus sunt dolorum obcaecati accusantium assumenda, praesentium
+            suscipit culpa nam repellendus incidunt totam voluptatum magnam
+          </div>
+          <div className='mt-3 text-capitalize'>
+            <Deadline className='p-1 rounded'>published</Deadline>
+            <p className='mt-2'>
+              22nd January, 2022
+              <span className='text-capitalize d-block'>by lorenze davis.</span>
+            </p>
+          </div>
         </div>
       </div>
     </Layout>
   );
 };
 
-const BlogContent = styled.div`
-  color: ${colors.textColor};
+const Deadline = styled.span`
+  color: ${colors.white};
+  background-color: ${colors.overlay};
 `;
-
 export default BlogView;

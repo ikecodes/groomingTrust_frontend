@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import EventImg from '../assets/images/event.jpg';
 import Button from '../shared/Button';
 import { Fade } from 'react-reveal';
+import { Link } from 'react-router-dom';
 
 const EventsCard = () => {
   return (
@@ -18,7 +19,9 @@ const EventsCard = () => {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </Card.Text>
-              <Button title='read more' />
+              <Link to='/blog-view'>
+                <Button title='read more' />
+              </Link>
             </Card.Body>
           </Card>
         </CardContainer>
