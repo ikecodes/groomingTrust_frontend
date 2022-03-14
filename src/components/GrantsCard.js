@@ -28,8 +28,8 @@ const GrantsCard = () => {
               Autem tenetur non numquam officiis id laudantium esse perspiciatis
               cupiditate culpa.
             </p>
-            <Link to='/application'>
-              <Button title='apply' primary />
+            <Link to='/grants-view'>
+              <Button title='learn more' primary />
             </Link>
           </Container>
         </div>
