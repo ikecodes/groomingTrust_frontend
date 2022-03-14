@@ -18,34 +18,41 @@ import Press from './pages/Press';
 
 //////////////////////////ADMIN
 import Login from './pages/Login';
+import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/chairmans-message' exact element={<ChairmanMessage />} />
-        <Route path='/about' exact element={<About />} />
-        <Route
-          path='/staffs-and-trustees'
-          exact
-          element={<StaffsAndTrustees />}
-        />
-        <Route path='/gallery' exact element={<Gallery />} />
-        <Route path='/gallery-view' exact element={<GalleryView />} />
-        <Route path='/frequently-asked-questions' exact element={<Faqs />} />
-        <Route path='/contact-us' exact element={<Contact />} />
-        <Route path='/portfolio' exact element={<Portfolio />} />
-        <Route path='/grants' exact element={<Grants />} />
-        <Route path='/grants-view' exact element={<GrantsView />} />
-        <Route path='/application' exact element={<Application />} />
-        <Route path='/blog' exact element={<Blog />} />
-        <Route path='/blog-view' exact element={<BlogView />} />
-        <Route path='/press' exact element={<Press />} />
+      <ScrollToTop>
+        <Routes>
+          <Route path='/' exact element={<Home />} />
+          <Route
+            path='/chairmans-message'
+            exact
+            element={<ChairmanMessage />}
+          />
+          <Route path='/about' exact element={<About />} />
+          <Route
+            path='/staffs-and-trustees'
+            exact
+            element={<StaffsAndTrustees />}
+          />
+          <Route path='/gallery' exact element={<Gallery />} />
+          <Route path='/gallery-view' exact element={<GalleryView />} />
+          <Route path='/frequently-asked-questions' exact element={<Faqs />} />
+          <Route path='/contact-us' exact element={<Contact />} />
+          <Route path='/portfolio' exact element={<Portfolio />} />
+          <Route path='/grants' exact element={<Grants />} />
+          <Route path='/grants-view' exact element={<GrantsView />} />
+          <Route path='/application' exact element={<Application />} />
+          <Route path='/blog' exact element={<Blog />} />
+          <Route path='/blog-view' exact element={<BlogView />} />
+          <Route path='/press' exact element={<Press />} />
 
-        {/*ADMIN ////////////////////////////////////////////////////////////////// */}
-        <Route path='/login' exact element={<Login />} />
-      </Routes>
+          {/*ADMIN ////////////////////////////////////////////////////////////////// */}
+          <Route path='/login' exact element={<Login />} />
+        </Routes>
+      </ScrollToTop>
     </BrowserRouter>
   );
 }
