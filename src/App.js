@@ -20,6 +20,9 @@ import Press from './pages/Press';
 import Login from './pages/Login';
 import ScrollToTop from './utils/ScrollToTop';
 import AdminGrants from './pages/AdminGrants';
+import AdminPortfolio from './pages/AdminPortfolio';
+import AdminBlog from './pages/AdminBlog';
+import AdminPress from './pages/AdminPress';
 
 function App() {
   return (
@@ -53,6 +56,9 @@ function App() {
           {/*ADMIN ////////////////////////////////////////////////////////////////// */}
           <Route path='/login' exact element={<Login />} />
           <Route path='/admin-grants' exact element={<AdminGrants />} />
+          <Route path='/admin-portfolio' exact element={<AdminPortfolio />} />
+          <Route path='/admin-blog' exact element={<AdminBlog />} />
+          <Route path='/admin-press' exact element={<AdminPress />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>
