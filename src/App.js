@@ -19,6 +19,7 @@ import Press from './pages/Press';
 //////////////////////////ADMIN
 import Login from './pages/Login';
 import ScrollToTop from './utils/ScrollToTop';
+import AdminGrants from './pages/AdminGrants';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
 
           {/*ADMIN ////////////////////////////////////////////////////////////////// */}
           <Route path='/login' exact element={<Login />} />
+          <Route path='/admin-grants' exact element={<AdminGrants />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

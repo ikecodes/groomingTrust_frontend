@@ -7,58 +7,54 @@ import Logo from '../assets/images/Logo.png';
 
 const Login = () => {
   return (
-    <div className='container'>
-      <FormContainer className='row justify-content-center'>
-        <ContactForm className='col-lg-6 p-0'>
-          <Image src={Logo} alt='' />
-          <Form className='p-3 m-0'>
-            <div className='mb-3 form-group'>
-              <label htmlFor='email' className='form-label'>
-                Email
-              </label>
-              <input
-                type='email'
-                name='email'
-                className='form-control rounded-0'
-                placeholder='Email Address'
-              />
-            </div>
-            <div className='mb-3 form-group'>
-              <label htmlFor='password' className='form-label'>
-                Password
-              </label>
-              <input
-                type='password'
-                name='password'
-                className='form-control rounded-0'
-                placeholder='Password'
-              />
-            </div>
+    <FormContainer>
+      <ContactForm className='p-5 rounded mx-3'>
+        <Image src={Logo} alt='grooming' className='mb-5' />
+        <Form className='m-0'>
+          <div className='mb-3 form-group'>
+            <label htmlFor='email' className='form-label'>
+              Email
+            </label>
+            <input
+              type='email'
+              name='email'
+              className='form-control rounded-0'
+              placeholder='Email Address'
+            />
+          </div>
+          <div className='mb-3 form-group'>
+            <label htmlFor='password' className='form-label'>
+              Password
+            </label>
+            <input
+              type='password'
+              name='password'
+              className='form-control rounded-0'
+              placeholder='Password'
+            />
+          </div>
 
-            <div className='text-start'>
-              <Button primary title='login' norounded />
-            </div>
-          </Form>
-          <p className='text-center'>
-            Input your email and password to login to the admin panel
-          </p>
-        </ContactForm>
-      </FormContainer>
-    </div>
+          <div className='text-start'>
+            <Button primary title='login' norounded />
+          </div>
+        </Form>
+        <p>Input your email and password to login to the admin</p>
+      </ContactForm>
+    </FormContainer>
   );
 };
 
 const FormContainer = styled.div`
   height: 100vh;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Image = styled.img`
-  width: 20rem;
-  padding: 2rem;
+  width: 12rem;
   height: auto;
 `;
 const ContactForm = styled.div`
-  /* width: 500px; */
   background-color: ${colors.tertiary};
   background-image: linear-gradient(
     to top right,
@@ -66,6 +62,11 @@ const ContactForm = styled.div`
     ${colors.primary}
   );
   color: ${colors.white};
-  height: 100%;
+  max-width: 600px;
+
+  & p {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
 `;
 export default Login;

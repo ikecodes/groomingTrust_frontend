@@ -63,4 +63,27 @@ const menus = [
   },
 ];
 
+export const adminMenu = [
+  {
+    id: '1',
+    name: 'grants',
+    path: '/admin-grants',
+  },
+  {
+    id: '2',
+    name: 'portfolio',
+    path: '/admin-portfolio',
+  },
+  {
+    id: '3',
+    name: 'blog',
+    path: '/admin-blog',
+  },
+  {
+    id: '4',
+    name: 'press',
+    path: '/admin-press',
+  },
+];
+
 export default menus;
