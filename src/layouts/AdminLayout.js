@@ -4,11 +4,11 @@ import AdminNav from './AdminNav';
 const AdminLayout = ({ children }) => {
   return (
     <div className='container-fluid my-3'>
-      <div className='row justify-content-center'>
-        <div className='col-lg-2'>
+      <div className='row justify-content-center '>
+        <div className='col-lg-2 h-100'>
           <AdminNav />
         </div>
-        <ActionContainer className='col-lg-10 shadow p-5'>
+        <ActionContainer className='col-lg-10 shadow px-5 pt-5'>
           <Container>{children}</Container>
         </ActionContainer>
       </div>

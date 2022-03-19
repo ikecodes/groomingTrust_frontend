@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 import { Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
 import Logo from '../assets/images/Logo.png';
-
+import Toast from '../utils/Toast';
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email || !password) return Toast('Please input all fields', 'info');
+    // const user = await createUserWithEmailAndPassword(
+    //   auth,
+    //   'ike@gmail.com',
+    //   'test1234'
+    // );
+    await signInWithEmailAndPassword(auth, email, password);
+    // console.log(cred.user);
+    Toast('Successful login', 'success');
+    setTimeout(() => {
+      navigate('/admin-grants');
+    }, 2000);
+  };
   return (
     <FormContainer>
       <ContactForm className='p-5 rounded mx-3'>
         <Image src={Logo} alt='grooming' className='mb-5' />
-        <Form className='m-0'>
+        <Form className='m-0' onSubmit={handleSubmit}>
           <div className='mb-3 form-group'>
             <label htmlFor='email' className='form-label'>
               Email
@@ -20,6 +43,7 @@ const Login = () => {
               name='email'
               className='form-control rounded-0'
               placeholder='Email Address'
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className='mb-3 form-group'>
@@ -31,6 +55,7 @@ const Login = () => {
               name='password'
               className='form-control rounded-0'
               placeholder='Password'
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
