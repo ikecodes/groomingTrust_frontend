@@ -2,19 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
-import SunImg from '../assets/images/sun.png';
+import moment from 'moment';
 
-const PressCard = () => {
+const PressCard = ({ id, date, image, title, link }) => {
   return (
     <div className='col-lg-12 mb-3'>
       <CardContainer className='p-3 row gap-2 flex-md-row-reverse justify-content-between'>
         <div className='col-lg-3'>
-          <Image src={SunImg} alt='press' />
+          <Image src={image} alt='press' />
         </div>
         <div className='col-lg-7'>
           <div className='pl-3'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-            <Button title='dec 1 2021' primary />
+            <p>{title}</p>
+            <a href={link} target='_blank' rel='noreferrer'>
+              <Button title={moment(date).format('MMM Do YY')} primary />
+            </a>
           </div>
         </div>
       </CardContainer>

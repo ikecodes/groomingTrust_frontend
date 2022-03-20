@@ -16,7 +16,7 @@ const Application = () => {
                 Title
               </label>
               <select
-                class='form-select'
+                className='form-select'
                 id='title'
                 aria-label='title'
                 placeholder='Mr/Mrs'

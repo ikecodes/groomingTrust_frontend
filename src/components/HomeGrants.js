@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
@@ -6,12 +8,40 @@ import Button from '../shared/Button';
 import GrantsCard from './GrantsCard';
 
 const Grants = () => {
+  const [grants, setGrants] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const grantsRef = collection(db, 'grants');
+    const q = query(grantsRef, orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const grants = snapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setGrants(grants);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+  if (loading) return <div className='spinner2'></div>;
   return (
     <Container>
       <div className='container'>
         <Header className='my-3'>grants</Header>
-        <GrantsCard />
-        <GrantsCard />
+        {grants.length > 0 &&
+          grants.map((grant) => (
+            <GrantsCard
+              key={grant.id}
+              id={grant.id}
+              title={grant.title}
+              image={grant.imageUrl}
+              description={grant.description}
+            />
+          ))}
       </div>
       <div className='d-flex justify-content-center'>
         <Link to='/grants'>
