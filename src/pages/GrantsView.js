@@ -31,15 +31,11 @@ const GrantsView = () => {
   return (
     <Layout header='grants'>
       <Container>
-        <h1 className='my-3 text-capitalize'>{grant && grant.title}</h1>
-
-        {grant && <div dangerouslySetInnerHTML={{ __html: grant.body }} />}
-
+        <h1 className='my-3 text-capitalize'>{grant?.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: grant?.body }} />
         <div className='mt-3 text-capitalize'>
           <Deadline className='p-1 rounded'>application deadline</Deadline>
-          <p className='mt-2'>
-            {grant && moment(grant.deadline).format('MMM Do YY')}
-          </p>
+          <p className='mt-2'>{moment(grant?.deadline).format('MMM Do YY')}</p>
         </div>
         <div className='text-center mt-5'>
           <Link to='/application'>

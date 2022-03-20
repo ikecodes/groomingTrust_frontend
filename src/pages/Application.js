@@ -21,7 +21,6 @@ const Application = () => {
                 aria-label='title'
                 placeholder='Mr/Mrs'
               >
-                <option selected>Title</option>
                 <option value='1'>Mr</option>
                 <option value='2'>Mrs</option>
               </select>

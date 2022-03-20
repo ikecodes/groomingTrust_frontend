@@ -6,24 +6,22 @@ import EventImg from '../assets/images/event.jpg';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
 
-const BlogCard = () => {
+const BlogCard = ({ id, title, image, author, createdAt, description }) => {
   return (
     <div className='col-lg-4 col-md-6 mb-5'>
       <CardContainer>
         <Card className='border-0 bg-transparent'>
           <Card.Title className='my-3 text-capitalize fw-bolder fs-6'>
-            new targets
+            {title}
           </Card.Title>
           <Card.Text className='border-bottom pb-3 fw-light text-capitalize'>
-            chukwudi ekene | june 19th, 2020
+            {author} |{' '}
+            {new Date(createdAt.seconds * 1000).toLocaleDateString('en-US')}
           </Card.Text>
           <CardImage alt='event' src={EventImg} />
           <Card.Body>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Link to='/blog-view'>
+            <Card.Text>{description}</Card.Text>
+            <Link to={`/blog-view?${id}`}>
               <Button title='read more' norounded />
             </Link>
           </Card.Body>
