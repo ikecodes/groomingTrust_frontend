@@ -64,8 +64,8 @@ const AdminPortfolio = () => {
               Toast('Portfolio added successfully', 'success');
               setLoading(false);
               setFormData({
+                ...formData,
                 title: '',
-                image: '',
                 description: '',
                 link: '',
               });

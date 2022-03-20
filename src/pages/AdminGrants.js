@@ -72,9 +72,9 @@ const AdminGrants = () => {
               Toast('Grant added successfully', 'success');
               setLoading(false);
               setFormData({
+                ...formData,
                 title: '',
                 deadline: '',
-                image: '',
                 description: '',
                 body: '',
               });

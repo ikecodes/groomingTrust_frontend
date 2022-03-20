@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Logo from '../assets/images/Logo.png';
@@ -7,7 +7,9 @@ import { adminMenu } from '../constants/menus';
 const AdminNav = () => {
   return (
     <Container>
-      <Image src={Logo} />
+      <Link to='/'>
+        <Image src={Logo} />
+      </Link>
       <Menu>
         {adminMenu.map((item) => (
           <li key={item.id}>

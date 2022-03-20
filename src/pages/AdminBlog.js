@@ -72,9 +72,9 @@ const AdminBlog = () => {
               Toast('Article added successfully', 'success');
               setLoading(false);
               setFormData({
+                ...formData,
                 title: '',
                 author: '',
-                image: '',
                 description: '',
                 body: '',
               });
