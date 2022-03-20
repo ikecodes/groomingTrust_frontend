@@ -9,10 +9,8 @@ import GrantsCard from './GrantsCard';
 
 const Grants = () => {
   const [grants, setGrants] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const grantsRef = collection(db, 'grants');
     const q = query(grantsRef, orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -23,11 +21,9 @@ const Grants = () => {
         };
       });
       setGrants(grants);
-      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
-  if (loading) return <div className='spinner2'></div>;
   return (
     <Container>
       <div className='container'>

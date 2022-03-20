@@ -1,25 +1,21 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
-import EventImg from '../assets/images/event.jpg';
 import Button from '../shared/Button';
 import { Fade } from 'react-reveal';
 import { Link } from 'react-router-dom';
 
-const EventsCard = () => {
+const EventsCard = ({ id, title, image, author, createdAt, description }) => {
   return (
     <Fade bottom>
       <div className='col-lg-4 col-md-6 mb-5'>
         <CardContainer className='shadow-lg'>
           <Card>
-            <CardImage alt='event' src={EventImg} />
+            <CardImage alt='event' src={image} />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Link to='/blog-view'>
+              <Card.Title className='text-capitalize'>{title}</Card.Title>
+              <Card.Text>{description}</Card.Text>
+              <Link to={`/blog-view?${id}`}>
                 <Button title='read more' />
               </Link>
             </Card.Body>
