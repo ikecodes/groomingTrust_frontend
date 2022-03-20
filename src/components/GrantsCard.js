@@ -5,7 +5,7 @@ import colors from '../constants/colors';
 import Button from '../shared/Button';
 import Image from '../shared/Image';
 import { Fade } from 'react-reveal';
-const GrantsCard = ({ id, title, description, body, image, deadline }) => {
+const GrantsCard = ({ id, title, description, image }) => {
   return (
     <div className='row my-5 flex-md-row-reverse'>
       <Fade left>

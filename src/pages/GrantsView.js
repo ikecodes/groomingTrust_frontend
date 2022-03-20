@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
@@ -6,33 +10,36 @@ import Layout from '../layouts/Layout';
 import Button from '../shared/Button';
 
 const GrantsView = () => {
+  const [grant, setGrant] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const id = location.search.split('?')[1];
+
+  useEffect(() => {
+    setLoading(true);
+    const grantsRef = doc(db, 'grants', id);
+    const unsubscribe = onSnapshot(grantsRef, (doc) => {
+      const grant = { ...doc.data(), id: doc.id };
+      setGrant(grant);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='grants'>
       <Container>
-        <h1 className='my-3 text-capitalize'>
-          apply for child and family well-being grants
-        </h1>
+        <h1 className='my-3 text-capitalize'>{grant && grant.title}</h1>
 
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic delectus
-          totam debitis corrupti ipsa sunt accusantium pariatur, autem similique
-          explicabo quos, eius laborum. Vero neque quidem in quasi! Architecto,
-          sit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo
-          consectetur tempora in dolorem minima doloremque assumenda nesciunt
-          dignissimos, ea a reiciendis, dolore ullam molestias iure ratione
-          rerum? Architecto, cupiditate provident. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Hic delectus totam debitis corrupti ipsa
-          sunt accusantium pariatur, autem similique explicabo quos, eius
-          laborum. Vero neque quidem in quasi! Architecto, sit. Lorem ipsum
-          dolor sit, amet consectetur adipisicing elit. Quo consectetur tempora
-          in dolorem minima doloremque assumenda nesciunt dignissimos, ea a
-          reiciendis, dolore ullam molestias iure ratione rerum? Architecto,
-          cupiditate provident. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Hic delectus totam debitis corrupti ipsa sunt
-        </div>
+        {grant && <div dangerouslySetInnerHTML={{ __html: grant.body }} />}
+
         <div className='mt-3 text-capitalize'>
           <Deadline className='p-1 rounded'>application deadline</Deadline>
-          <p className='mt-2'>22nd January, 2022</p>
+          <p className='mt-2'>
+            {grant && moment(grant.deadline).format('MMM Do YY')}
+          </p>
         </div>
         <div className='text-center mt-5'>
           <Link to='/application'>

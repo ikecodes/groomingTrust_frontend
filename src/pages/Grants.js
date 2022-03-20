@@ -45,10 +45,8 @@ const Grants = () => {
                 key={grant.id}
                 id={grant.id}
                 title={grant.title}
-                deadline={grant.deadline}
                 image={grant.imageUrl}
                 description={grant.description}
-                body={grant.body}
               />
             ))}
         </div>
