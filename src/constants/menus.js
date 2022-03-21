@@ -39,13 +39,19 @@ const menus = [
   },
   {
     id: '3',
+    name: 'program areas',
+    path: '/program-areas',
+    sub: [],
+  },
+  {
+    id: '4',
     name: 'grants',
     path: '/grants',
     sub: [],
   },
 
   {
-    id: '4',
+    id: '5',
     name: 'news',
     path: '/blog',
     sub: [

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../layouts/Layout';
 import Section from '../layouts/Section';
 import AboutImg1 from '../assets/images/family.jpg';
@@ -6,6 +6,12 @@ import Image from '../shared/Image';
 import AboutSlides from '../components/AboutSlides';
 
 const About = () => {
+  const [loading, setloading] = useState(true);
+
+  setTimeout(() => {
+    setloading(false);
+  }, 2000);
+  if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='about us'>
       <Section>

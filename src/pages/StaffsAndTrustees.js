@@ -8,14 +8,20 @@ import StaffTrusteeCard from '../components/StaffTrusteeCard';
 
 const StaffsAndTrustees = () => {
   const [active, setActive] = useState('staff');
+  const [loading, setloading] = useState(true);
+
+  setTimeout(() => {
+    setloading(false);
+  }, 2000);
+  if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='staffs & trustees'>
-      <TypeContainer>
+      <TypeContainer className='shadow'>
         <h6
           className={`${active === 'staff' ? 'activeClass' : ''}`}
           onClick={() => setActive('staff')}
         >
-          staff
+          staffs
         </h6>
         <h6
           className={`${active === 'trustees' ? 'activeClass' : ''}`}

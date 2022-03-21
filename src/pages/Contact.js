@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { MdLocationOn } from 'react-icons/md';
 import { BsTelephoneFill } from 'react-icons/bs';
@@ -8,6 +8,12 @@ import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
 import Button from '../shared/Button';
 const Contact = () => {
+  const [loading, setloading] = useState(true);
+
+  setTimeout(() => {
+    setloading(false);
+  }, 2000);
+  if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='contact us'>
       <Container>
