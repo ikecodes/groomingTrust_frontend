@@ -28,6 +28,10 @@ const Contact = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.fullName || !formData.email || !formData.message) {
+      Toast('Please fill all the fields', 'info');
+      return;
+    }
     setSending(true);
     const messageRef = collection(db, 'messages');
     addDoc(messageRef, {
@@ -43,12 +47,13 @@ const Contact = () => {
           email: '',
           message: '',
         });
-        Toast('message sent successfully', 'success');
+        Toast('Message sent successfully', 'success');
         setSending(false);
       })
       .catch((err) => {
         console.log(err);
-        Toast('there was a problem sending you message', 'info');
+        setSending(false);
+        Toast('There was a problem sending you message', 'info');
       });
   };
 

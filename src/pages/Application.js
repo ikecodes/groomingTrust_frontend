@@ -1,15 +1,105 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {
+  doc,
+  onSnapshot,
+  addDoc,
+  collection,
+  Timestamp,
+} from 'firebase/firestore';
+import { db } from '../firebase';
+import { useLocation } from 'react-router-dom';
+import Toast from '../utils/Toast';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
 import Button from '../shared/Button';
 
 const Application = () => {
+  const [grant, setGrant] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [formData, setFormData] = useState({
+    grantName: grant?.title,
+    title: 'Mr',
+    fullName: '',
+    dob: '',
+    email: '',
+    phone: '',
+    address: '',
+    reason: '',
+    createdAt: Timestamp.now().toDate(),
+  });
+  const location = useLocation();
+  const id = location.search.split('?')[1];
+
+  useEffect(() => {
+    setLoading(true);
+    const grantsRef = doc(db, 'grants', id);
+    const unsubscribe = onSnapshot(grantsRef, (doc) => {
+      const grant = { ...doc.data(), id: doc.id };
+      setGrant(grant);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      !formData.title ||
+      !formData.fullName ||
+      !formData.dob ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.address ||
+      !formData.reason
+    ) {
+      Toast('Please fill all the fields', 'info');
+      return;
+    }
+
+    setSending(true);
+    const applicationsRef = collection(db, 'applications');
+    addDoc(applicationsRef, {
+      title: formData.title,
+      grantName: grant?.title,
+      fullName: formData.fullName,
+      dob: formData.dob,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      reason: formData.reason,
+      createdAt: Timestamp.now().toDate(),
+    })
+      .then(() => {
+        setFormData({
+          ...formData,
+          fullName: '',
+          email: '',
+          message: '',
+        });
+        Toast('Application successfully submitted', 'success');
+        setSending(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setSending(false);
+        Toast('There was a problem sending your application', 'info');
+      });
+  };
+  if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='application'>
       <FormContainer>
         <FormHeader className='py-2'>grant application</FormHeader>
-        <form action=''>
+        <form onSubmit={handleSubmit}>
           <div className='row mb-4'>
             <div className='col-lg-3 form-group'>
               <label htmlFor='title' className='form-label'>
@@ -18,6 +108,7 @@ const Application = () => {
               <select
                 className='form-select'
                 id='title'
+                name='title'
                 aria-label='title'
                 placeholder='Mr/Mrs'
               >
@@ -27,25 +118,17 @@ const Application = () => {
             </div>
           </div>
           <div className='row'>
-            <label htmlFor='firstname' className='form-label'>
-              Applicant's Name
+            <label htmlFor='fullName' className='form-label'>
+              Applicant's Full Name
             </label>
-            <div className='col-lg-6 mb-4 form-group'>
+            <div className='col-lg-12 mb-4 form-group'>
               <input
                 type='text'
-                name='firstname'
+                name='fullName'
                 id=''
                 className='form-control'
-                placeholder='First Name'
-              />
-            </div>
-            <div className='col-lg-6 mb-4 form-group'>
-              <input
-                type='text'
-                name='lastname'
-                id=''
-                className='form-control'
-                placeholder='Last Name'
+                placeholder='Full Name'
+                onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
@@ -56,10 +139,11 @@ const Application = () => {
               </label>
               <input
                 type='date'
-                name='date'
+                name='dob'
                 id='dob'
                 className='form-control'
                 placeholder='Date of Birth'
+                onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
@@ -74,6 +158,7 @@ const Application = () => {
                 id='email'
                 className='form-control'
                 placeholder='sample@email.com'
+                onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
@@ -88,34 +173,22 @@ const Application = () => {
                 id='phone'
                 className='form-control'
                 placeholder='Phone Number'
+                onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
           <div className='row mb-4'>
             <div className='col-lg-12 form-group'>
-              <label htmlFor='address1' className='form-label'>
+              <label htmlFor='address' className='form-label'>
                 Address Line 1
               </label>
               <input
                 type='text'
-                name='address1'
-                id='address1'
-                className='form-control'
-                placeholder='Address 1'
-              />
-            </div>
-          </div>
-          <div className='row mb-4'>
-            <div className='col-lg-12 form-group'>
-              <label htmlFor='address2' className='form-label'>
-                Address Line 2
-              </label>
-              <input
-                type='text'
                 name='address'
-                id='address2'
+                id='address'
                 className='form-control'
-                placeholder='Address 2'
+                placeholder='Address'
+                onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
@@ -131,10 +204,11 @@ const Application = () => {
                 rows='5'
                 className='form-control'
                 placeholder='Type...'
+                onChange={(e) => handleChange(e)}
               ></textarea>
             </div>
           </div>
-          <Button title='apply' primary />
+          <Button title='apply' primary disabled={sending} loading={sending} />
         </form>
       </FormContainer>
     </Layout>

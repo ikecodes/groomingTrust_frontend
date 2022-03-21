@@ -35,10 +35,12 @@ const GrantsView = () => {
         <div dangerouslySetInnerHTML={{ __html: grant?.body }} />
         <div className='mt-3 text-capitalize'>
           <Deadline className='p-1 rounded'>application deadline</Deadline>
-          <p className='mt-2'>{moment(grant?.deadline).format('MMM Do YY')}</p>
+          <p className='mt-2'>
+            {moment(grant?.deadline).format('MMM Do YYYY')}
+          </p>
         </div>
         <div className='text-center mt-5'>
-          <Link to='/application'>
+          <Link to={`/application?${id}`}>
             <Button title='apply now' primary />
           </Link>
         </div>
