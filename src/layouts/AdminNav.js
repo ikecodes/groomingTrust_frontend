@@ -30,7 +30,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100vh;
   padding: 5rem 0;
   border-top-left-radius: 2.5rem;
@@ -45,7 +45,7 @@ const Menu = styled.ul`
   color: ${colors.white};
   text-transform: capitalize;
   & li {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     width: 100%;
     & a,
     a:link {

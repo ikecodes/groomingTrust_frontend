@@ -90,6 +90,16 @@ export const adminMenu = [
     name: 'press',
     path: '/admin-press',
   },
+  {
+    id: '5',
+    name: 'messages',
+    path: '/admin-messages',
+  },
+  {
+    id: '6',
+    name: 'applications',
+    path: '/admin-applications',
+  },
 ];
 
 export default menus;

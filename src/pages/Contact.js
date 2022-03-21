@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { addDoc, Timestamp, collection } from 'firebase/firestore';
+import { db } from '../firebase';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { MdLocationOn } from 'react-icons/md';
 import { BsTelephoneFill } from 'react-icons/bs';
@@ -7,8 +9,48 @@ import styled from 'styled-components';
 import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
 import Button from '../shared/Button';
+import Toast from '../utils/Toast';
 const Contact = () => {
   const [loading, setloading] = useState(true);
+  const [sending, setSending] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    message: '',
+    createdAt: Timestamp.now().toDate(),
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true);
+    const messageRef = collection(db, 'messages');
+    addDoc(messageRef, {
+      fullName: formData.fullName,
+      email: formData.email,
+      message: formData.message,
+      createdAt: Timestamp.now().toDate(),
+    })
+      .then(() => {
+        setFormData({
+          ...formData,
+          fullName: '',
+          email: '',
+          message: '',
+        });
+        Toast('message sent successfully', 'success');
+        setSending(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        Toast('there was a problem sending you message', 'info');
+      });
+  };
 
   setTimeout(() => {
     setloading(false);
@@ -58,16 +100,18 @@ const Contact = () => {
             </ul>
           </ContactDetails>
           <ContactForm className='col-lg-6 p-0'>
-            <Form className='p-3 m-0'>
+            <Form className='p-3 m-0' onSubmit={handleSubmit}>
               <div className='mb-3 form-group'>
-                <label htmlFor='name' className='form-label'>
+                <label htmlFor='fullName' className='form-label'>
                   Full name
                 </label>
                 <input
                   type='text'
-                  name='name'
+                  name='fullName'
                   className='form-control rounded-0'
                   placeholder='Enter your name'
+                  value={formData.fullName}
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
               <div className='mb-3 form-group'>
@@ -79,6 +123,8 @@ const Contact = () => {
                   name='email'
                   className='form-control rounded-0'
                   placeholder='Email Address'
+                  value={formData.email}
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
               <div className='mb-3 form-group'>
@@ -91,10 +137,18 @@ const Contact = () => {
                   rows='5'
                   className='form-control rounded-0 borded-0'
                   placeholder='Your message for us...'
+                  value={formData.message}
+                  onChange={(e) => handleChange(e)}
                 ></textarea>
               </div>
               <div className='text-start'>
-                <Button primary title='submit' norounded />
+                <Button
+                  primary
+                  title='submit'
+                  norounded
+                  disabled={sending}
+                  loading={sending}
+                />
               </div>
             </Form>
           </ContactForm>

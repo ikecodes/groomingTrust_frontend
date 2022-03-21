@@ -24,6 +24,8 @@ import AdminGrants from './pages/AdminGrants';
 import AdminPortfolio from './pages/AdminPortfolio';
 import AdminBlog from './pages/AdminBlog';
 import AdminPress from './pages/AdminPress';
+import AdminMessages from './pages/AdminMessages';
+import AdminApplications from './pages/AdminApplications';
 
 function App() {
   return (
@@ -61,6 +63,12 @@ function App() {
           <Route path='/admin-portfolio' exact element={<AdminPortfolio />} />
           <Route path='/admin-blog' exact element={<AdminBlog />} />
           <Route path='/admin-press' exact element={<AdminPress />} />
+          <Route path='/admin-messages' exact element={<AdminMessages />} />
+          <Route
+            path='/admin-applications'
+            exact
+            element={<AdminApplications />}
+          />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>
