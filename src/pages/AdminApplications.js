@@ -9,6 +9,7 @@ import ToolkitProvider, {
   Search,
 } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import BootstrapTable from 'react-bootstrap-table-next';
+import DeleteModal from '../utils/DeleteModal';
 import { Col, Row } from 'react-bootstrap';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -16,6 +17,7 @@ import { db } from '../firebase';
 const AdminApplications = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -126,7 +128,11 @@ const AdminApplications = () => {
       sort: true,
       formatter: (cellContent, application) => (
         <div className='text-center text-danger pe-auto'>
-          <IoMdTrash size={20} style={{ cursor: 'pointer' }} />
+          <IoMdTrash
+            size={20}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setModalShow(true)}
+          />
         </div>
       ),
     },
@@ -183,6 +189,11 @@ const AdminApplications = () => {
                         {!applications.length ? (
                           <p>You currently do not have any applications</p>
                         ) : null}
+                        {/* modal for deleting a message */}
+                        <DeleteModal
+                          show={modalShow}
+                          onHide={() => setModalShow(false)}
+                        />
                       </div>
                       <Row className='align-items-md-center mt-30'>
                         <Col className='pagination pagination-rounded justify-content-end mb-2'>
