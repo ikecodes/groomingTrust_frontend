@@ -10,6 +10,7 @@ import Button from '../shared/Button';
 const AdminGrants = () => {
   const [formData, setFormData] = useState({
     title: '',
+    link: '',
     deadline: '',
     image: '',
     description: '',
@@ -33,6 +34,7 @@ const AdminGrants = () => {
     e.preventDefault();
     if (
       !formData.title ||
+      !formData.link ||
       !formData.deadline ||
       !formData.image ||
       !formData.description ||
@@ -74,6 +76,7 @@ const AdminGrants = () => {
               setFormData({
                 ...formData,
                 title: '',
+                link: '',
                 deadline: '',
                 description: '',
                 body: '',
@@ -100,6 +103,20 @@ const AdminGrants = () => {
             id='title'
             value={formData.title}
             placeholder='Title'
+            className='form-control'
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className='mb-3 form-group w-50'>
+          <label htmlFor='link' className='form-label'>
+            Link to google form for this grant
+          </label>
+          <input
+            type='text'
+            name='link'
+            id='link'
+            value={formData.link}
+            placeholder='Link'
             className='form-control'
             onChange={(e) => handleChange(e)}
           />
