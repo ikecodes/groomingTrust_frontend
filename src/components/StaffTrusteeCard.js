@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import Button from '../shared/Button';
 import Image from '../shared/Image';
-import StaffTrusteeModal from './StaffTrusteeModal';
+import DisplayModal from '../utils/DisplayModal';
 const StaffTrusteeCard = ({ active, image }) => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <div className='col-lg-3 col-md-6 mb-5'>
-      <StaffTrusteeModal
+      <DisplayModal
         show={modalShow}
         image={image}
         onHide={() => setModalShow(false)}

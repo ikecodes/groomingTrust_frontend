@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap';
 import Image from '../shared/Image';
 import colors from '../constants/colors';
 
-const StaffTrusteeModal = (props) => {
+const DisplayModal = (props) => {
   return (
     <Modal
       {...props}
@@ -38,4 +38,4 @@ const ContentBox = styled.div`
   }
 `;
 
-export default StaffTrusteeModal;
+export default DisplayModal;

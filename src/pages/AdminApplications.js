@@ -186,11 +186,11 @@ const AdminApplications = () => {
                           striped={false}
                           responsive
                         />
-                        {!applications.length ? (
+                        {!applications.length ? ( // Shows when there are no applications
                           <p>You currently do not have any applications</p>
                         ) : null}
-                        {/* modal for deleting a message */}
-                        <DeleteModal
+
+                        <DeleteModal // This is a modal for deleting messages
                           show={modalShow}
                           onHide={() => setModalShow(false)}
                         />

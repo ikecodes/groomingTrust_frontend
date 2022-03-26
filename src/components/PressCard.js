@@ -13,9 +13,12 @@ const PressCard = ({ id, date, image, title, link }) => {
         </div>
         <div className='col-lg-7'>
           <div className='pl-3'>
-            <p>{title}</p>
+            <h6>{title}</h6>
+            <p className='text-secondary'>
+              {moment(date).format('MMM Do YYYY')}
+            </p>
             <a href={link} target='_blank' rel='noreferrer'>
-              <Button title={moment(date).format('MMM Do YY')} primary />
+              <Button title='View' primary />
             </a>
           </div>
         </div>
