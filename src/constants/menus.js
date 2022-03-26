@@ -11,8 +11,8 @@ const menus = [
       },
       {
         id: '2',
-        name: 'staffs & trustees',
-        path: '/staffs-and-trustees',
+        name: 'staff & trustees',
+        path: '/staff-and-trustees',
       },
       {
         id: '3',

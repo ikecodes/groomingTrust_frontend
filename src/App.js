@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ChairmanMessage from './pages/ChairmanMessage';
 import About from './pages/About';
-import StaffsAndTrustees from './pages/StaffsAndTrustees';
+import StaffAndTrustees from './pages/StaffAndTrustees';
 import Gallery from './pages/Gallery';
 import GalleryView from './pages/GalleryView';
 import Faqs from './pages/Faqs';
@@ -40,9 +40,9 @@ function App() {
           />
           <Route path='/about' exact element={<About />} />
           <Route
-            path='/staffs-and-trustees'
+            path='/staff-and-trustees'
             exact
-            element={<StaffsAndTrustees />}
+            element={<StaffAndTrustees />}
           />
           <Route path='/gallery' exact element={<Gallery />} />
           <Route path='/gallery-view' exact element={<GalleryView />} />

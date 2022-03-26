@@ -98,7 +98,7 @@ const Application = () => {
   return (
     <Layout header='application'>
       <FormContainer>
-        <FormHeader className='py-2'>grant application</FormHeader>
+        <FormHeader className='py-2'>{`${grant?.title} grants application`}</FormHeader>
         <form onSubmit={handleSubmit}>
           <div className='row mb-4'>
             <div className='col-lg-3 form-group'>

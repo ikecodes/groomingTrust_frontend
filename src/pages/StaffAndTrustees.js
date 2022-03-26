@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout';
 import StaffImg from '../assets/images/staff.jpg';
 import StaffTrusteeCard from '../components/StaffTrusteeCard';
 
-const StaffsAndTrustees = () => {
+const StaffAndTrustees = () => {
   const [active, setActive] = useState('staff');
   const [loading, setloading] = useState(true);
 
@@ -15,13 +15,13 @@ const StaffsAndTrustees = () => {
   }, 2000);
   if (loading) return <div className='spinner2'></div>;
   return (
-    <Layout header='staffs & trustees'>
+    <Layout header='staff & trustees'>
       <TypeContainer className='shadow'>
         <h6
           className={`${active === 'staff' ? 'activeClass' : ''}`}
           onClick={() => setActive('staff')}
         >
-          staffs
+          staff
         </h6>
         <h6
           className={`${active === 'trustees' ? 'activeClass' : ''}`}
@@ -66,4 +66,4 @@ const TypeContainer = styled.div`
   }
 `;
 
-export default StaffsAndTrustees;
+export default StaffAndTrustees;
