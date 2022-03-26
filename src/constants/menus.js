@@ -100,6 +100,16 @@ export const adminMenu = [
     name: 'applications',
     path: '/admin-applications',
   },
+  {
+    id: '7',
+    name: 'gallery',
+    path: '/admin-gallery',
+  },
+  {
+    id: '8',
+    name: 'staft/trustees',
+    path: '/admin-staff-trustees',
+  },
 ];
 
 export default menus;

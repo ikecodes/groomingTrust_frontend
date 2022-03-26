@@ -32,9 +32,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  padding: 5rem 0;
-  border-top-left-radius: 2.5rem;
-  border-bottom-left-radius: 2.5rem;
+  padding: 2rem 0;
+  /* border-top-left-radius: 2.5rem;
+  border-bottom-left-radius: 2.5rem; */
   background-image: linear-gradient(
     to top right,
     ${colors.tertiary},

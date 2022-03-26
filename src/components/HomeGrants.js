@@ -24,6 +24,8 @@ const Grants = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  if (!grants.length) return null; // Don't return anything is this is no grant
   return (
     <Container>
       <div className='container'>

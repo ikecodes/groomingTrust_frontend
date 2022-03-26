@@ -26,6 +26,8 @@ import AdminBlog from './pages/AdminBlog';
 import AdminPress from './pages/AdminPress';
 import AdminMessages from './pages/AdminMessages';
 import AdminApplications from './pages/AdminApplications';
+import AdminGallery from './pages/AdminGallery';
+import AdminStaffTrustees from './pages/AdminStaffTrustees';
 
 function App() {
   return (
@@ -68,6 +70,12 @@ function App() {
             path='/admin-applications'
             exact
             element={<AdminApplications />}
+          />
+          <Route path='/admin-gallery' exact element={<AdminGallery />} />
+          <Route
+            path='/admin-staff-trustees'
+            exact
+            element={<AdminStaffTrustees />}
           />
         </Routes>
       </ScrollToTop>

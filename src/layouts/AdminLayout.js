@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import AdminNav from './AdminNav';
 const AdminLayout = ({ children }) => {
   return (
-    <div className='container-fluid my-3'>
-      <div className='row justify-content-center '>
-        <div className='col-lg-2 h-100'>
+    <div className='container-fluid'>
+      <div className='row'>
+        <div className='col-lg-2'>
           <AdminNav />
         </div>
-        <ActionContainer className='col-lg-10 shadow px-5 pt-5'>
+        <ActionContainer className='col-lg-10 px-5 pt-5'>
           <Container>{children}</Container>
         </ActionContainer>
       </div>
@@ -18,8 +18,8 @@ const AdminLayout = ({ children }) => {
 
 const ActionContainer = styled.div`
   overflow: hidden;
-  border-top-right-radius: 2.5rem;
-  border-bottom-right-radius: 2.5rem;
+  /* border-top-right-radius: 2.5rem;
+  border-bottom-right-radius: 2.5rem; */
 `;
 const Container = styled.div`
   height: 90vh;
