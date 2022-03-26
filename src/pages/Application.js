@@ -16,6 +16,7 @@ import Button from '../shared/Button';
 
 const Application = () => {
   const [grant, setGrant] = useState(null);
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
@@ -78,6 +79,7 @@ const Application = () => {
         });
         Toast('Details successfully submitted', 'success');
         setSending(false);
+        setSuccess(true);
       })
       .catch((err) => {
         console.log(err);
@@ -85,85 +87,104 @@ const Application = () => {
         Toast('There was a problem sending your application', 'info');
       });
   };
+
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='application'>
       <FormContainer>
-        <FormHeader className='py-2'>{`${grant?.title} grants application`}</FormHeader>
-        <form className='mt-5' onSubmit={handleSubmit}>
-          <div className='row mb-4 justify-content-center'>
-            <div className='col-lg-3 form-group'>
-              {/* <label htmlFor='title' className='form-label'>
+        {success ? (
+          <div>
+            <h6>
+              You have not successfully registered for this grant, please click
+              on the button below and proceed to take our test. Please Ensure
+              you only do once.
+            </h6>
+            <div className='mt-3'>
+              <a href={grant?.link} target='_blank' rel='noreferrer'>
+                <Button title='take test' primary />
+              </a>
+            </div>
+          </div>
+        ) : (
+          <>
+            {' '}
+            <FormHeader className='py-2'>{`${grant?.title} grants application`}</FormHeader>
+            <form className='mt-5' onSubmit={handleSubmit}>
+              <div className='row mb-4 justify-content-center'>
+                <div className='col-lg-3 form-group'>
+                  {/* <label htmlFor='title' className='form-label'>
                 Title
               </label> */}
-              <select
-                className='form-select'
-                id='title'
-                name='title'
-                aria-label='title'
-                placeholder='Mr/Mrs'
-              >
-                <option value='1'>Title</option>
-                <option value='2'>Mr</option>
-                <option value='3'>Mrs</option>
-              </select>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-6 mb-4 form-group'>
-              <label htmlFor='firstName' className='form-label'>
-                First Name
-              </label>
-              <input
-                type='text'
-                name='firstName'
-                id='firstName'
-                className='form-control'
-                placeholder='First Name'
-                value={formData.firstName}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className='col-lg-6 mb-4 form-group'>
-              <label htmlFor='lastName' className='form-label'>
-                Last Name
-              </label>
-              <input
-                type='text'
-                name='lastName'
-                id='lastName'
-                className='form-control'
-                value={formData.lastName}
-                placeholder='Last Name'
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-12 mb-4 form-group'>
-              <label htmlFor='email' className='form-label'>
-                Email Address
-              </label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                className='form-control'
-                value={formData.email}
-                placeholder='sample@email.com'
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-          </div>
-          <div className='text-center'>
-            <Button
-              title='register for this grant'
-              primary
-              disabled={sending}
-              loading={sending}
-            />
-          </div>
-        </form>
+                  <select
+                    className='form-select'
+                    id='title'
+                    name='title'
+                    aria-label='title'
+                    placeholder='Mr/Mrs'
+                  >
+                    <option value='1'>Title</option>
+                    <option value='2'>Mr</option>
+                    <option value='3'>Mrs</option>
+                  </select>
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col-lg-6 mb-4 form-group'>
+                  <label htmlFor='firstName' className='form-label'>
+                    First Name
+                  </label>
+                  <input
+                    type='text'
+                    name='firstName'
+                    id='firstName'
+                    className='form-control'
+                    placeholder='First Name'
+                    value={formData.firstName}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className='col-lg-6 mb-4 form-group'>
+                  <label htmlFor='lastName' className='form-label'>
+                    Last Name
+                  </label>
+                  <input
+                    type='text'
+                    name='lastName'
+                    id='lastName'
+                    className='form-control'
+                    value={formData.lastName}
+                    placeholder='Last Name'
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col-lg-12 mb-4 form-group'>
+                  <label htmlFor='email' className='form-label'>
+                    Email Address
+                  </label>
+                  <input
+                    type='email'
+                    name='email'
+                    id='email'
+                    className='form-control'
+                    value={formData.email}
+                    placeholder='sample@email.com'
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+              </div>
+              <div className='text-center'>
+                <Button
+                  title='register for this grant'
+                  primary
+                  disabled={sending}
+                  loading={sending}
+                />
+              </div>
+            </form>
+          </>
+        )}
       </FormContainer>
     </Layout>
   );
@@ -184,5 +205,10 @@ const FormContainer = styled.div`
     width: 100%;
   }
 `;
+// const Terms = styled.div`
+//   & ul {
+//     list-style: decimal;
+//   }
+// `;
 
 export default Application;

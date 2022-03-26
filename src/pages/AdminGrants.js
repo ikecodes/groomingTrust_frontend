@@ -64,6 +64,7 @@ const AdminGrants = () => {
           const grantsRef = collection(db, 'grants');
           addDoc(grantsRef, {
             title: formData.title,
+            link: formData.link,
             deadline: formData.deadline,
             imageUrl: url,
             description: formData.description,
