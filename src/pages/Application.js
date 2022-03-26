@@ -21,12 +21,9 @@ const Application = () => {
   const [formData, setFormData] = useState({
     grantName: grant?.title,
     title: 'Mr',
-    fullName: '',
-    dob: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    phone: '',
-    address: '',
-    reason: '',
     createdAt: Timestamp.now().toDate(),
   });
   const location = useLocation();
@@ -54,38 +51,32 @@ const Application = () => {
     e.preventDefault();
     if (
       !formData.title ||
-      !formData.fullName ||
-      !formData.dob ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.address ||
-      !formData.reason
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email
     ) {
       Toast('Please fill all the fields', 'info');
       return;
     }
-
     setSending(true);
     const applicationsRef = collection(db, 'applications');
     addDoc(applicationsRef, {
       title: formData.title,
       grantName: grant?.title,
-      fullName: formData.fullName,
-      dob: formData.dob,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
       email: formData.email,
-      phone: formData.phone,
-      address: formData.address,
-      reason: formData.reason,
       createdAt: Timestamp.now().toDate(),
     })
       .then(() => {
         setFormData({
           ...formData,
-          fullName: '',
+          firstName: '',
+          lastName: '',
           email: '',
-          message: '',
+          phone: '',
         });
-        Toast('Application successfully submitted', 'success');
+        Toast('Details successfully submitted', 'success');
         setSending(false);
       })
       .catch((err) => {
@@ -99,12 +90,12 @@ const Application = () => {
     <Layout header='application'>
       <FormContainer>
         <FormHeader className='py-2'>{`${grant?.title} grants application`}</FormHeader>
-        <form onSubmit={handleSubmit}>
-          <div className='row mb-4'>
+        <form className='mt-5' onSubmit={handleSubmit}>
+          <div className='row mb-4 justify-content-center'>
             <div className='col-lg-3 form-group'>
-              <label htmlFor='title' className='form-label'>
+              {/* <label htmlFor='title' className='form-label'>
                 Title
-              </label>
+              </label> */}
               <select
                 className='form-select'
                 id='title'
@@ -112,43 +103,44 @@ const Application = () => {
                 aria-label='title'
                 placeholder='Mr/Mrs'
               >
-                <option value='1'>Mr</option>
-                <option value='2'>Mrs</option>
+                <option value='1'>Title</option>
+                <option value='2'>Mr</option>
+                <option value='3'>Mrs</option>
               </select>
             </div>
           </div>
           <div className='row'>
-            <label htmlFor='fullName' className='form-label'>
-              Applicant's Full Name
-            </label>
-            <div className='col-lg-12 mb-4 form-group'>
-              <input
-                type='text'
-                name='fullName'
-                id=''
-                className='form-control'
-                placeholder='Full Name'
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-          </div>
-          <div className='row mb-4'>
-            <div className='col-lg-12 form-group '>
-              <label htmlFor='dob' className='form-label'>
-                Date of Birth
+            <div className='col-lg-6 mb-4 form-group'>
+              <label htmlFor='firstName' className='form-label'>
+                First Name
               </label>
               <input
-                type='date'
-                name='dob'
-                id='dob'
+                type='text'
+                name='firstName'
+                id='firstName'
                 className='form-control'
-                placeholder='Date of Birth'
+                placeholder='First Name'
+                value={formData.firstName}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div className='col-lg-6 mb-4 form-group'>
+              <label htmlFor='lastName' className='form-label'>
+                Last Name
+              </label>
+              <input
+                type='text'
+                name='lastName'
+                id='lastName'
+                className='form-control'
+                value={formData.lastName}
+                placeholder='Last Name'
                 onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
-          <div className='row mb-4'>
-            <div className='col-lg-12 form-group'>
+          <div className='row'>
+            <div className='col-lg-12 mb-4 form-group'>
               <label htmlFor='email' className='form-label'>
                 Email Address
               </label>
@@ -157,58 +149,20 @@ const Application = () => {
                 name='email'
                 id='email'
                 className='form-control'
+                value={formData.email}
                 placeholder='sample@email.com'
                 onChange={(e) => handleChange(e)}
               />
             </div>
           </div>
-          <div className='row mb-4'>
-            <div className='col-lg-12 form-group'>
-              <label htmlFor='phone' className='form-label'>
-                Phone Number
-              </label>
-              <input
-                type='tel'
-                name='phone'
-                id='phone'
-                className='form-control'
-                placeholder='Phone Number'
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
+          <div className='text-center'>
+            <Button
+              title='register for this grant'
+              primary
+              disabled={sending}
+              loading={sending}
+            />
           </div>
-          <div className='row mb-4'>
-            <div className='col-lg-12 form-group'>
-              <label htmlFor='address' className='form-label'>
-                Address Line 1
-              </label>
-              <input
-                type='text'
-                name='address'
-                id='address'
-                className='form-control'
-                placeholder='Address'
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-          </div>
-          <div className='row mb-4'>
-            <div className='col-lg-12 form-group'>
-              <label htmlFor='reason' className='form-label'>
-                Describe your reason for applying for this grant
-              </label>
-              <textarea
-                name='reason'
-                id='reason'
-                cols='30'
-                rows='5'
-                className='form-control'
-                placeholder='Type...'
-                onChange={(e) => handleChange(e)}
-              ></textarea>
-            </div>
-          </div>
-          <Button title='apply' primary disabled={sending} loading={sending} />
         </form>
       </FormContainer>
     </Layout>

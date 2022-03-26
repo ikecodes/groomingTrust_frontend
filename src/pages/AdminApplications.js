@@ -65,6 +65,15 @@ const AdminApplications = () => {
       formatter: (application) => <>{application.id}</>,
     },
     {
+      dataField: 'grantName',
+      text: 'Grant Name',
+      formatter: (cellContent, application) => (
+        <>
+          <span>{application.grantName}</span>
+        </>
+      ),
+    },
+    {
       dataField: 'title',
       text: 'Title',
       formatter: (cellContent, application) => (
@@ -74,11 +83,20 @@ const AdminApplications = () => {
       ),
     },
     {
-      dataField: 'fullName',
-      text: 'Full Name',
+      dataField: 'firstName',
+      text: 'First Name',
       formatter: (cellContent, application) => (
         <>
-          <span>{application.fullName}</span>
+          <span>{application.firstName}</span>
+        </>
+      ),
+    },
+    {
+      dataField: 'lastName',
+      text: 'Last Name',
+      formatter: (cellContent, application) => (
+        <>
+          <span>{application.lastName}</span>
         </>
       ),
     },
@@ -89,36 +107,6 @@ const AdminApplications = () => {
       formatter: (cellContent, application) => (
         <>
           <span className='mb-1'>{application.email}</span>
-        </>
-      ),
-    },
-    {
-      dataField: 'dob',
-      text: 'D.O.B',
-      sort: true,
-      formatter: (cellContent, application) => (
-        <>
-          <span className='mb-1 text-nowrap'>{application.dob}</span>
-        </>
-      ),
-    },
-    {
-      dataField: 'phone',
-      text: 'Phone',
-      sort: true,
-      formatter: (cellContent, application) => (
-        <>
-          <span className='mb-1 text-nowrap'>{application.phone}</span>
-        </>
-      ),
-    },
-    {
-      dataField: 'reason',
-      text: 'Reason',
-      sort: true,
-      formatter: (cellContent, application) => (
-        <>
-          <span className='text-secondary'>{application.reason}</span>
         </>
       ),
     },
