@@ -4,7 +4,6 @@ import { db } from '../firebase';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
-import StaffImg from '../assets/images/staff.jpg';
 import StaffTrusteeCard from '../components/StaffTrusteeCard';
 
 const StaffAndTrustees = () => {
