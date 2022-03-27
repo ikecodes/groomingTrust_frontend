@@ -17,13 +17,9 @@ const DisplayModal = (props) => {
         <div className='d-flex gap-3 flex-wrap flex-md-nowrap'>
           <Image alt={props.active} src={props.image} h={15} unit='rem' />
           <ContentBox>
-            <h4>Centered Modal</h4>
-            <h5>Executive Assistant, President's Office</h5>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
-            </p>
+            <h4>{props?.name}</h4>
+            <h5>{props?.position}</h5>
+            <p>{props?.about}</p>
           </ContentBox>
         </div>
       </Modal.Body>

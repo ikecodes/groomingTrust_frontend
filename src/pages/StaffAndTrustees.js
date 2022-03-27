@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { collection, query, onSnapshot, where } from 'firebase/firestore';
+import { db } from '../firebase';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Layout from '../layouts/Layout';
@@ -8,11 +9,25 @@ import StaffTrusteeCard from '../components/StaffTrusteeCard';
 
 const StaffAndTrustees = () => {
   const [active, setActive] = useState('staff');
-  const [loading, setloading] = useState(true);
+  const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  setTimeout(() => {
-    setloading(false);
-  }, 2000);
+  useEffect(() => {
+    setLoading(true);
+    const membersRef = collection(db, 'members');
+    const q = query(membersRef, where('category', '==', `${active}`));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const members = snapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setMembers(members);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, [active]);
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='staff & trustees'>
@@ -24,18 +39,25 @@ const StaffAndTrustees = () => {
           staff
         </h6>
         <h6
-          className={`${active === 'trustees' ? 'activeClass' : ''}`}
-          onClick={() => setActive('trustees')}
+          className={`${active === 'trustee' ? 'activeClass' : ''}`}
+          onClick={() => setActive('trustee')}
         >
           trustees
         </h6>
       </TypeContainer>
 
       <div className='row'>
-        <StaffTrusteeCard active={active} image={StaffImg} />
-        <StaffTrusteeCard active={active} image={StaffImg} />
-        <StaffTrusteeCard active={active} image={StaffImg} />
-        <StaffTrusteeCard active={active} image={StaffImg} />
+        {members.length > 0 &&
+          members.map((member) => (
+            <StaffTrusteeCard
+              key={member.id}
+              name={member.name}
+              position={member.position}
+              about={member.about}
+              active={active}
+              image={member.imageUrl}
+            />
+          ))}
       </div>
     </Layout>
   );
