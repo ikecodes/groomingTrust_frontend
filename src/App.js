@@ -5,7 +5,6 @@ import ChairmanMessage from './pages/ChairmanMessage';
 import About from './pages/About';
 import StaffAndTrustees from './pages/StaffAndTrustees';
 import Gallery from './pages/Gallery';
-import GalleryView from './pages/GalleryView';
 import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
@@ -47,7 +46,6 @@ function App() {
             element={<StaffAndTrustees />}
           />
           <Route path='/gallery' exact element={<Gallery />} />
-          <Route path='/gallery-view' exact element={<GalleryView />} />
           <Route path='/frequently-asked-questions' exact element={<Faqs />} />
           <Route path='/contact-us' exact element={<Contact />} />
           <Route path='/portfolio' exact element={<Portfolio />} />

@@ -76,6 +76,7 @@ const AdminGallery = () => {
             id='caption'
             className='form-control'
             placeholder='Caption'
+            value={formData.caption}
             onChange={(e) => handleChange(e)}
           />
         </div>
