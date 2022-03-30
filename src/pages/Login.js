@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Form } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -8,12 +9,16 @@ import colors from '../constants/colors';
 import Button from '../shared/Button';
 import Logo from '../assets/images/Logo.png';
 import Toast from '../utils/Toast';
+import { setAuth } from '../slices/authSlice';
 const Login = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  onAuthStateChanged(auth, (user) => {
+    dispatch(setAuth(user.email));
+  });
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) return Toast('Please input all fields', 'info');
