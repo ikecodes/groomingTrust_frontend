@@ -27,6 +27,7 @@ import AdminMessages from './pages/AdminMessages';
 import AdminApplications from './pages/AdminApplications';
 import AdminGallery from './pages/AdminGallery';
 import AdminStaffTrustees from './pages/AdminStaffTrustees';
+import AdminProtected from './utils/AdminProtected';
 
 function App() {
   return (
@@ -59,21 +60,77 @@ function App() {
 
           {/*ADMIN ////////////////////////////////////////////////////////////////// */}
           <Route path='/login' exact element={<Login />} />
-          <Route path='/admin-grants' exact element={<AdminGrants />} />
-          <Route path='/admin-portfolio' exact element={<AdminPortfolio />} />
-          <Route path='/admin-blog' exact element={<AdminBlog />} />
-          <Route path='/admin-press' exact element={<AdminPress />} />
-          <Route path='/admin-messages' exact element={<AdminMessages />} />
+          <Route
+            path='/admin-grants'
+            exact
+            element={
+              <AdminProtected>
+                <AdminGrants />
+              </AdminProtected>
+            }
+          />
+          <Route
+            path='/admin-portfolio'
+            exact
+            element={
+              <AdminProtected>
+                <AdminPortfolio />
+              </AdminProtected>
+            }
+          />
+          <Route
+            path='/admin-blog'
+            exact
+            element={
+              <AdminProtected>
+                <AdminBlog />
+              </AdminProtected>
+            }
+          />
+          <Route
+            path='/admin-press'
+            exact
+            element={
+              <AdminProtected>
+                <AdminPress />
+              </AdminProtected>
+            }
+          />
+          <Route
+            path='/admin-messages'
+            exact
+            element={
+              <AdminProtected>
+                <AdminMessages />
+              </AdminProtected>
+            }
+          />
           <Route
             path='/admin-applications'
             exact
-            element={<AdminApplications />}
+            element={
+              <AdminProtected>
+                <AdminApplications />
+              </AdminProtected>
+            }
           />
-          <Route path='/admin-gallery' exact element={<AdminGallery />} />
+          <Route
+            path='/admin-gallery'
+            exact
+            element={
+              <AdminProtected>
+                <AdminGallery />
+              </AdminProtected>
+            }
+          />
           <Route
             path='/admin-staff-trustees'
             exact
-            element={<AdminStaffTrustees />}
+            element={
+              <AdminProtected>
+                <AdminStaffTrustees />
+              </AdminProtected>
+            }
           />
         </Routes>
       </ScrollToTop>

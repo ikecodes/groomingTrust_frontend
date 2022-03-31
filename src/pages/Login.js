@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Form } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -9,30 +8,28 @@ import colors from '../constants/colors';
 import Button from '../shared/Button';
 import Logo from '../assets/images/Logo.png';
 import Toast from '../utils/Toast';
-import { setAuth } from '../slices/authSlice';
 const Login = () => {
-  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
 
-  onAuthStateChanged(auth, (user) => {
-    dispatch(setAuth(user.email));
-  });
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) return Toast('Please input all fields', 'info');
-    // const user = await createUserWithEmailAndPassword(
-    //   auth,
-    //   'ike@gmail.com',
-    //   'test1234'
-    // );
-    await signInWithEmailAndPassword(auth, email, password);
-    // console.log(cred.user);
-    Toast('Successful login', 'success');
-    setTimeout(() => {
-      navigate('/admin-grants');
-    }, 2000);
+    try {
+      setLoading(true);
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      Toast('Successful login', 'success');
+      setTimeout(() => {
+        navigate('/admin-grants');
+      }, 2000);
+      localStorage.setItem('user', cred.user.email);
+      setLoading(false);
+    } catch (error) {
+      Toast(error.message, 'error');
+      setLoading(false);
+    }
   };
   return (
     <FormContainer>
@@ -65,7 +62,7 @@ const Login = () => {
           </div>
 
           <div className='text-start'>
-            <Button primary title='login' norounded />
+            <Button primary title='login' norounded loading={loading} />
           </div>
         </Form>
         <p>Input your email and password to login to the admin</p>
