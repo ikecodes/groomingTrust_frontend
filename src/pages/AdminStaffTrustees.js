@@ -13,6 +13,7 @@ const AdminStaffTrustees = () => {
     position: '',
     about: '',
     image: '',
+    imageRef: '',
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -39,10 +40,10 @@ const AdminStaffTrustees = () => {
     }
 
     setLoading(true);
-    const storageRef = ref(
-      storage,
-      `/${formData.category}/${Date.now()}${formData.image.name}`
-    );
+    const imageRef = `/${formData.category}/${Date.now()}${
+      formData.image.name
+    }`;
+    const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
@@ -62,6 +63,7 @@ const AdminStaffTrustees = () => {
             position: formData.position,
             about: formData.about,
             imageUrl: url,
+            imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
@@ -71,7 +73,7 @@ const AdminStaffTrustees = () => {
                 ...formData,
                 category: '',
                 name: '',
-                poisiton: '',
+                position: '',
                 about: '',
               });
             })

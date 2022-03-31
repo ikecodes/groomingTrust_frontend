@@ -1,12 +1,25 @@
 import React from 'react';
+import { deleteDocWithImage } from '../firebase';
+import { FaRegTrashAlt } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import EventImg from '../assets/images/event.jpg';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
 
-const BlogCard = ({ id, title, image, author, createdAt, description }) => {
+const BlogCard = ({
+  id,
+  title,
+  image,
+  author,
+  createdAt,
+  description,
+  imageRef,
+}) => {
+  const admin = localStorage.getItem('admin');
+  const handleDelete = async () => {
+    await deleteDocWithImage(imageRef, 'articles', id);
+  };
   return (
     <div className='col-lg-4 col-md-6 mb-5'>
       <CardContainer>
@@ -18,7 +31,7 @@ const BlogCard = ({ id, title, image, author, createdAt, description }) => {
             {author} |{' '}
             {new Date(createdAt.seconds * 1000).toLocaleDateString('en-US')}
           </Card.Text>
-          <CardImage alt='event' src={EventImg} />
+          <CardImage alt='event' src={image} />
           <Card.Body>
             <Card.Text>{description}</Card.Text>
             <Link to={`/blog-view?${id}`}>
@@ -26,6 +39,14 @@ const BlogCard = ({ id, title, image, author, createdAt, description }) => {
             </Link>
           </Card.Body>
         </Card>
+        {admin && (
+          <FaRegTrashAlt
+            role='button'
+            className='mt-3 text-danger'
+            size={25}
+            onClick={handleDelete}
+          />
+        )}
       </CardContainer>
     </div>
   );

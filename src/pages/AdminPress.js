@@ -12,6 +12,7 @@ const AdminPress = () => {
     date: '',
     image: '',
     link: '',
+    imageRef: '',
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -37,10 +38,8 @@ const AdminPress = () => {
     }
 
     setLoading(true);
-    const storageRef = ref(
-      storage,
-      `/press/${Date.now()}${formData.image.name}`
-    );
+    const imageRef = `/press/${Date.now()}${formData.image.name}`;
+    const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
@@ -59,6 +58,7 @@ const AdminPress = () => {
             date: formData.date,
             imageUrl: url,
             link: formData.link,
+            imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
@@ -128,7 +128,7 @@ const AdminPress = () => {
           />
         </div>
 
-        <div className='mb-3 form-group w-75'>
+        <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>
             Select press display image
           </label>

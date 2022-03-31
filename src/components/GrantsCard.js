@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteDocWithImage, deleteDocWithoutImage } from '../firebase';
+import { deleteDocWithoutImage } from '../firebase';
 import { Link } from 'react-router-dom';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import styled from 'styled-components';

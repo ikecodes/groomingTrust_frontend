@@ -50,11 +50,13 @@ const StaffAndTrustees = () => {
           members.map((member) => (
             <StaffTrusteeCard
               key={member.id}
+              id={member.id}
               name={member.name}
               position={member.position}
               about={member.about}
               active={active}
               image={member.imageUrl}
+              imageRef={member.imageRef}
             />
           ))}
       </div>

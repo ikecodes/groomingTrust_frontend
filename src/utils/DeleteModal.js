@@ -1,9 +1,20 @@
 import React from 'react';
+import { deleteDocWithoutImage, deleteDocWithImage } from '../firebase';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
 import colors from '../constants/colors';
 
 const DeleteModal = (props) => {
+  const handleDelete = () => {
+    if (props.imageRef) {
+      deleteDocWithImage(props.imageref, props.deleteref, props.deleteid);
+      props.onHide();
+    } else {
+      deleteDocWithoutImage(props.deleteref, props.deleteid);
+      props.onHide();
+    }
+  };
+
   return (
     <Modal
       {...props}
@@ -17,7 +28,9 @@ const DeleteModal = (props) => {
           <ContentBox>
             <h5>Are you sure you want to delete this?</h5>
             <div>
-              <button className='btn btn-danger'>Yes delete</button>
+              <button className='btn btn-danger' onClick={handleDelete}>
+                Yes delete
+              </button>
             </div>
           </ContentBox>
         </div>

@@ -37,6 +37,7 @@ const Press = () => {
               date={item.date}
               image={item.imageUrl}
               title={item.title}
+              imageRef={item.imageRef}
               link={item.link}
             />
           ))}

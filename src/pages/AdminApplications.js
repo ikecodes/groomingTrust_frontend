@@ -18,6 +18,8 @@ const AdminApplications = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [deleteid, setDeleteid] = useState(null);
+  const [deleteref, setDeleteref] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -119,7 +121,11 @@ const AdminApplications = () => {
           <IoMdTrash
             size={20}
             style={{ cursor: 'pointer' }}
-            onClick={() => setModalShow(true)}
+            onClick={() => {
+              setModalShow(true);
+              setDeleteid(application.id);
+              setDeleteref('applications');
+            }}
           />
         </div>
       ),
@@ -181,6 +187,8 @@ const AdminApplications = () => {
                         <DeleteModal // This is a modal for deleting messages
                           show={modalShow}
                           onHide={() => setModalShow(false)}
+                          deleteid={deleteid}
+                          deleteref={deleteref}
                         />
                       </div>
                       <Row className='align-items-md-center mt-30'>

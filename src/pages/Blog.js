@@ -38,6 +38,7 @@ const Blog = () => {
               description={article.description}
               createdAt={article.createdAt}
               image={article.imageUrl}
+              imageRef={article.imageRef}
               author={article.author}
             />
           ))}

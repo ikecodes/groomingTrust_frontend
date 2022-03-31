@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { deleteDocWithImage } from '../firebase';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
 import colors from '../constants/colors';
-import { deleteDocWithImage } from '../firebase';
 import Button from '../shared/Button';
 const PortfolioCard = ({ id, title, image, description, link, imageRef }) => {
   const admin = localStorage.getItem('admin');

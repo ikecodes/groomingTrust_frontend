@@ -14,6 +14,7 @@ const AdminBlog = () => {
     image: '',
     description: '',
     body: '',
+    imageRef: '',
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -43,10 +44,8 @@ const AdminBlog = () => {
     }
 
     setLoading(true);
-    const storageRef = ref(
-      storage,
-      `/articles/${Date.now()}${formData.image.name}`
-    );
+    const imageRef = `/articles/${Date.now()}${formData.image.name}`;
+    const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
@@ -66,6 +65,7 @@ const AdminBlog = () => {
             imageUrl: url,
             description: formData.description,
             body: formData.body,
+            imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
@@ -122,7 +122,7 @@ const AdminBlog = () => {
           />
         </div>
 
-        <div className='mb-3 form-group w-75'>
+        <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>
             Select Article display image
           </label>

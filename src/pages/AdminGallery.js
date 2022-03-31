@@ -10,6 +10,7 @@ const AdminGallery = () => {
   const [formData, setFormData] = useState({
     caption: '',
     image: '',
+    imageRef: '',
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -28,10 +29,8 @@ const AdminGallery = () => {
       return;
     }
     setLoading(true);
-    const storageRef = ref(
-      storage,
-      `/gallery/${Date.now()}${formData.image.name}`
-    );
+    const imageRef = `/gallery/${Date.now()}${formData.image.name}`;
+    const storageRef = ref(storage, imageRef);
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
     uploadImage.on(
       'state_changed',
@@ -46,6 +45,7 @@ const AdminGallery = () => {
           addDoc(galleryRef, {
             caption: formData.caption,
             imageUrl: url,
+            imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
@@ -80,7 +80,7 @@ const AdminGallery = () => {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div className='mb-3 form-group w-75'>
+        <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>
             Select image to upload
           </label>

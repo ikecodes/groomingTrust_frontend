@@ -18,6 +18,8 @@ const AdminMessages = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [deleteid, setDeleteid] = useState(null);
+  const [deleteref, setDeleteref] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -89,12 +91,16 @@ const AdminMessages = () => {
       dataField: 'delete',
       text: 'Delete',
       sort: true,
-      formatter: (cellContent, application) => (
+      formatter: (cellContent, message) => (
         <div className='text-center text-danger pe-auto'>
           <IoMdTrash
             size={20}
             style={{ cursor: 'pointer' }}
-            onClick={() => setModalShow(true)}
+            onClick={() => {
+              setModalShow(true);
+              setDeleteid(message.id);
+              setDeleteref('messages');
+            }}
           />
         </div>
       ),
@@ -155,6 +161,8 @@ const AdminMessages = () => {
                         <DeleteModal
                           show={modalShow}
                           onHide={() => setModalShow(false)}
+                          deleteid={deleteid}
+                          deleteref={deleteref}
                         />
                       </div>
                       <Row className='align-items-md-center mt-30'>

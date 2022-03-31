@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
+import { deleteDocWithImage } from '../firebase';
+import { FaRegTrashAlt } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
 import Button from '../shared/Button';
 import Image from '../shared/Image';
 import DisplayModal from '../utils/DisplayModal';
-const StaffTrusteeCard = ({ active, image, name, position, about }) => {
+const StaffTrusteeCard = ({
+  id,
+  active,
+  image,
+  name,
+  position,
+  about,
+  imageRef,
+}) => {
   const [modalShow, setModalShow] = useState(false);
+  const admin = localStorage.getItem('admin');
+  const handleDelete = async () => {
+    await deleteDocWithImage(imageRef, 'members', id);
+  };
 
   return (
     <div className='col-lg-3 col-md-6 mb-5'>
@@ -23,6 +37,14 @@ const StaffTrusteeCard = ({ active, image, name, position, about }) => {
           <Card.Text>{position}</Card.Text>
           <Button title='read bio' handleClick={() => setModalShow(true)} />
         </Card.Body>
+        {admin && (
+          <FaRegTrashAlt
+            role='button'
+            className='m-2 text-danger'
+            size={25}
+            onClick={handleDelete}
+          />
+        )}
       </Card>
     </div>
   );
