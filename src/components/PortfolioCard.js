@@ -1,9 +1,16 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { FaRegTrashAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 import colors from '../constants/colors';
+import { deleteDocWithImage } from '../firebase';
 import Button from '../shared/Button';
-const PortfolioCard = ({ id, title, image, description, link }) => {
+const PortfolioCard = ({ id, title, image, description, link, imageRef }) => {
+  const admin = localStorage.getItem('admin');
+  const handleDelete = async () => {
+    await deleteDocWithImage(imageRef, 'portfolio', id);
+  };
+
   return (
     <div className='col-lg-4 col-md-6 mb-5'>
       <CardContainer>
@@ -17,6 +24,14 @@ const PortfolioCard = ({ id, title, image, description, link }) => {
             </a>
           </Card.Body>
         </Card>
+        {admin && (
+          <FaRegTrashAlt
+            role='button'
+            className='mt-3 text-danger'
+            size={25}
+            onClick={handleDelete}
+          />
+        )}
       </CardContainer>
     </div>
   );

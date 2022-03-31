@@ -29,27 +29,6 @@ const Portfolio = () => {
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='portfolio'>
-      {/* <TypeContainer>
-        <h6
-          className={`${active === 'health' ? 'activeClass' : ''}`}
-          onClick={() => setActive('health')}
-        >
-          health
-        </h6>
-        <h6
-          className={`${active === 'education' ? 'activeClass' : ''}`}
-          onClick={() => setActive('education')}
-        >
-          education
-        </h6>
-        <h6
-          className={`${active === 'investment' ? 'activeClass' : ''}`}
-          onClick={() => setActive('investment')}
-        >
-          investment
-        </h6>
-      </TypeContainer> */}
-
       <div className='row'>
         {portfolios.length > 0 &&
           portfolios.map((portfolio) => (
@@ -59,6 +38,7 @@ const Portfolio = () => {
               title={portfolio.title}
               description={portfolio.description}
               image={portfolio.imageUrl}
+              imageRef={portfolio.imageRef}
               link={portfolio.link}
             />
           ))}

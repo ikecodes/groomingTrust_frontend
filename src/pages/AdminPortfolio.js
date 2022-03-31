@@ -12,6 +12,7 @@ const AdminPortfolio = () => {
     image: '',
     description: '',
     link: '',
+    imageRef: '',
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -36,10 +37,8 @@ const AdminPortfolio = () => {
       return;
     }
     setLoading(true);
-    const storageRef = ref(
-      storage,
-      `/portfolio/${Date.now()}${formData.image.name}`
-    );
+    const imageRef = `/portfolio/${Date.now()}${formData.image.name}`;
+    const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
@@ -58,6 +57,7 @@ const AdminPortfolio = () => {
             imageUrl: url,
             description: formData.description,
             link: formData.link,
+            imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteDocWithImage } from '../firebase';
+import { deleteDocWithImage, deleteDocWithoutImage } from '../firebase';
 import { Link } from 'react-router-dom';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ import { Fade } from 'react-reveal';
 const GrantsCard = ({ id, title, description, image, imageRef }) => {
   const admin = localStorage.getItem('admin');
   const handleDelete = async () => {
-    deleteDocWithImage(imageRef, 'grants', id);
+    deleteDocWithoutImage('portfolio', id);
   };
 
   return (
