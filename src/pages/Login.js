@@ -24,7 +24,7 @@ const Login = () => {
       setTimeout(() => {
         navigate('/admin-grants');
       }, 2000);
-      localStorage.setItem('user', cred.user.email);
+      localStorage.setItem('admin', cred.user.email);
       setLoading(false);
     } catch (error) {
       Toast(error.message, 'error');

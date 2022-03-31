@@ -15,6 +15,7 @@ const AdminGrants = () => {
     image: '',
     description: '',
     body: '',
+    imageRef: '',
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -43,12 +44,10 @@ const AdminGrants = () => {
       Toast('Please fill all the fields', 'info');
       return;
     }
-
     setLoading(true);
-    const storageRef = ref(
-      storage,
-      `/grants/${Date.now()}${formData.image.name}`
-    );
+
+    const imageRef = `/grants/${Date.now()}${formData.image.name}`;
+    const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
@@ -69,6 +68,7 @@ const AdminGrants = () => {
             imageUrl: url,
             description: formData.description,
             body: formData.body,
+            imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {

@@ -1,11 +1,19 @@
 import React from 'react';
+import { deleteDocWithImage } from '../firebase';
 import { Link } from 'react-router-dom';
+import { FaRegTrashAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import Button from '../shared/Button';
 import Image from '../shared/Image';
 import { Fade } from 'react-reveal';
-const GrantsCard = ({ id, title, description, image }) => {
+
+const GrantsCard = ({ id, title, description, image, imageRef }) => {
+  const admin = localStorage.getItem('admin');
+  const handleDelete = async () => {
+    deleteDocWithImage(imageRef, 'grants', id);
+  };
+
   return (
     <div className='row my-5 flex-md-row-reverse'>
       <Fade left>
@@ -22,6 +30,14 @@ const GrantsCard = ({ id, title, description, image }) => {
               </Link>
             </div>
           </Container>
+          {admin && (
+            <FaRegTrashAlt
+              role='button'
+              className='mt-3 text-danger'
+              size={25}
+              onClick={handleDelete}
+            />
+          )}
         </div>
       </Fade>
     </div>
