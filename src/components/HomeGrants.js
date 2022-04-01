@@ -38,6 +38,7 @@ const Grants = () => {
               title={grant.title}
               image={grant.imageUrl}
               description={grant.description}
+              imageRef={grant.imageRef}
             />
           ))}
       </div>
