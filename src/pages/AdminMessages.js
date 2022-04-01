@@ -111,7 +111,9 @@ const AdminMessages = () => {
   return (
     <AdminLayout>
       <div className='w-75' style={{ fontSize: '0.8rem' }}>
-        <h4 className='text-capitalize'>Applications list</h4>
+        <h4 className='text-capitalize text-center'>
+          Messages from contact form
+        </h4>
         <div>
           <PaginationProvider
             pagination={paginationFactory(pageOptions)}
@@ -148,7 +150,7 @@ const AdminMessages = () => {
                           // selectRow={selectRow}
                           defaultSorted={defaultSorted}
                           classes={
-                            'table align-middle table-nowrap table-hover'
+                            'table align-middle table-nowrap table-hover table-light'
                           }
                           bordered={false}
                           striped={false}

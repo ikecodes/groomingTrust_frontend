@@ -107,7 +107,7 @@ export const adminMenu = [
   },
   {
     id: '8',
-    name: 'staft/trustees',
+    name: 'staff/trustees',
     path: '/admin-staff-trustees',
   },
 ];

@@ -134,14 +134,14 @@ const AdminBlog = () => {
             onChange={(e) => handleImageChange(e)}
           />
         </div>
-        <div className='mb-3 form-group'>
+        <div className='mb-3 form-group w-50'>
           <textarea
             name='description'
             id='text'
-            cols='70'
+            cols='60'
             rows='5'
             placeholder='Preview text'
-            className='bg-light p-2'
+            className='bg-light form-control'
             value={formData.description}
             onChange={(e) => handleChange(e)}
           ></textarea>

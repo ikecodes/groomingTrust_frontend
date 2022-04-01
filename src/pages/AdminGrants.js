@@ -136,7 +136,7 @@ const AdminGrants = () => {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div className='mb-3 form-group w-75'>
+        <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>
             Select grant display image
           </label>
@@ -149,14 +149,14 @@ const AdminGrants = () => {
             onChange={(e) => handleImageChange(e)}
           />
         </div>
-        <div className='mb-3 form-group'>
+        <div className='mb-3 form-group w-50'>
           <textarea
             name='description'
-            cols='70'
+            cols='60'
             rows='5'
             value={formData.description}
             placeholder='Preview text'
-            className='bg-light p-2'
+            className='bg-light form-control'
             onChange={(e) => handleChange(e)}
           ></textarea>
         </div>

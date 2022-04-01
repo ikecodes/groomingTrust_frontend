@@ -135,9 +135,9 @@ const AdminStaffTrustees = () => {
           <textarea
             name='about'
             id='about'
-            cols='70'
+            cols='60'
             rows='5'
-            className='form-control'
+            className='bg-light form-control'
             placeholder='About...'
             value={formData.about}
             onChange={(e) => handleChange(e)}

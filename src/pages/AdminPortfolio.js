@@ -94,7 +94,7 @@ const AdminPortfolio = () => {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div className='mb-3 form-group w-75'>
+        <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>
             Select portfolio image
           </label>
@@ -106,14 +106,14 @@ const AdminPortfolio = () => {
             onChange={(e) => handleImageChange(e)}
           />
         </div>
-        <div className='mb-3 form-group'>
+        <div className='mb-3 form-group w-50'>
           <textarea
             name='description'
             id='text'
-            cols='70'
+            cols='60'
             rows='5'
             placeholder='Portfolio text'
-            className='bg-light p-2'
+            className='bg-light form-control'
             value={formData.description}
             onChange={(e) => handleChange(e)}
           ></textarea>
