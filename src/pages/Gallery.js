@@ -115,26 +115,31 @@ const GalleryC = () => {
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='gallery'>
-      <div
-        style={{
-          display: 'block',
-          minHeight: '1px',
-          width: '100%',
-          overflow: 'auto',
-          textAlign: 'center',
-          background: `${colors.grey}`,
-        }}
-      >
-        {IMAGES.length > 0 && (
-          <ImageGallery
-            items={IMAGES}
-            thumbnailPosition='top'
-            showPlayButton={false}
-            showBullets={true}
-            showIndex={true}
-          />
-        )}
+      <div className='row justify-content-center'>
+        <div className='col-lg-8'>
+          <div
+            style={{
+              display: 'block',
+              minHeight: '1px',
+              width: '100%',
+              overflow: 'auto',
+              textAlign: 'center',
+              background: `${colors.grey}`,
+            }}
+          >
+            {IMAGES.length > 0 && (
+              <ImageGallery
+                items={IMAGES}
+                thumbnailPosition='top'
+                showPlayButton={false}
+                showBullets={true}
+                showIndex={true}
+              />
+            )}
+          </div>
+        </div>
       </div>
+
       {admin && (
         <div className='w-75 mt-5' style={{ fontSize: '0.8rem' }}>
           {/* <h4 className='text-capitalize'>Applications list</h4> */}
