@@ -1,11 +1,38 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Layout from '../layouts/Layout';
+import React, { useState } from "react";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Layout from "../layouts/Layout";
 const Faqs = () => {
-  const [active, setActive] = useState('staff');
+  const [active, setActive] = useState("grooming");
   const [loading, setloading] = useState(true);
 
+  const questions = [
+    {
+      q: "Is Grooming Endowment Trust an NGO?",
+      a: "Yes, it is an NGO",
+      type: "grooming",
+    },
+    {
+      q: "Do grooming Endowment give our loans?",
+      a: "No, we do not but you can look out for our grant programs that promote businesses ",
+      type: "grooming",
+    },
+    {
+      q: "How do I set a meeting as a fund manager?",
+      a: "Please be sure to email us with your proposals and we would respond",
+      type: "grooming",
+    },
+    {
+      q: "How much can I get from a grant?",
+      a: "Different grant programs have different funding awarded as long as requirements are fulfilled to be awarded. ",
+      type: "grants",
+    },
+    {
+      q: "Is there an age limit for the grant? ",
+      a: "Depending on the grants awarded, business related grant applicants are usually expected to be 18 and above. ",
+      type: "grants",
+    },
+  ];
   setTimeout(() => {
     setloading(false);
   }, 2000);
@@ -14,47 +41,27 @@ const Faqs = () => {
     <Layout header='FAQs'>
       <TypeContainer className='shadow'>
         <h6
-          className={`${active === 'staff' ? 'activeClass' : ''}`}
-          onClick={() => setActive('staff')}
+          className={`${active === "grooming" ? "activeClass" : ""}`}
+          onClick={() => setActive("grooming")}
         >
           about grooming endowment trust
         </h6>
         <h6
-          className={`${active === 'trustees' ? 'activeClass' : ''}`}
-          onClick={() => setActive('trustees')}
+          className={`${active === "grants" ? "activeClass" : ""}`}
+          onClick={() => setActive("grants")}
         >
           about grant application
         </h6>
       </TypeContainer>
       <FAQContainer>
-        <div className='mb-5 border-bottom'>
-          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-          </p>
-        </div>
-        <div className='mb-5 border-bottom'>
-          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-            molestiae ab maiores hic ex
-          </p>
-        </div>
-        <div className='mb-5 border-bottom'>
-          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-            molestiae ab maiores hic ex ipsa?
-          </p>
-        </div>
-        <div className='mb-5 border-bottom'>
-          <h5 className='text-capitalize'>how are the top companies chosen?</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde
-            molestiae ab maiores hic ex ipsa? Corporis quam natus deleniti
-            accusantium sit? Odio hi
-          </p>
-        </div>
+        {questions
+          .filter((question) => question.type === active)
+          .map((question) => (
+            <div className='mb-5 border-bottom' key={question.q}>
+              <h5 className='text-capitalize'>{question.q}</h5>
+              <p>{question.a}</p>
+            </div>
+          ))}
       </FAQContainer>
     </Layout>
   );

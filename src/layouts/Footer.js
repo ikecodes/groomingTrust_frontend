@@ -1,11 +1,11 @@
-import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
-import { Form } from 'react-bootstrap';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Logo from '../assets/images/Logo.png';
-import Button from '../shared/Button';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Form } from "react-bootstrap";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Logo from "../assets/images/Logo.png";
+import Button from "../shared/Button";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <Container>
@@ -13,9 +13,7 @@ const Footer = () => {
         <div className='row gap-4 gap-md-0'>
           <div className='col-lg-3'>
             <ImageBox src={Logo} />
-            <p className='pt-4'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p className='pt-4'>120 Ikotun Egbe Road, Ejigbo, Lagos.</p>
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
@@ -25,7 +23,6 @@ const Footer = () => {
               <Link to='/contact-us'>
                 <li className='my-3'>contact</li>
               </Link>
-              <li className='my-3'>terms & condition</li>
             </ul>
           </div>
           <div className='col-lg-3'>

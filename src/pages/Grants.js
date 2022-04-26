@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
-import { db } from '../firebase';
+import React, { useState, useEffect } from "react";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
+import { db } from "../firebase";
 
-import styled from 'styled-components';
-import GrantsCard from '../components/GrantsCard';
-import colors from '../constants/colors';
-import Layout from '../layouts/Layout';
+import styled from "styled-components";
+import GrantsCard from "../components/GrantsCard";
+import colors from "../constants/colors";
+import Layout from "../layouts/Layout";
 
 const Grants = () => {
   const [grants, setGrants] = useState([]);
@@ -13,8 +13,8 @@ const Grants = () => {
 
   useEffect(() => {
     setLoading(true);
-    const grantsRef = collection(db, 'grants');
-    const q = query(grantsRef, orderBy('createdAt', 'desc'));
+    const grantsRef = collection(db, "grants");
+    const q = query(grantsRef, orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const grants = snapshot.docs.map((doc) => {
         return {
@@ -33,10 +33,9 @@ const Grants = () => {
       <Container>
         <h1 className='text-capitalize my-3'>apply for a grant</h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Reprehenderit tempora rerum esse dolore. Aut est sapiente asperiores
-          ab aliquam molestias consectetur autem accusantium doloribus dolorum
-          vitae tempora cupiditate, dolores quisquam.
+          As stated in our objectives, Grooming Endowment Trust creates value
+          and promotes impact through various grant programs made available to
+          the public.
         </p>
         <div>
           {grants.length > 0 &&
@@ -51,12 +50,12 @@ const Grants = () => {
               />
             ))}
         </div>
-        <h4 className='text-capitalize my-3'>guidelines for application</h4>
+        <h4 className='text-capitalize my-3'>Strict Adherence of Rule</h4>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Reprehenderit tempora rerum esse dolore. Aut est sapiente asperiores
-          ab aliquam molestias consectetur autem accusantium doloribus dolorum
-          vitae tempora cupiditate, dolores quisquam.
+          Please note that any fraudulent applications and non-existent business
+          applications would be automatically flagged and disqualified from
+          applying for any other grant. Please be sure to read all requirements
+          for each grant before applications are made.
         </p>
       </Container>
     </Layout>

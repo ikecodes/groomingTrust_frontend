@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { addDoc, Timestamp, collection } from 'firebase/firestore';
-import { db } from '../firebase';
-import { RiSendPlaneFill } from 'react-icons/ri';
-import { MdLocationOn } from 'react-icons/md';
-import { BsTelephoneFill } from 'react-icons/bs';
-import { Form } from 'react-bootstrap';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Layout from '../layouts/Layout';
-import Button from '../shared/Button';
-import Toast from '../utils/Toast';
+import React, { useState } from "react";
+import { addDoc, Timestamp, collection } from "firebase/firestore";
+import { db } from "../firebase";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { MdLocationOn } from "react-icons/md";
+import { BsTelephoneFill } from "react-icons/bs";
+import { Form } from "react-bootstrap";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Layout from "../layouts/Layout";
+import Button from "../shared/Button";
+import Toast from "../utils/Toast";
 const Contact = () => {
   const [loading, setloading] = useState(true);
   const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    message: '',
+    fullName: "",
+    email: "",
+    message: "",
     createdAt: Timestamp.now().toDate(),
   });
 
@@ -29,11 +29,11 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.message) {
-      Toast('Please fill all the fields', 'info');
+      Toast("Please fill all the fields", "info");
       return;
     }
     setSending(true);
-    const messageRef = collection(db, 'messages');
+    const messageRef = collection(db, "messages");
     addDoc(messageRef, {
       fullName: formData.fullName,
       email: formData.email,
@@ -43,17 +43,17 @@ const Contact = () => {
       .then(() => {
         setFormData({
           ...formData,
-          fullName: '',
-          email: '',
-          message: '',
+          fullName: "",
+          email: "",
+          message: "",
         });
-        Toast('Message sent successfully', 'success');
+        Toast("Message sent successfully", "success");
         setSending(false);
       })
       .catch((err) => {
         console.log(err);
         setSending(false);
-        Toast('There was a problem sending you message', 'info');
+        Toast("There was a problem sending you message", "info");
       });
   };
 
@@ -65,12 +65,12 @@ const Contact = () => {
     <Layout header='contact us'>
       <Container>
         <h1 className='my-3 text-capitalize'>we are here for you</h1>
-        <p className='mb-5'>
+        {/* <p className='mb-5'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, neque
           accusantium perferendis est unde soluta magni? Dolor, provident quas!
           Quas totam distinctio veritatis hic pariatur tempora voluptas dolores
           nam saepe?
-        </p>
+        </p> */}
         <ContactContainer className='row justify-content-center shadow-lg'>
           <ContactDetails className='col-lg-6 bg-light p-4 m-0 h-100'>
             <h2 className='text-capitalize m-0'>contact us</h2>
@@ -84,22 +84,19 @@ const Contact = () => {
                   className='flex-shrink-0'
                 />
                 <span>
-                  Address:{' '}
-                  <Detail>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit
-                  </Detail>
+                  Address: <Detail>120 Ikotun Egbe Road, Ejigbo, Lagos</Detail>
                 </span>
               </li>
               <li className='mb-5 d-flex gap-3 align-items-center'>
                 <RiSendPlaneFill size={30} color={colors.primary} />
                 <span>
-                  Email: <Detail>example@gmail.com</Detail>
+                  Email: <Detail>Getinfo@groomingendowment.org</Detail>
                 </span>
               </li>
               <li className='mb-5 d-flex gap-3 align-items-center'>
                 <BsTelephoneFill size={30} color={colors.primary} />
                 <span>
-                  Phone: <Detail>080354677797</Detail>
+                  Phone: <Detail>+234 9087966322, +234 9021273383</Detail>
                 </span>
               </li>
             </ul>
