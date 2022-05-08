@@ -1,40 +1,42 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import ChairmanMessage from './pages/ChairmanMessage';
-import About from './pages/About';
-import StaffAndTrustees from './pages/StaffAndTrustees';
-import Gallery from './pages/Gallery';
-import Faqs from './pages/Faqs';
-import Contact from './pages/Contact';
-import Portfolio from './pages/Portfolio';
-import ProgramAreas from './pages/ProgramAreas';
-import Grants from './pages/Grants';
-import GrantsView from './pages/GrantsView';
-import Application from './pages/Application';
-import Blog from './pages/Blog';
-import BlogView from './pages/BlogView';
-import Press from './pages/Press';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ChairmanMessage from "./pages/ChairmanMessage";
+import About from "./pages/About";
+import StaffAndTrustees from "./pages/StaffAndTrustees";
+import Gallery from "./pages/Gallery";
+import Faqs from "./pages/Faqs";
+import Contact from "./pages/Contact";
+import Portfolio from "./pages/Portfolio";
+import ProgramAreas from "./pages/ProgramAreas";
+import Grants from "./pages/Grants";
+import GrantsView from "./pages/GrantsView";
+import Application from "./pages/Application";
+import Blog from "./pages/Blog";
+import BlogView from "./pages/BlogView";
+import Press from "./pages/Press";
 
 //////////////////////////ADMIN
-import Login from './pages/Login';
-import ScrollToTop from './utils/ScrollToTop';
-import AdminGrants from './pages/AdminGrants';
-import AdminPortfolio from './pages/AdminPortfolio';
-import AdminBlog from './pages/AdminBlog';
-import AdminPress from './pages/AdminPress';
-import AdminMessages from './pages/AdminMessages';
-import AdminApplications from './pages/AdminApplications';
-import AdminGallery from './pages/AdminGallery';
-import AdminStaffTrustees from './pages/AdminStaffTrustees';
-import AdminProtected from './utils/AdminProtected';
+import Login from "./pages/Login";
+import ScrollToTop from "./utils/ScrollToTop";
+import AdminGrants from "./pages/AdminGrants";
+import AdminPortfolio from "./pages/AdminPortfolio";
+import AdminBlog from "./pages/AdminBlog";
+import AdminPress from "./pages/AdminPress";
+import AdminMessages from "./pages/AdminMessages";
+import AdminApplications from "./pages/AdminApplications";
+import AdminGallery from "./pages/AdminGallery";
+import AdminStaffTrustees from "./pages/AdminStaffTrustees";
+import AdminProtected from "./utils/AdminProtected";
+import UnderConstruction from "./pages/UnderConstruction";
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop>
         <Routes>
-          <Route path='/' exact element={<Home />} />
+          <Route path='/' exact element={<UnderConstruction />} />
+          <Route path='/home' exact element={<Home />} />
           <Route
             path='/chairmans-message'
             exact
