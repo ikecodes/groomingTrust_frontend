@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
-import { db } from '../firebase';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Section from '../layouts/Section';
-import EventsCard from './EventsCard';
+import React, { useState, useEffect } from "react";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
+import { db } from "../firebase";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Section from "../layouts/Section";
+import EventsCard from "./EventsCard";
 
 const Events = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const articlesRef = collection(db, 'articles');
-    const q = query(articlesRef, orderBy('createdAt', 'desc'));
+    const articlesRef = collection(db, "articles");
+    const q = query(articlesRef, orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const articles = snapshot.docs.map((doc) => {
         return {
@@ -23,6 +23,7 @@ const Events = () => {
     });
     return () => unsubscribe();
   }, []);
+  if (!articles.length) return null;
   return (
     <Section>
       <div className='container'>

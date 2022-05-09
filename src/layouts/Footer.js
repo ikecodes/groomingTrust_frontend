@@ -13,10 +13,13 @@ const Footer = () => {
         <div className='row gap-4 gap-md-0'>
           <div className='col-lg-3'>
             <ImageBox src={Logo} />
-            <p className='pt-4'>120 Ikotun Egbe Road, Ejigbo, Lagos.</p>
+            <p className='pt-4 fw-bolder'>
+              120 Ikotun Egbe Road, Ejigbo, Lagos.
+            </p>
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
+              <li className='mb-3 fw-bold'>quick links</li>
               <Link to='/about'>
                 <li className='mb-3'>about us</li>
               </Link>
@@ -27,16 +30,17 @@ const Footer = () => {
           </div>
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
+              <li className='mb-3 fw-bold'>socials</li>
               <li className='mb-3 d-flex gap-3 align-items-center'>
-                <FaFacebook size={25} />
+                <FaFacebook size={20} />
                 <span>facebook</span>
               </li>
               <li className='my-3 d-flex gap-3 align-items-center'>
-                <FaTwitter size={25} />
+                <FaTwitter size={20} />
                 <span>twitter</span>
               </li>
               <li className='my-3 d-flex gap-3 align-items-center'>
-                <FaInstagram size={25} />
+                <FaInstagram size={20} />
                 <span>instagram</span>
               </li>
             </ul>

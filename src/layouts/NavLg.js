@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import Logo from '../assets/images/Logo.png';
-import NavItemLg from './NavItemLg';
-import menus from '../constants/menus';
-import { Fade } from 'react-reveal';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Logo from "../assets/images/Logo.png";
+import NavItemLg from "./NavItemLg";
+import menus from "../constants/menus";
+import { Fade } from "react-reveal";
 
 const NavbarLg = () => {
   return (
@@ -17,9 +17,9 @@ const NavbarLg = () => {
                 <Image src={Logo} />
               </Link>
             </div>
-            <div className='col-lg-8 justify-self-start mt-3'>
+            <div className='col-lg-8   mt-3 '>
               <NavMenu>
-                <ul className='d-flex justify-content-evenly align-items-center'>
+                <ul className='d-flex justify-content-center gap-5 align-items-center'>
                   {menus.map((menu) => (
                     <NavItemLg key={menu.id} menu={menu} />
                   ))}
