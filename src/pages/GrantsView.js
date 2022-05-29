@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import moment from 'moment';
-import { doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Layout from '../layouts/Layout';
-import Button from '../shared/Button';
+import React, { useEffect, useState } from "react";
+import moment from "moment";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../firebase";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Layout from "../layouts/Layout";
+import Button from "../shared/Button";
 
 const GrantsView = () => {
   const [grant, setGrant] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const id = location.search.split('?')[1];
+  const id = location.state;
 
   useEffect(() => {
     setLoading(true);
-    const grantsRef = doc(db, 'grants', id);
+    const grantsRef = doc(db, "grants", id);
     const unsubscribe = onSnapshot(grantsRef, (doc) => {
       const grant = { ...doc.data(), id: doc.id };
       setGrant(grant);
@@ -36,7 +36,7 @@ const GrantsView = () => {
         <div className='mt-3 text-capitalize'>
           <Deadline className='p-1 rounded'>application deadline</Deadline>
           <p className='mt-2'>
-            {moment(grant?.deadline).format('MMM Do YYYY')}
+            {moment(grant?.deadline).format("MMM Do YYYY")}
           </p>
         </div>
         <div className='text-center mt-5'>

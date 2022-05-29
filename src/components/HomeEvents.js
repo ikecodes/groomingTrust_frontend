@@ -37,6 +37,7 @@ const Events = () => {
                   key={article.id}
                   id={article.id}
                   title={article.title}
+                  slug={article.slug}
                   description={article.description}
                   createdAt={article.createdAt}
                   image={article.imageUrl}

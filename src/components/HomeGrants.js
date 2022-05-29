@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
-import { db } from '../firebase';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Button from '../shared/Button';
-import GrantsCard from './GrantsCard';
+import React, { useState, useEffect } from "react";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
+import { db } from "../firebase";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Button from "../shared/Button";
+import GrantsCard from "./GrantsCard";
 
 const Grants = () => {
   const [grants, setGrants] = useState([]);
 
   useEffect(() => {
-    const grantsRef = collection(db, 'grants');
-    const q = query(grantsRef, orderBy('createdAt', 'desc'));
+    const grantsRef = collection(db, "grants");
+    const q = query(grantsRef, orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const grants = snapshot.docs.map((doc) => {
         return {
@@ -36,6 +36,7 @@ const Grants = () => {
               key={grant.id}
               id={grant.id}
               title={grant.title}
+              slug={grant.slug}
               image={grant.imageUrl}
               description={grant.description}
               imageRef={grant.imageRef}

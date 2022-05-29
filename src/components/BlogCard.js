@@ -1,24 +1,25 @@
-import React from 'react';
-import { deleteDocWithImage } from '../firebase';
-import { FaRegTrashAlt } from 'react-icons/fa';
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Button from '../shared/Button';
+import React from "react";
+import { deleteDocWithImage } from "../firebase";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Button from "../shared/Button";
 
 const BlogCard = ({
   id,
   title,
+  slug,
   image,
   author,
   createdAt,
   description,
   imageRef,
 }) => {
-  const admin = localStorage.getItem('admin');
+  const admin = localStorage.getItem("admin");
   const handleDelete = async () => {
-    await deleteDocWithImage(imageRef, 'articles', id);
+    await deleteDocWithImage(imageRef, "articles", id);
   };
   return (
     <div className='col-lg-4 col-md-6 mb-5'>
@@ -28,13 +29,13 @@ const BlogCard = ({
             {title}
           </Card.Title>
           <Card.Text className='border-bottom pb-3 fw-light text-capitalize'>
-            {author} |{' '}
-            {new Date(createdAt.seconds * 1000).toLocaleDateString('en-US')}
+            {author} |{" "}
+            {new Date(createdAt.seconds * 1000).toLocaleDateString("en-US")}
           </Card.Text>
           <CardImage alt='event' src={image} />
           <Card.Body>
             <Card.Text>{description}</Card.Text>
-            <Link to={`/blog-view?${id}`}>
+            <Link to={`/blog/${slug}`} state={id}>
               <Button title='read more' norounded />
             </Link>
           </Card.Body>

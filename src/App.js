@@ -54,10 +54,10 @@ function App() {
           <Route path='/portfolio' exact element={<Portfolio />} />
           <Route path='/program-areas' exact element={<ProgramAreas />} />
           <Route path='/grants' exact element={<Grants />} />
-          <Route path='/grants-view' exact element={<GrantsView />} />
+          <Route path='/grants/:id' exact element={<GrantsView />} />
           <Route path='/application' exact element={<Application />} />
           <Route path='/blog' exact element={<Blog />} />
-          <Route path='/blog-view' exact element={<BlogView />} />
+          <Route path='/blog/:id' exact element={<BlogView />} />
           <Route path='/press' exact element={<Press />} />
 
           {/*ADMIN ////////////////////////////////////////////////////////////////// */}

@@ -43,6 +43,7 @@ const Grants = () => {
               <GrantsCard
                 key={grant.id}
                 id={grant.id}
+                slug={grant.slug}
                 title={grant.title}
                 image={grant.imageUrl}
                 description={grant.description}

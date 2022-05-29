@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { Timestamp, collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage, db } from '../firebase';
-import { Editor } from '@tinymce/tinymce-react';
-import Toast from '../utils/Toast';
-import AdminLayout from '../layouts/AdminLayout';
-import Button from '../shared/Button';
+import React, { useState } from "react";
+import slugify from "slugify";
+import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../firebase";
+import { Editor } from "@tinymce/tinymce-react";
+import Toast from "../utils/Toast";
+import AdminLayout from "../layouts/AdminLayout";
+import Button from "../shared/Button";
 
 const AdminGrants = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    link: '',
-    deadline: '',
-    image: '',
-    description: '',
-    body: '',
-    imageRef: '',
+    title: "",
+    link: "",
+    deadline: "",
+    slug: "",
+    programSlug: "",
+    image: "",
+    description: "",
+    body: "",
+    imageRef: "",
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -37,14 +40,18 @@ const AdminGrants = () => {
       !formData.title ||
       !formData.link ||
       !formData.deadline ||
+      !formData.programSlug ||
       !formData.image ||
       !formData.description ||
       !formData.body
     ) {
-      Toast('Please fill all the fields', 'info');
+      Toast("Please fill all the fields", "info");
       return;
     }
     setLoading(true);
+
+    const slug = slugify(formData.title, { lower: true });
+    const programArea = slugify(formData.programSlug, { lower: true });
 
     const imageRef = `/grants/${Date.now()}${formData.image.name}`;
     const storageRef = ref(storage, imageRef);
@@ -52,7 +59,7 @@ const AdminGrants = () => {
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
     uploadImage.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {},
       (err) => {
         console.log(err);
@@ -60,10 +67,12 @@ const AdminGrants = () => {
       },
       () => {
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          const grantsRef = collection(db, 'grants');
+          const grantsRef = collection(db, "grants");
           addDoc(grantsRef, {
             title: formData.title,
             link: formData.link,
+            slug: slug,
+            programSlug: programArea,
             deadline: formData.deadline,
             imageUrl: url,
             description: formData.description,
@@ -72,19 +81,20 @@ const AdminGrants = () => {
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
-              Toast('Grant added successfully', 'success');
+              Toast("Grant added successfully", "success");
               setLoading(false);
               setFormData({
                 ...formData,
-                title: '',
-                link: '',
-                deadline: '',
-                description: '',
-                body: '',
+                title: "",
+                link: "",
+                programSlug: "",
+                deadline: "",
+                description: "",
+                body: "",
               });
             })
             .catch((err) => {
-              Toast('Error adding grant', 'error');
+              Toast("Error adding grant", "error");
             });
         });
       }
@@ -137,6 +147,20 @@ const AdminGrants = () => {
           />
         </div>
         <div className='mb-3 form-group w-50'>
+          <label htmlFor='link' className='form-label'>
+            Enter programme area category (health, education etc)
+          </label>
+          <input
+            type='text'
+            name='programSlug'
+            id='programSlug'
+            value={formData.programSlug}
+            placeholder='Programme area'
+            className='form-control'
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>
             Select grant display image
           </label>
@@ -168,17 +192,17 @@ const AdminGrants = () => {
             init={{
               height: 300,
               plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount',
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table paste code help wordcount",
               ],
               toolbar:
-                'undo redo | formatselect | ' +
-                'bold italic backcolor | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help',
+                "undo redo | formatselect | " +
+                "bold italic backcolor | alignleft aligncenter " +
+                "alignright alignjustify | bullist numlist outdent indent | " +
+                "removeformat | help",
               content_style:
-                'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
             onEditorChange={(text) => handleBodyChange(text)}
           />

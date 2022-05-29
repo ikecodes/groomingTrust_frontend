@@ -1,17 +1,17 @@
-import React from 'react';
-import { deleteDocWithImage } from '../firebase';
-import { Link } from 'react-router-dom';
-import { FaRegTrashAlt } from 'react-icons/fa';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Button from '../shared/Button';
-import Image from '../shared/Image';
-import { Fade } from 'react-reveal';
+import React from "react";
+import { deleteDocWithImage } from "../firebase";
+import { Link } from "react-router-dom";
+import { FaRegTrashAlt } from "react-icons/fa";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Button from "../shared/Button";
+import Image from "../shared/Image";
+import { Fade } from "react-reveal";
 
-const GrantsCard = ({ id, title, description, image, imageRef }) => {
-  const admin = localStorage.getItem('admin');
+const GrantsCard = ({ id, title, slug, description, image, imageRef }) => {
+  const admin = localStorage.getItem("admin");
   const handleDelete = async () => {
-    deleteDocWithImage(imageRef, 'grants', id);
+    deleteDocWithImage(imageRef, "grants", id);
   };
   return (
     <div className='row my-5 flex-md-row-reverse'>
@@ -24,7 +24,7 @@ const GrantsCard = ({ id, title, description, image, imageRef }) => {
             <h2 className='my-3 text-capitalize'>{title}</h2>
             {description}
             <div className='mt-3'>
-              <Link to={`/grants-view?${id}`}>
+              <Link to={`/grants/${slug}`} state={id}>
                 <Button title='learn more' primary />
               </Link>
             </div>

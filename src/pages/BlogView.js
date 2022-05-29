@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
-import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import Layout from '../layouts/Layout';
-import colors from '../constants/colors';
-import Image from '../shared/Image';
+import React, { useEffect, useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../firebase";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+import Layout from "../layouts/Layout";
+import colors from "../constants/colors";
+import Image from "../shared/Image";
 const BlogView = () => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const id = location.search.split('?')[1];
+  const id = location.state;
 
   useEffect(() => {
     setLoading(true);
-    const articlesRef = doc(db, 'articles', id);
+    const articlesRef = doc(db, "articles", id);
     const unsubscribe = onSnapshot(articlesRef, (doc) => {
       const article = { ...doc.data(), id: doc.id };
       setArticle(article);
@@ -40,7 +40,7 @@ const BlogView = () => {
             <Deadline className='p-1 rounded'>published</Deadline>
             <p className='mt-2'>
               {new Date(article?.createdAt.seconds * 1000).toLocaleDateString(
-                'en-US'
+                "en-US"
               )}
               <span className='text-capitalize d-block'>
                 by {article?.author}

@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import { Timestamp, collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage, db } from '../firebase';
-import { Editor } from '@tinymce/tinymce-react';
-import Toast from '../utils/Toast';
-import AdminLayout from '../layouts/AdminLayout';
-import Button from '../shared/Button';
+import React, { useState } from "react";
+import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../firebase";
+import { Editor } from "@tinymce/tinymce-react";
+import Toast from "../utils/Toast";
+import AdminLayout from "../layouts/AdminLayout";
+import Button from "../shared/Button";
+import slugify from "slugify";
 
 const AdminBlog = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    author: '',
-    image: '',
-    description: '',
-    body: '',
-    imageRef: '',
+    title: "",
+    author: "",
+    image: "",
+    slug: "",
+    description: "",
+    body: "",
+    imageRef: "",
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -39,18 +41,19 @@ const AdminBlog = () => {
       !formData.description ||
       !formData.body
     ) {
-      Toast('Please fill all the fields', 'info');
+      Toast("Please fill all the fields", "info");
       return;
     }
 
     setLoading(true);
+    const slug = slugify(formData.title, { lower: true });
     const imageRef = `/articles/${Date.now()}${formData.image.name}`;
     const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
     uploadImage.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {},
       (err) => {
         console.log(err);
@@ -58,29 +61,30 @@ const AdminBlog = () => {
       },
       () => {
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          const articlesRef = collection(db, 'articles');
+          const articlesRef = collection(db, "articles");
           addDoc(articlesRef, {
             title: formData.title,
             author: formData.author,
             imageUrl: url,
+            slug: slug,
             description: formData.description,
             body: formData.body,
             imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
-              Toast('Article added successfully', 'success');
+              Toast("Article added successfully", "success");
               setLoading(false);
               setFormData({
                 ...formData,
-                title: '',
-                author: '',
-                description: '',
-                body: '',
+                title: "",
+                author: "",
+                description: "",
+                body: "",
               });
             })
             .catch((err) => {
-              Toast('Error adding article', 'error');
+              Toast("Error adding article", "error");
             });
         });
       }
@@ -154,17 +158,17 @@ const AdminBlog = () => {
             init={{
               height: 300,
               plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount',
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table paste code help wordcount",
               ],
               toolbar:
-                'undo redo | formatselect | ' +
-                'bold italic backcolor | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help',
+                "undo redo | formatselect | " +
+                "bold italic backcolor | alignleft aligncenter " +
+                "alignright alignjustify | bullist numlist outdent indent | " +
+                "removeformat | help",
               content_style:
-                'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
             onEditorChange={(text) => handleBodyChange(text)}
           />
