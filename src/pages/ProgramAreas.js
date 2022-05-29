@@ -28,24 +28,6 @@ const ProgramAreas = () => {
     });
     return () => unsubscribe();
   }, []);
-
-  // const getProgramAreas = async (slug) => {
-  //   try {
-  //     const grantsRef = collection(db, "grants");
-  //     const q = query(grantsRef, where("programSlug", "==", `${slug}`));
-  //     const querySnapshot = await getDocs(q);
-  //     const data = querySnapshot.docs.map((doc) => {
-  //       return {
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       };
-  //     });
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // getProgramAreas(slug);
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='programme areas'>

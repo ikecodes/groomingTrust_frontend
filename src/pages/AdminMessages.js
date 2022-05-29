@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { IoMdTrash } from 'react-icons/io';
-import AdminLayout from '../layouts/AdminLayout';
+import React, { useEffect, useState } from "react";
+import { IoMdTrash } from "react-icons/io";
+import AdminLayout from "../layouts/AdminLayout";
 import paginationFactory, {
   PaginationListStandalone,
   PaginationProvider,
-} from 'react-bootstrap-table2-paginator';
+} from "react-bootstrap-table2-paginator";
 import ToolkitProvider, {
   Search,
-} from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
-import BootstrapTable from 'react-bootstrap-table-next';
-import DeleteModal from '../utils/DeleteModal';
-import { Col, Row } from 'react-bootstrap';
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
-import { db } from '../firebase';
+} from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit";
+import BootstrapTable from "react-bootstrap-table-next";
+import DeleteModal from "../utils/DeleteModal";
+import { Col, Row } from "react-bootstrap";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../firebase";
 
 const AdminMessages = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [deleteid, setDeleteid] = useState(null);
-  const [deleteref, setDeleteref] = useState('');
+  const [deleteref, setDeleteref] = useState("");
 
   useEffect(() => {
     setLoading(true);
-    const messagesRef = collection(db, 'messages');
-    const q = query(messagesRef, orderBy('createdAt', 'desc'));
+    const messagesRef = collection(db, "messages");
+    const q = query(messagesRef, orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const messages = snapshot.docs.map((doc) => {
         return {
@@ -50,22 +50,22 @@ const AdminMessages = () => {
 
   const defaultSorted = [
     {
-      dataField: 'id', // if dataField is not match to any column you defined, it will be ignored.
-      order: 'desc', // desc or asc
+      dataField: "id", // if dataField is not match to any column you defined, it will be ignored.
+      order: "desc", // desc or asc
     },
   ];
 
   const messageListColumns = [
     {
-      text: 'id',
-      dataField: 'id',
+      text: "id",
+      dataField: "id",
       sort: true,
       hidden: true,
       formatter: (message) => <>{message.id}</>,
     },
     {
-      dataField: 'fullName',
-      text: 'Full Name',
+      dataField: "fullName",
+      text: "Full Name",
       formatter: (cellContent, message) => (
         <>
           <span>{message.fullName}</span>
@@ -73,13 +73,13 @@ const AdminMessages = () => {
       ),
     },
     {
-      dataField: 'email',
-      text: 'Email',
+      dataField: "email",
+      text: "Email",
       sort: true,
     },
     {
-      dataField: 'message',
-      text: 'Message',
+      dataField: "message",
+      text: "Message",
       sort: true,
       formatter: (cellContent, message) => (
         <>
@@ -88,18 +88,18 @@ const AdminMessages = () => {
       ),
     },
     {
-      dataField: 'delete',
-      text: 'Delete',
+      dataField: "delete",
+      text: "Delete",
       sort: true,
       formatter: (cellContent, message) => (
         <div className='text-center text-danger pe-auto'>
           <IoMdTrash
             size={20}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
             onClick={() => {
               setModalShow(true);
               setDeleteid(message.id);
-              setDeleteref('messages');
+              setDeleteref("messages");
             }}
           />
         </div>
@@ -107,10 +107,10 @@ const AdminMessages = () => {
     },
   ];
 
-  const keyField = 'id';
+  const keyField = "id";
   return (
     <AdminLayout>
-      <div className='w-75' style={{ fontSize: '0.8rem' }}>
+      <div className='w-75' style={{ fontSize: "0.8rem" }}>
         <h4 className='text-capitalize text-center'>
           Messages from contact form
         </h4>
@@ -150,7 +150,7 @@ const AdminMessages = () => {
                           // selectRow={selectRow}
                           defaultSorted={defaultSorted}
                           classes={
-                            'table align-middle table-nowrap table-hover table-light'
+                            "table align-middle table-nowrap table-hover table-light"
                           }
                           bordered={false}
                           striped={false}

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "../shared/Button";
+import Image from "../shared/Image";
 
 const BlogCard = ({
   id,
@@ -32,7 +33,7 @@ const BlogCard = ({
             {author} |{" "}
             {new Date(createdAt.seconds * 1000).toLocaleDateString("en-US")}
           </Card.Text>
-          <CardImage alt='event' src={image} />
+          <Image src={image} h={15} unit='rem' />
           <Card.Body>
             <Card.Text>{description}</Card.Text>
             <Link to={`/blog/${slug}`} state={id}>
@@ -56,10 +57,6 @@ const BlogCard = ({
 const CardContainer = styled.div`
   background-color: ${colors.grey};
   padding: 1rem 1rem;
-`;
-const CardImage = styled.img`
-  /* border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem; */
 `;
 
 export default BlogCard;

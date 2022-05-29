@@ -1,9 +1,10 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
-import styled from 'styled-components';
-import Button from '../shared/Button';
-import { Fade } from 'react-reveal';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Card } from "react-bootstrap";
+import styled from "styled-components";
+import Button from "../shared/Button";
+import { Fade } from "react-reveal";
+import { Link } from "react-router-dom";
+import Image from "../shared/Image";
 
 const EventsCard = ({ id, title, image, author, createdAt, description }) => {
   return (
@@ -11,7 +12,7 @@ const EventsCard = ({ id, title, image, author, createdAt, description }) => {
       <div className='col-lg-4 col-md-6 mb-5'>
         <CardContainer className='shadow-lg'>
           <Card>
-            <CardImage alt='event' src={image} />
+            <Image src={image} h={15} unit='rem' />
             <Card.Body>
               <Card.Title className='text-capitalize'>{title}</Card.Title>
               <Card.Text>{description}</Card.Text>
@@ -30,8 +31,5 @@ const CardContainer = styled.div`
   border-radius: 1rem;
   overflow: hidden;
 `;
-const CardImage = styled.img`
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-`;
+
 export default EventsCard;

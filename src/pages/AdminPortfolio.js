@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Timestamp, collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage, db } from '../firebase';
-import Toast from '../utils/Toast';
-import AdminLayout from '../layouts/AdminLayout';
-import Button from '../shared/Button';
+import React, { useState } from "react";
+import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../firebase";
+import Toast from "../utils/Toast";
+import AdminLayout from "../layouts/AdminLayout";
+import Button from "../shared/Button";
 
 const AdminPortfolio = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    image: '',
-    description: '',
-    link: '',
-    imageRef: '',
+    title: "",
+    image: "",
+    description: "",
+    link: "",
+    imageRef: "",
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const AdminPortfolio = () => {
       !formData.description ||
       !formData.link
     ) {
-      Toast('Please fill all the fields', 'info');
+      Toast("Please fill all the fields", "info");
       return;
     }
     setLoading(true);
@@ -43,7 +43,7 @@ const AdminPortfolio = () => {
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
     uploadImage.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {},
       (err) => {
         console.log(err);
@@ -51,7 +51,7 @@ const AdminPortfolio = () => {
       },
       () => {
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          const portfolioRef = collection(db, 'portfolio');
+          const portfolioRef = collection(db, "portfolio");
           addDoc(portfolioRef, {
             title: formData.title,
             imageUrl: url,
@@ -61,17 +61,17 @@ const AdminPortfolio = () => {
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
-              Toast('Portfolio added successfully', 'success');
+              Toast("Portfolio added successfully", "success");
               setLoading(false);
               setFormData({
                 ...formData,
-                title: '',
-                description: '',
-                link: '',
+                title: "",
+                description: "",
+                link: "",
               });
             })
             .catch((err) => {
-              Toast('Error adding portfolio', 'error');
+              Toast("Error adding portfolio", "error");
             });
         });
       }
@@ -102,6 +102,7 @@ const AdminPortfolio = () => {
             type='file'
             name='image'
             id='image'
+            accept='image/*'
             className='form-control'
             onChange={(e) => handleImageChange(e)}
           />

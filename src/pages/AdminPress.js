@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Timestamp, collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage, db } from '../firebase';
-import Toast from '../utils/Toast';
-import AdminLayout from '../layouts/AdminLayout';
-import Button from '../shared/Button';
+import React, { useState } from "react";
+import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../firebase";
+import Toast from "../utils/Toast";
+import AdminLayout from "../layouts/AdminLayout";
+import Button from "../shared/Button";
 
 const AdminPress = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    date: '',
-    image: '',
-    link: '',
-    imageRef: '',
+    title: "",
+    date: "",
+    image: "",
+    link: "",
+    imageRef: "",
     createdAt: Timestamp.now().toDate(),
   });
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const AdminPress = () => {
       !formData.image ||
       !formData.link
     ) {
-      Toast('Please fill all the fields', 'info');
+      Toast("Please fill all the fields", "info");
       return;
     }
 
@@ -44,7 +44,7 @@ const AdminPress = () => {
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
 
     uploadImage.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {},
       (err) => {
         console.log(err);
@@ -52,7 +52,7 @@ const AdminPress = () => {
       },
       () => {
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          const pressRef = collection(db, 'press');
+          const pressRef = collection(db, "press");
           addDoc(pressRef, {
             title: formData.title,
             date: formData.date,
@@ -62,17 +62,17 @@ const AdminPress = () => {
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
-              Toast('Press added successfully', 'success');
+              Toast("Press added successfully", "success");
               setLoading(false);
               setFormData({
                 ...formData,
-                title: '',
-                date: '',
-                link: '',
+                title: "",
+                date: "",
+                link: "",
               });
             })
             .catch((err) => {
-              Toast('Error adding press', 'error');
+              Toast("Error adding press", "error");
             });
         });
       }
@@ -136,6 +136,7 @@ const AdminPress = () => {
             type='file'
             name='image'
             id='image'
+            accept='image/*'
             className='form-control'
             onChange={(e) => handleImageChange(e)}
           />

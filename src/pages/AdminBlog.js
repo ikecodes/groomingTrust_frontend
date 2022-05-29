@@ -1,7 +1,25 @@
-import React, { useState } from "react";
-import { Timestamp, collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import React, { useEffect, useState } from "react";
+import paginationFactory, {
+  PaginationListStandalone,
+  PaginationProvider,
+} from "react-bootstrap-table2-paginator";
+import ToolkitProvider, {
+  Search,
+} from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit";
+import BootstrapTable from "react-bootstrap-table-next";
+import { Col, Row } from "react-bootstrap";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  Timestamp,
+  addDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 import { storage, db } from "../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { Editor } from "@tinymce/tinymce-react";
 import Toast from "../utils/Toast";
 import AdminLayout from "../layouts/AdminLayout";
@@ -9,6 +27,9 @@ import Button from "../shared/Button";
 import slugify from "slugify";
 
 const AdminBlog = () => {
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [ploading, setPloading] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -18,8 +39,8 @@ const AdminBlog = () => {
     body: "",
     imageRef: "",
     createdAt: Timestamp.now().toDate(),
+    isFeatured: false,
   });
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -71,6 +92,7 @@ const AdminBlog = () => {
             body: formData.body,
             imageRef,
             createdAt: Timestamp.now().toDate(),
+            isFeatured: false,
           })
             .then(() => {
               Toast("Article added successfully", "success");
@@ -91,6 +113,98 @@ const AdminBlog = () => {
     );
   };
 
+  const handleFeatured = async (value, id) => {
+    const articleRef = doc(db, "articles", id);
+    try {
+      await updateDoc(articleRef, {
+        isFeatured: value,
+      });
+      // Toast("success", "success");
+    } catch (error) {
+      Toast("error", "error");
+    }
+  };
+
+  useEffect(() => {
+    setPloading(true);
+    const articlesRef = collection(db, "articles");
+    const q = query(articlesRef, orderBy("createdAt", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const articles = snapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setArticles(articles);
+      setPloading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (ploading) return <div className='spinner2'></div>;
+  const { SearchBar } = Search;
+  const sizePerPage = 10;
+  const pageOptions = {
+    sizePerPage: sizePerPage,
+    totalSize: articles?.length,
+    custom: true,
+  };
+
+  const defaultSorted = [
+    {
+      dataField: "id", // if dataField is not match to any column you defined, it will be ignored.
+      order: "desc", // desc or asc
+    },
+  ];
+
+  const articlesListColumns = [
+    {
+      text: "id",
+      dataField: "id",
+      sort: true,
+      hidden: true,
+      formatter: (article) => <>{article.id}</>,
+    },
+    {
+      dataField: "title",
+      text: "Title",
+      formatter: (cellContent, article) => (
+        <>
+          <span>{article.title}</span>
+        </>
+      ),
+    },
+    {
+      dataField: "isFeatured",
+      text: "Featured",
+      sort: true,
+      formatter: (cellContent, article) => (
+        <div
+          role='button'
+          onClick={() => handleFeatured(!article.isFeatured, article.id)}
+        >
+          {article.isFeatured ? (
+            <span className='badge bg-success'>featured</span>
+          ) : (
+            <span className='badge bg-secondary'>not-featured</span>
+          )}
+        </div>
+      ),
+    },
+    {
+      dataField: "description",
+      text: "Description",
+      sort: true,
+      formatter: (cellContent, article) => (
+        <>
+          <span className='text-secondary'>{article.description}</span>
+        </>
+      ),
+    },
+  ];
+
+  const keyField = "id";
   return (
     <AdminLayout>
       <form className='p-2' onSubmit={handlePublish}>
@@ -134,6 +248,7 @@ const AdminBlog = () => {
             type='file'
             name='image'
             id='image'
+            accept='image/*'
             className='form-control'
             onChange={(e) => handleImageChange(e)}
           />
@@ -177,6 +292,68 @@ const AdminBlog = () => {
           <Button title='submit' primary disabled={loading} loading={loading} />
         </div>
       </form>
+      <div className='mt-5'>
+        <p className='text-secondary text-center'>
+          Set articles you want to be featured on the home slides (you can only
+          have two at a time)
+        </p>
+        <PaginationProvider
+          pagination={paginationFactory(pageOptions)}
+          keyField={keyField}
+          columns={articlesListColumns}
+          data={articles}
+        >
+          {({ paginationProps, paginationTableProps }) => {
+            return (
+              <ToolkitProvider
+                keyField={keyField}
+                data={articles}
+                columns={articlesListColumns}
+                bootstrap4
+                search
+              >
+                {(toolkitProps) => (
+                  <>
+                    <div className='row mb-2'>
+                      <div className='col-lg-6'>
+                        <div className='search-box ms-2 mb-2 d-inline-block'>
+                          <div className='position-relative'>
+                            <SearchBar {...toolkitProps.searchProps} />
+                            <i className='bx bx-search-alt search-icon' />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='table-responsive'>
+                      <BootstrapTable
+                        keyField={keyField}
+                        {...toolkitProps.baseProps}
+                        {...paginationTableProps}
+                        // selectRow={selectRow}
+                        defaultSorted={defaultSorted}
+                        classes={
+                          "table align-middle table-nowrap table-hover table-light"
+                        }
+                        bordered={false}
+                        striped={false}
+                        responsive
+                      />
+                      {!articles.length ? (
+                        <p>You currently do not have any article</p>
+                      ) : null}
+                    </div>
+                    <Row className='align-items-md-center mt-30'>
+                      <Col className='pagination pagination-rounded justify-content-end mb-2'>
+                        <PaginationListStandalone {...paginationProps} />
+                      </Col>
+                    </Row>
+                  </>
+                )}
+              </ToolkitProvider>
+            );
+          }}
+        </PaginationProvider>
+      </div>
     </AdminLayout>
   );
 };
