@@ -6,7 +6,15 @@ import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 import Image from "../shared/Image";
 
-const EventsCard = ({ id, title, image, author, createdAt, description }) => {
+const EventsCard = ({
+  id,
+  title,
+  slug,
+  image,
+  author,
+  createdAt,
+  description,
+}) => {
   return (
     <Fade bottom>
       <div className='col-lg-4 col-md-6 mb-5'>
@@ -16,7 +24,7 @@ const EventsCard = ({ id, title, image, author, createdAt, description }) => {
             <Card.Body>
               <Card.Title className='text-capitalize'>{title}</Card.Title>
               <Card.Text>{description}</Card.Text>
-              <Link to={`/blog-view?${id}`}>
+              <Link to={`/blog/${slug}`} state={id}>
                 <Button title='read more' />
               </Link>
             </Card.Body>
