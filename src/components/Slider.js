@@ -31,7 +31,7 @@ const Slider = () => {
       <NavSm />
       <NavLg />
       <Carousel>
-        <Carousel.Item className='position-relative' interval={500}>
+        <Carousel.Item className='position-relative' interval={10000}>
           <div className='slider_image_box'>
             <div className='slider_overlay'></div>
             <img
@@ -52,7 +52,7 @@ const Slider = () => {
         </Carousel.Item>
         {articles.length > 0 &&
           articles.map((article) => (
-            <Carousel.Item interval={500} key={article?.id}>
+            <Carousel.Item interval={10000} key={article?.id}>
               <div className='slider_image_box'>
                 <div className='slider_overlay'></div>
                 <img
