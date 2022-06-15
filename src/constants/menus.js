@@ -16,16 +16,11 @@ const menus = [
       },
       {
         id: "3",
-        name: "gallery",
-        path: "/gallery",
-      },
-      {
-        id: "4",
         name: "FAQs",
         path: "/frequently-asked-questions",
       },
       {
-        id: "5",
+        id: "4",
         name: "contact us",
         path: "/contact-us",
       },
@@ -69,6 +64,11 @@ const menus = [
         id: "2",
         name: "press",
         path: "/press",
+      },
+      {
+        id: "2",
+        name: "gallery",
+        path: "/gallery",
       },
     ],
   },

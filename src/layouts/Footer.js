@@ -20,12 +20,12 @@ const Footer = () => {
           <div className='col-lg-3'>
             <ul className='text-capitalize'>
               <li className='mb-3 fw-bold'>quick links</li>
-              <Link to='/about'>
-                <li className='mb-3'>about us</li>
-              </Link>
-              <Link to='/contact-us'>
-                <li className='my-3'>contact</li>
-              </Link>
+              <li className='mb-3'>
+                <Link to='/about'>about us</Link>
+              </li>
+              <li className='mb-3'>
+                <Link to='/contact-us'>contact</Link>
+              </li>
             </ul>
           </div>
           <div className='col-lg-3'>

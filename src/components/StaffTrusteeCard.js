@@ -1,23 +1,15 @@
-import React, { useState } from 'react';
-import { deleteDocWithImage } from '../firebase';
-import { FaRegTrashAlt } from 'react-icons/fa';
-import { Card } from 'react-bootstrap';
-import Button from '../shared/Button';
-import Image from '../shared/Image';
-import DisplayModal from '../utils/DisplayModal';
-const StaffTrusteeCard = ({
-  id,
-  active,
-  image,
-  name,
-  position,
-  about,
-  imageRef,
-}) => {
+import React, { useState } from "react";
+import { deleteDocWithImage } from "../firebase";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { Card } from "react-bootstrap";
+import Button from "../shared/Button";
+import Image from "../shared/Image";
+import DisplayModal from "../utils/DisplayModal";
+const StaffTrusteeCard = ({ id, image, name, position, about, imageRef }) => {
   const [modalShow, setModalShow] = useState(false);
-  const admin = localStorage.getItem('admin');
+  const admin = localStorage.getItem("admin");
   const handleDelete = async () => {
-    await deleteDocWithImage(imageRef, 'members', id);
+    await deleteDocWithImage(imageRef, "members", id);
   };
 
   return (
@@ -31,7 +23,7 @@ const StaffTrusteeCard = ({
         about={about}
       />
       <Card className='border-0 text-center shadow '>
-        <Image alt={active} src={image} h={15} unit='rem' rounded />
+        <Image alt='staff & trustees' src={image} h={15} unit='rem' rounded />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{position}</Card.Text>
