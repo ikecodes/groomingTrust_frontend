@@ -267,7 +267,7 @@ const AdminBlog = () => {
         </div>
         <div className='w-75'>
           <Editor
-            apiKey='3i6uyqg8xp5acqtlcd6i6liqcwdfae67pkhixi393epj5ef1'
+            apiKey='635vw7fla4lvr9tzuknnjxfngq61h86fjr4dntt7e3ai956i'
             textareaName='content'
             value={formData.body}
             init={{
