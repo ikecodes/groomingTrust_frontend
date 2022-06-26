@@ -8,7 +8,7 @@ import Gallery from "./pages/Gallery";
 import Faqs from "./pages/Faqs";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
-import ProgramAreas from "./pages/ProgramAreas";
+import Awardees from "./pages/Awardees";
 import Grants from "./pages/Grants";
 import GrantsView from "./pages/GrantsView";
 import Application from "./pages/Application";
@@ -52,7 +52,7 @@ function App() {
           <Route path='/frequently-asked-questions' exact element={<Faqs />} />
           <Route path='/contact-us' exact element={<Contact />} />
           <Route path='/portfolio' exact element={<Portfolio />} />
-          <Route path='/program-areas' exact element={<ProgramAreas />} />
+          <Route path='/awardees' exact element={<Awardees />} />
           <Route path='/grants' exact element={<Grants />} />
           <Route path='/grants/:id' exact element={<GrantsView />} />
           <Route path='/application' exact element={<Application />} />

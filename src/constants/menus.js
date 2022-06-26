@@ -44,8 +44,8 @@ const menus = [
       },
       {
         id: "2",
-        name: "program areas",
-        path: "/program-areas",
+        name: "awardees",
+        path: "/awardees",
       },
     ],
   },
@@ -66,7 +66,7 @@ const menus = [
         path: "/press",
       },
       {
-        id: "2",
+        id: "3",
         name: "gallery",
         path: "/gallery",
       },

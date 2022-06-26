@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
-
-import styled from "styled-components";
-import GrantsCard from "../components/GrantsCard";
-import colors from "../constants/colors";
 import Layout from "../layouts/Layout";
+import { programmes } from "../constants/programmes";
+import ProgramAreasCard from "../components/ProgramAreasCard";
+import TestImg from "../assets/images/chairman.jpg";
+import GrantsCard from "../components/GrantsCard";
+import styled from "styled-components";
+import colors from "../constants/colors";
 
-const Grants = () => {
+const ProgramAreas = () => {
   const [grants, setGrants] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -29,41 +31,52 @@ const Grants = () => {
   }, []);
   if (loading) return <div className='spinner2'></div>;
   return (
-    <Layout header='grants'>
-      <Container>
-        <h1 className='text-capitalize my-3'>apply for a grant</h1>
-        <p>
-          As stated in our objectives, Grooming Endowment Trust creates value
-          and promotes impact through various grant programs made available to
-          the public.
-        </p>
-        <div>
-          {grants.length > 0 &&
-            grants.map((grant) => (
-              <GrantsCard
-                key={grant.id}
-                id={grant.id}
-                slug={grant.slug}
-                title={grant.title}
-                image={grant.imageUrl}
-                description={grant.description}
-                imageRef={grant.imageRef}
-              />
-            ))}
-        </div>
-        <h4 className='text-capitalize my-3'>Strict Adherence of Rule</h4>
-        <p>
-          Please note that any fraudulent applications and non-existent business
-          applications would be automatically flagged and disqualified from
-          applying for any other grant. Please be sure to read all requirements
-          for each grant before applications are made.
-        </p>
-      </Container>
+    <Layout header='programme areas'>
+      <div className='row'>
+        {programmes.map((program) => (
+          <ProgramAreasCard
+            key={program.id}
+            icon={program.icon}
+            title={program.name}
+            description={program.description}
+            image={TestImg}
+          />
+        ))}
+      </div>
+      <Header className='text-capitalize my-3 mt-5'>apply for a grant</Header>
+      <p>
+        As stated in our objectives, Grooming Endowment Trust creates value and
+        promotes impact through various grant programs made available to the
+        public.
+      </p>
+      <div>
+        {grants.length > 0 &&
+          grants.map((grant) => (
+            <GrantsCard
+              key={grant.id}
+              id={grant.id}
+              slug={grant.slug}
+              title={grant.title}
+              image={grant.imageUrl}
+              description={grant.description}
+              imageRef={grant.imageRef}
+              programSlug={grant.programSlug}
+            />
+          ))}
+      </div>
+      <h4 className='text-capitalize my-3'>Strict Adherence of Rule</h4>
+      <p>
+        Please note that any fraudulent applications and non-existent business
+        applications would be automatically flagged and disqualified from
+        applying for any other grant. Please be sure to read all requirements
+        for each grant before applications are made.
+      </p>
     </Layout>
   );
 };
 
-const Container = styled.div`
-  color: ${colors.textColor};
+const Header = styled.h1`
+  color: ${colors.headerColor};
+  text-transform: capitalize;
 `;
-export default Grants;
+export default ProgramAreas;

@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout";
 import Section from "../layouts/Section";
 import AboutImg1 from "../assets/images/family.jpg";
 import Image from "../shared/Image";
-import AboutSlides from "../components/AboutSlides";
+// import AboutSlides from "../components/AboutSlides";
 import styled from "styled-components";
 
 const About = () => {
@@ -15,9 +15,6 @@ const About = () => {
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='about us'>
-      {/* <Section>
-        <Image src={AboutImg1} alt='about' h={50} unit='vh' />
-      </Section> */}
       <Section>
         <div className='row gap-2'>
           <div className='col-lg-5'>
@@ -88,7 +85,7 @@ const About = () => {
           </div>
         </div>
       </Section> */}
-      <AboutSlides />
+      {/* <AboutSlides /> */}
     </Layout>
   );
 };

@@ -21,6 +21,29 @@ const AdminGrants = () => {
     imageRef: "",
     createdAt: Timestamp.now().toDate(),
   });
+  const programmes = [
+    {
+      id: 1,
+      name: "Health",
+    },
+    {
+      id: 2,
+      name: "Education",
+    },
+    {
+      id: 3,
+      name: "Humanitarian Works",
+    },
+    {
+      id: 4,
+      name: "Enterprise & Community Development",
+    },
+    {
+      id: 5,
+      name: "Social Entrepreneurship",
+    },
+  ];
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -150,15 +173,20 @@ const AdminGrants = () => {
           <label htmlFor='link' className='form-label'>
             Enter programme area category (health, education etc)
           </label>
-          <input
-            type='text'
+          <select
             name='programSlug'
             id='programSlug'
             value={formData.programSlug}
-            placeholder='Programme area'
             className='form-control'
             onChange={(e) => handleChange(e)}
-          />
+          >
+            <option value=''>---</option>
+            {programmes.map((program) => (
+              <option key={program.id} value={program.name}>
+                {program.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='mb-3 form-group w-50'>
           <label htmlFor='image' className='form-label'>

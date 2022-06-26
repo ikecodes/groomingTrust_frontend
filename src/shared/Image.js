@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Image = ({ src, h, unit, alt, rounded }) => {
   return (
@@ -16,6 +16,6 @@ const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: ${(props) => (props.rounded ? '2rem' : '0')};
+  border-radius: ${(props) => (props.rounded ? "2rem" : "0")};
 `;
 export default Image;
