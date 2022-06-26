@@ -42,10 +42,10 @@ const Slider = () => {
           </div>
           <Caption>
             <Carousel.Caption>
-              <h1 className='text-start'>grooming trust</h1>
+              <h1 className='text-start'>Grooming Endowment Trust</h1>
               <p className='text-start'>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Promoting sustainable social initiatives in education, health,
+                enterprise and community development
               </p>
             </Carousel.Caption>
           </Caption>

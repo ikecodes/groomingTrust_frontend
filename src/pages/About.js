@@ -4,7 +4,6 @@ import Section from "../layouts/Section";
 import AboutImg1 from "../assets/images/family.jpg";
 import Image from "../shared/Image";
 // import AboutSlides from "../components/AboutSlides";
-import styled from "styled-components";
 
 const About = () => {
   const [loading, setloading] = useState(true);
@@ -23,39 +22,12 @@ const About = () => {
           <div className='col-lg-6'>
             {/* <h2 className='my-3 text-capitalize'>Grooming Endownment Trust</h2> */}
             <p>
-              Grooming Endowment Trust is a trust set up in the year 2020 to
-              create impact and support various initiatives. As stated in its
-              legal documentation but not limited to, its objectives are to:
-            </p>
-            <List>
-              <li>
-                To promote sustainable social initiatives in education, health,
-                enterprise and community development
-              </li>
-              <li>
-                To promote and support education, research, skill development,
-                innovation and training
-              </li>
-              <li>
-                To promote the improvement of healthcare delivery in peri-urban
-                and rural areas
-              </li>
-              <li>
-                To promote enterprise and community-driven inclusive development
-              </li>
-              <li>
-                To promote entrepreneurship and venture formation through
-                investments in sustainable initiatives
-              </li>
-              <li>To aid and humanitarian relief for people in need</li>
-              <li>
-                To contribute and advocate for any related activities under the
-                Sustainable Development Goals
-              </li>
-            </List>
-            <p className='mt-2'>
-              To achieve these, a group of trustees have been appointed to
-              oversee the trust’s vision, mission, and objectives.
+              Grooming Endowment Trust was set up as a nonprofit in August 2020
+              to promote sustainable social initiatives in education, health,
+              enterprise and community development. Endowed with initial seed
+              funding from Grooming Centre, the Trust provides grants and
+              investments to social enterprises creating impact in their
+              communities.
             </p>
           </div>
         </div>
@@ -90,10 +62,4 @@ const About = () => {
   );
 };
 
-const List = styled.ul`
-  list-style: disc;
-  & li:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-`;
 export default About;
