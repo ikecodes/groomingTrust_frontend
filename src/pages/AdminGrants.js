@@ -36,7 +36,7 @@ const AdminGrants = () => {
     },
     {
       id: 4,
-      name: "Enterprise & Community Development",
+      name: "Community Development",
     },
     {
       id: 5,

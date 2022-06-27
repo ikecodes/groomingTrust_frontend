@@ -27,7 +27,7 @@ const ProgramAreasCard = ({ icon, title, description, image }) => {
         </ImageContainer>
         <div className='w-50 d-flex align-items-center justify-content-center position-relative flex-column bg-light'>
           <div>{icon}</div>
-          <h6 className=' text-capitalize'>{title}</h6>
+          <h6 className=' text-capitalize mt-2'>{title}</h6>
         </div>
       </div>
     </motion.div>

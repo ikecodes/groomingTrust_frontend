@@ -31,7 +31,8 @@ const ProgramAreas = () => {
   }, []);
   if (loading) return <div className='spinner2'></div>;
   return (
-    <Layout header='programme areas'>
+    <Layout header='grant programmes'>
+      <Header className='text-capitalize my-5'>Our program areas</Header>
       <div className='row'>
         {programmes.map((program) => (
           <ProgramAreasCard
@@ -43,7 +44,7 @@ const ProgramAreas = () => {
           />
         ))}
       </div>
-      <Header className='text-capitalize my-3 mt-5'>apply for a grant</Header>
+      <Header className='text-capitalize mt-5 mb-2'>apply for a grant</Header>
       <p>
         As stated in our objectives, Grooming Endowment Trust creates value and
         promotes impact through various grant programs made available to the

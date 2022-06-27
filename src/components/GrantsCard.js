@@ -83,8 +83,9 @@ const IconContainer = styled.span`
   display: grid;
   place-content: center;
   z-index: 100;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
   bottom: 0;
   border-bottom: 1px solid ${colors.primary};
   left: 0;
