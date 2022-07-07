@@ -23,7 +23,7 @@ const ChairmanMessage = () => {
           </div>
           <div className='col-lg-6'>
             <Slide bottom>
-              <h2 className='my-3'>Chairman's message</h2>
+              <h2 className='my-3'>Chairpersons message</h2>
               <p>
                 Impact and development are essential parts of the socio-economic
                 growth in Nigeria. That is why setting up the Grooming Endowment

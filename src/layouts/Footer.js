@@ -33,15 +33,33 @@ const Footer = () => {
               <li className='mb-3 fw-bold'>socials</li>
               <li className='mb-3 d-flex gap-3 align-items-center'>
                 <FaFacebook size={20} />
-                <span>facebook</span>
+                <a
+                  href='https://twitter.com/groomingend_?s=11&t=rdiOyT-KlY2piJeOEwCb4w'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <span>facebook</span>
+                </a>
               </li>
               <li className='my-3 d-flex gap-3 align-items-center'>
                 <FaTwitter size={20} />
-                <span>twitter</span>
+                <a
+                  href='https://twitter.com/groomingend_?s=11&t=rdiOyT-KlY2piJeOEwCb4w'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <span>twitter</span>
+                </a>
               </li>
               <li className='my-3 d-flex gap-3 align-items-center'>
                 <FaInstagram size={20} />
-                <span>instagram</span>
+                <a
+                  href='https://instagram.com/groomingendowment?igshid=YmMyMTA2M2Y='
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <span>instagram</span>
+                </a>
               </li>
             </ul>
           </div>
