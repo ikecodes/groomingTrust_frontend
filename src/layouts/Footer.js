@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Form } from "react-bootstrap";
 import styled from "styled-components";
 import colors from "../constants/colors";
@@ -32,9 +32,19 @@ const Footer = () => {
             <ul className='text-capitalize'>
               <li className='mb-3 fw-bold'>socials</li>
               <li className='mb-3 d-flex gap-3 align-items-center'>
+                <FaLinkedin size={20} />
+                <a
+                  href='https://www.linkedin.com/in/grooming-endowment-6167b7244?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BsmHA0qXjSLGqjP9l2tnsKQ%3D%3D'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <span>linkedin</span>
+                </a>
+              </li>
+              <li className='mb-3 d-flex gap-3 align-items-center'>
                 <FaFacebook size={20} />
                 <a
-                  href='https://twitter.com/groomingend_?s=11&t=rdiOyT-KlY2piJeOEwCb4w'
+                  href='https://www.facebook.com/profile.php?id=100083166276786'
                   target='_blank'
                   rel='noreferrer'
                 >
