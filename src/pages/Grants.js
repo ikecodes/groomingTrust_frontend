@@ -4,7 +4,6 @@ import { db } from "../firebase";
 import Layout from "../layouts/Layout";
 import { programmes } from "../constants/programmes";
 import ProgramAreasCard from "../components/ProgramAreasCard";
-import TestImg from "../assets/images/chairman.jpg";
 import GrantsCard from "../components/GrantsCard";
 import styled from "styled-components";
 import colors from "../constants/colors";
@@ -40,7 +39,7 @@ const ProgramAreas = () => {
             icon={program.icon}
             title={program.name}
             description={program.description}
-            image={TestImg}
+            image={program.image}
           />
         ))}
       </div>

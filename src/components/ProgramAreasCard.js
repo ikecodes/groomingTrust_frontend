@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import TestImg from "../assets/images/event.jpg";
 import { motion } from "framer-motion";
 import TextModal from "../utils/TextModal";
 
@@ -23,7 +22,7 @@ const ProgramAreasCard = ({ icon, title, description, image }) => {
         onClick={() => setModalShow(true)}
       >
         <ImageContainer>
-          <Img src={TestImg} alt={title} />
+          <Img src={image} alt={title} />
         </ImageContainer>
         <div className='w-50 d-flex align-items-center justify-content-center position-relative flex-column bg-light'>
           <div>{icon}</div>

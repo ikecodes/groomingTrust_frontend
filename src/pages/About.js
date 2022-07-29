@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../layouts/Layout";
 import Section from "../layouts/Section";
-import AboutImg1 from "../assets/images/family.jpg";
+import AboutImg1 from "../assets/images/1.jpeg";
 import Image from "../shared/Image";
 // import AboutSlides from "../components/AboutSlides";
 
@@ -15,7 +15,7 @@ const About = () => {
   return (
     <Layout header='about us'>
       <Section>
-        <div className='row gap-2'>
+        <div className='row gap-2 align-items-center'>
           <div className='col-lg-5'>
             <Image src={AboutImg1} alt='about' h={20} unit='rem' rounded />
           </div>

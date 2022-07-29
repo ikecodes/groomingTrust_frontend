@@ -1,10 +1,9 @@
-import React from 'react';
-import NavbarLg from './NavLg';
-import NavSm from './NavSm';
-import HeaderImg from '../assets/images/family.jpg';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Image from '../shared/Image';
+import React from "react";
+import NavbarLg from "./NavLg";
+import NavSm from "./NavSm";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Image from "../shared/Image";
 const Header = ({ headerText }) => {
   return (
     <Container>
@@ -18,7 +17,7 @@ const Header = ({ headerText }) => {
         </p> */}
       </TextBox>
       <Overlay />
-      <Image src={HeaderImg} h={60} unit='vh' />
+      <Image src='https://picsum.photos/id/123/1200/600' h={60} unit='vh' />
     </Container>
   );
 };
