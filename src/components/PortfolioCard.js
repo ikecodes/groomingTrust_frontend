@@ -1,21 +1,22 @@
-import React from 'react';
-import { deleteDocWithImage } from '../firebase';
-import { FaRegTrashAlt } from 'react-icons/fa';
-import { Card } from 'react-bootstrap';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Button from '../shared/Button';
+import React from "react";
+import { deleteDocWithImage } from "../firebase";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { Card } from "react-bootstrap";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Button from "../shared/Button";
+import Image from "../shared/Image";
 const PortfolioCard = ({ id, title, image, description, link, imageRef }) => {
-  const admin = localStorage.getItem('admin');
+  const admin = localStorage.getItem("admin");
   const handleDelete = async () => {
-    await deleteDocWithImage(imageRef, 'portfolio', id);
+    await deleteDocWithImage(imageRef, "portfolio", id);
   };
 
   return (
     <div className='col-lg-4 col-md-6 mb-5'>
       <CardContainer>
         <Card className='border-0 bg-transparent'>
-          <CardImage alt='event' src={image} />
+          <Image src={image} h={15} unit='rem' alt='porfolio' />
           <Card.Body>
             <Card.Title className='text-capitalize'>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
@@ -41,10 +42,6 @@ const CardContainer = styled.div`
   background-color: ${colors.grey};
   padding: 1rem;
   border-radius: 1rem;
-`;
-const CardImage = styled.img`
-  /* border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem; */
 `;
 
 export default PortfolioCard;
