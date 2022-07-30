@@ -32,6 +32,16 @@ const Faqs = () => {
       a: "Depending on the grants awarded, business related grant applicants are usually expected to be 18 and above. ",
       type: "grants",
     },
+    {
+      q: "How Much Can I Get From A Grant? ",
+      a: "Amounts vary according to the grant programs.",
+      type: "grants",
+    },
+    {
+      q: "Is There An Age Limit For The Grant?",
+      a: "Depending on the grant, business-related grant applicants are usually expected to be 18 and above.",
+      type: "grants",
+    },
   ];
   setTimeout(() => {
     setloading(false);
