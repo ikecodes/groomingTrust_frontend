@@ -37,8 +37,10 @@ const GrantsCard = ({
 
   return (
     <motion.div
-      whileHover={{ scale: 1.01 }}
-      className='row my-5 flex-md-row-reverse bg-light  position-relative justify-content-between'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className='row my-5 flex-md-row-reverse bg-light  position-relative justify-content-between rounded'
     >
       <IconContainer className='bg-light shadow'>
         {IconType[programSlug]}
@@ -61,7 +63,7 @@ const GrantsCard = ({
         {admin && (
           <FaRegTrashAlt
             role='button'
-            className='mt-3 text-danger'
+            className='mt-3 ms-5 text-danger'
             size={25}
             onClick={handleDelete}
           />

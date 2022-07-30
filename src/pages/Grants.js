@@ -43,12 +43,24 @@ const ProgramAreas = () => {
           />
         ))}
       </div>
-      <Header className='text-capitalize mt-5 mb-2'>apply for a grant</Header>
-      <p>
-        As stated in our objectives, Grooming Endowment Trust creates value and
-        promotes impact through various grant programs made available to the
-        public.
-      </p>
+
+      {grants.length > 0 ? (
+        <>
+          <Header className='text-capitalize mt-5 mb-2'>
+            apply for a grant
+          </Header>
+          <p>
+            As stated in our objectives, Grooming Endowment Trust creates value
+            and promotes impact through various grant programs made available to
+            the public.
+          </p>
+        </>
+      ) : (
+        <h4 className='text-secondary mt-5'>
+          Stay updated, we have our next grant coming soon!
+        </h4>
+      )}
+
       <div>
         {grants.length > 0 &&
           grants.map((grant) => (
@@ -64,13 +76,17 @@ const ProgramAreas = () => {
             />
           ))}
       </div>
-      <h4 className='text-capitalize my-3'>Strict Adherence of Rule</h4>
-      <p>
-        Please note that any fraudulent applications and non-existent business
-        applications would be automatically flagged and disqualified from
-        applying for any other grant. Please be sure to read all requirements
-        for each grant before applications are made.
-      </p>
+      {grants.length > 0 && (
+        <>
+          <h4 className='text-capitalize my-3'>Strict Adherence of Rule</h4>
+          <p>
+            Please note that any fraudulent applications and non-existent
+            business applications would be automatically flagged and
+            disqualified from applying for any other grant. Please be sure to
+            read all requirements for each grant before applications are made.
+          </p>
+        </>
+      )}
     </Layout>
   );
 };
