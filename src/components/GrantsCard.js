@@ -5,8 +5,6 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "../shared/Button";
-import Image from "../shared/Image";
-import { Fade } from "react-reveal";
 import { MdHealthAndSafety, MdSchool } from "react-icons/md";
 import { GiLovers } from "react-icons/gi";
 import { AiTwotonePieChart } from "react-icons/ai";
@@ -45,37 +43,47 @@ const GrantsCard = ({
       <IconContainer className='bg-light shadow'>
         {IconType[programSlug]}
       </IconContainer>
-      <Fade left>
-        <div className='col-lg-4 p-0'>
-          <Image src={image} alt='family' h={100} unit='%' />
-        </div>
-        <div className='col-lg-8'>
-          <TextContainer>
-            <h2 className='my-3 text-capitalize'>{title}</h2>
-            {description}
-            <div className='mt-3'>
-              <Link to={`/grants/${slug}`} state={id}>
-                <Button title='learn more' primary />
-              </Link>
-            </div>
-          </TextContainer>
-          {admin && (
-            <FaRegTrashAlt
-              role='button'
-              className='mt-3 text-danger'
-              size={25}
-              onClick={handleDelete}
-            />
-          )}
-        </div>
-      </Fade>
+      <div className='col-lg-4 p-0'>
+        <ImageContainer>
+          <Img src={image} alt={title} />
+        </ImageContainer>
+      </div>
+      <div className='col-lg-8'>
+        <TextContainer>
+          <h2 className='my-3 text-capitalize'>{title}</h2>
+          {description}
+          <div className='mt-3'>
+            <Link to={`/grants/${slug}`} state={id}>
+              <Button title='learn more' primary />
+            </Link>
+          </div>
+        </TextContainer>
+        {admin && (
+          <FaRegTrashAlt
+            role='button'
+            className='mt-3 text-danger'
+            size={25}
+            onClick={handleDelete}
+          />
+        )}
+      </div>
     </motion.div>
   );
 };
 
+const ImageContainer = styled.div`
+  height: 15rem;
+  width: 100%;
+  flex-wrap: nowrap;
+`;
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 const TextContainer = styled.div`
   position: relative;
-  padding-left: 1.5rem;
+  /* padding-left: 1.5rem; */
 `;
 const IconContainer = styled.span`
   display: inline;
@@ -89,7 +97,6 @@ const IconContainer = styled.span`
   bottom: 0;
   border-bottom: 1px solid ${colors.primary};
   left: 0;
-
   @media (max-width: 576px) {
     left: 80%;
     right: 0;
