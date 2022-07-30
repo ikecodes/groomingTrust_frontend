@@ -157,7 +157,7 @@ const AdminMessages = () => {
                           responsive
                         />
                         {!messages.length ? (
-                          <p>You currently do not have any applications</p>
+                          <p>You currently do not have any message</p>
                         ) : null}
                         {/* modal for deleting a message */}
                         <DeleteModal
