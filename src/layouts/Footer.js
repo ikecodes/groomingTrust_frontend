@@ -54,7 +54,7 @@ const Footer = () => {
               <li className='my-3 d-flex gap-3 align-items-center'>
                 <FaTwitter size={20} />
                 <a
-                  href='https://twitter.com/groomingend_?s=11&t=rdiOyT-KlY2piJeOEwCb4w'
+                  href='https://twitter.com/groominget?s=11&t=rvYnrixMJvdV3RFT8w-4Bg'
                   target='_blank'
                   rel='noreferrer'
                 >

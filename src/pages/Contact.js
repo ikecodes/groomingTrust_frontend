@@ -96,7 +96,7 @@ const Contact = () => {
               <li className='mb-5 d-flex gap-3 align-items-center'>
                 <BsTelephoneFill size={30} color={colors.primary} />
                 <span>
-                  Phone: <Detail>+234 9087966322, +234 9021273383</Detail>
+                  Phone: <Detail>+234 9087966322</Detail>
                 </span>
               </li>
             </ul>
