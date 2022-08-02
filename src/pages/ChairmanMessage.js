@@ -7,7 +7,7 @@ const ChairmanMessage = () => {
   return (
     <Layout header='Chairpersons message'>
       <Section>
-        <div className='row align-items-center'>
+        <div className='row'>
           <div className='col-lg-6'>
             <ImageBox src={ChairmanImg} />
           </div>
