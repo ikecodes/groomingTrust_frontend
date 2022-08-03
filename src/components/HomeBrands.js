@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import BrandImg1 from "../assets/images/partners/FRAGG-Logo.png";
-import BrandImg2 from "../assets/images/partners/grooming centre.png";
+import BrandImg1 from "../assets/images/partners/partner1.png";
+import BrandImg2 from "../assets/images/partners/partner2.png";
+import BrandImg3 from "../assets/images/partners/partner3.jpeg";
 import colors from "../constants/colors";
 import Section from "../layouts/Section";
 const HomeBrands = () => {
@@ -22,6 +23,15 @@ const HomeBrands = () => {
               rel='noreferrer'
             >
               <ImageBox src={BrandImg2} alt='brand' />
+            </a>
+          </div>
+          <div className='col-lg-3 col-md-6 mb-5'>
+            <a
+              href='https://groomingcentre.org/'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <ImageBox src={BrandImg3} alt='brand' />
             </a>
           </div>
         </div>
