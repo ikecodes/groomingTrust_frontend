@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout";
 import Section from "../layouts/Section";
 const ChairmanMessage = () => {
   return (
-    <Layout header='Chairpersons message'>
+    <Layout header="Chairperson's message">
       <Section>
         <div className='row'>
           <div className='col-lg-6'>
