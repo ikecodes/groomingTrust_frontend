@@ -31,8 +31,8 @@ const StaffAndTrustees = () => {
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='our people'>
-      <TypeContainer className='shadow'>
-        <h6 className='activeClass'>staff & trustees</h6>
+      <TypeContainer>
+        <h6 className='activeClass shadow'>staff & trustees</h6>
         {/* <h6
           className={`${active === "trustee" ? "activeClass" : ""}`}
           onClick={() => setActive("trustee")}
@@ -67,8 +67,8 @@ const TypeContainer = styled.div`
   text-transform: capitalize;
   color: ${colors.textColor};
   & h6 {
-    /* border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem; */
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     margin: 0;
     padding: 0.5rem 0;
     font-weight: 500;

@@ -49,15 +49,15 @@ const Faqs = () => {
   if (loading) return <div className='spinner2'></div>;
   return (
     <Layout header='FAQs'>
-      <TypeContainer className='shadow'>
+      <TypeContainer>
         <h6
-          className={`${active === "grooming" ? "activeClass" : ""}`}
+          className={`shadow ${active === "grooming" ? "activeClass" : ""}`}
           onClick={() => setActive("grooming")}
         >
           about grooming endowment trust
         </h6>
         <h6
-          className={`${active === "grants" ? "activeClass" : ""}`}
+          className={`shadow ${active === "grants" ? "activeClass" : ""}`}
           onClick={() => setActive("grants")}
         >
           about grant application

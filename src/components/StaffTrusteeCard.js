@@ -22,9 +22,9 @@ const StaffTrusteeCard = ({ id, image, name, position, about, imageRef }) => {
         position={position}
         about={about}
       />
-      <Card className='border-0 text-center shadow '>
-        <Image alt='staff & trustees' src={image} h={15} unit='rem' rounded />
-        <Card.Body>
+      <Card className='border-0 text-center'>
+        <Image alt='staff & trustees' src={image} h={20} unit='rem' rounded />
+        <Card.Body className='shadow'>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{position}</Card.Text>
           <Button title='read bio' handleClick={() => setModalShow(true)} />
