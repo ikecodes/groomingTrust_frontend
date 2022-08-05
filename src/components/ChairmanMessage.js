@@ -25,17 +25,15 @@ const ChairmanMessage = () => {
             <Slide bottom>
               <h2 className='my-3'>Chairperson's message</h2>
               <p>
-                Impact and development are essential parts of the socio-economic
-                growth of a Country. African countries are experiencing an
-                unprecedented economic downturn with major adverse impacts on
-                development.
-              </p>
-              <p>
-                The United Nations have warned that the devastating
-                socio-economic impact of the COVID-19 pandemic will be felt for
-                years to come unless smart investments in economic, societal and
-                climate resilience ensure a robust and sustainable recovery of
-                the global economy.
+                Actions that lead to positive impact and development are
+                essential parts of the socio-economic growth of any country.
+                However, recent global events have led to unprecedented economic
+                challenges with major adverse impacts on development, especially
+                for African countries. The United Nations has warned that the
+                devastating impact of the COVID-19 pandemic will continue for
+                years to come, unless smart investments in economic, societal
+                and climate resilience are made to boost the sustainable
+                recovery of the global economy.
               </p>
               <Link to='/chairmans-message'>
                 <PrimaryButton title='read more' primary />

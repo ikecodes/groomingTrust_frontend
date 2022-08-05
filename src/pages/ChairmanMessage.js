@@ -13,43 +13,40 @@ const ChairmanMessage = () => {
           </div>
           <div className='col-lg-6 my-3'>
             <p>
-              Impact and development are essential parts of the socio-economic
-              growth of a Country. African countries are experiencing an
-              unprecedented economic downturn with major adverse impacts on
-              development.
-            </p>
-            <p>
-              The United Nations have warned that the devastating socio-economic
-              impact of the COVID-19 pandemic will be felt for years to come
+              Actions that lead to positive impact and development are essential
+              parts of the socio-economic growth of any country. However, recent
+              global events have led to unprecedented economic challenges with
+              major adverse impacts on development, especially for African
+              countries. The United Nations has warned that the devastating
+              impact of the COVID-19 pandemic will continue for years to come,
               unless smart investments in economic, societal and climate
-              resilience ensure a robust and sustainable recovery of the global
-              economy.
+              resilience are made to boost the sustainable recovery of the
+              global economy.
             </p>
             <p>
-              Grooming Endowment Trust (GET) was incorporated in 2020 at the
-              peak of the Covid 19 pandemic with aims and objectives centred
-              around the Sustainable Development Goals (SDGs) to advocate,
-              support, contribute, and promote sustainable social initiatives in
-              education, health, enterprise; community development in peri-urban
-              and rural areas and aid and humanitarian relief for people in
-              need.
+              Consequently, the Grooming Endowment Trust (GET) was incorporated
+              in 2020 at the peak of the Covid-19 pandemic to support,
+              contribute, and promote sustainable social initiatives in
+              education, health, enterprise and community development, as well
+              as humanitarian relief for the most vulnerable, in line with the
+              Sustainable Development Goals. Our primary motivation is ‘Bringing
+              Ideas to Life’ - which we do by providing grants and funding for
+              early-stage innovators and businesses, as we believe the
+              deployment of responsible capital is essential for bringing these
+              oft-overlooked ideas to life. We also provide catalytic inputs for
+              the growth of these businesses that drive our economies, through
+              capacity building, networks, technical assistance, and strategic
+              guidance, creating a multiplier effect with socioeconomic benefits
+              such as employment, and knowledge creation; providing a pathway to
+              end poverty. Our delivery framework rethinks the balance between
+              investment and philanthropy, with a focus on promoting dignity and
+              sustainability in our society.
             </p>
             <p>
-              Our tagline is ‘Bringing Ideas to Life’ which we do by providing
-              grant and funding for early-stage Companies that is needed to
-              bring their ideas to life. We support these Companies with the
-              tools, capacity building, networks, technical assistance, and
-              strategic guidance needed to succeed and scale up their
-              businesses. This creates employment which leads to socio-economic
-              development and a clear pathway to end poverty. We believe that
-              access to finance is not a gesture of charity but a fundamental
-              human right that restores dignity and confidence.
-            </p>
-            <p>
-              We are very passionate about our objectives, mission and vision
-              and as the Chairperson, will ensure that the Trust is steered
-              towards achieving these as we partner with other players that
-              share a common interest as the Trust.
+              We are very passionate about delivering on our objectives; and as
+              the Chairperson, I will ensure that the Trust is steered towards
+              the achievement of these goals as we partner with those who share
+              our values and ethos.
             </p>
           </div>
         </div>
