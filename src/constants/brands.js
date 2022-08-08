@@ -10,24 +10,25 @@ const brands = [
     url: "https://groomingcentre.org/",
     width: "13rem",
   },
+
   {
     id: 2,
-    image: BrandImg4,
-    url: "https://kickoff.africa/",
-    width: "5rem",
-  },
-  {
-    id: 3,
     image: BrandImg2,
     url: "https://fragginvest.com/",
     width: "13rem",
   },
 
   {
-    id: 4,
+    id: 3,
     image: BrandImg3,
     url: "https://konandassociatesfi.wixsite.com/my-site",
     width: "13rem",
+  },
+  {
+    id: 4,
+    image: BrandImg4,
+    url: "https://kickoff.africa/",
+    width: "5rem",
   },
 ];
 

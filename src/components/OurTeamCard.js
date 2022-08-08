@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 import Button from "../shared/Button";
 import Image from "../shared/Image";
 import DisplayModal from "../utils/DisplayModal";
-const StaffTrusteeCard = ({ id, image, name, position, about, imageRef }) => {
+const OurTeamCard = ({ id, image, name, position, about, imageRef }) => {
   const [modalShow, setModalShow] = useState(false);
   const admin = localStorage.getItem("admin");
   const handleDelete = async () => {
@@ -42,4 +42,4 @@ const StaffTrusteeCard = ({ id, image, name, position, about, imageRef }) => {
   );
 };
 
-export default StaffTrusteeCard;
+export default OurTeamCard;

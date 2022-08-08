@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ChairmanMessage from "./pages/ChairmanMessage";
 import About from "./pages/About";
-import StaffAndTrustees from "./pages/StaffAndTrustees";
+import OurTeam from "./pages/OurTeam";
 import Gallery from "./pages/Gallery";
 import Faqs from "./pages/Faqs";
 import Contact from "./pages/Contact";
@@ -28,26 +28,21 @@ import AdminApplications from "./pages/AdminApplications";
 import AdminGallery from "./pages/AdminGallery";
 import AdminStaffTrustees from "./pages/AdminStaffTrustees";
 import AdminProtected from "./utils/AdminProtected";
-import UnderConstruction from "./pages/UnderConstruction";
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop>
         <Routes>
-          <Route path='/' exact element={<UnderConstruction />} />
-          <Route path='/home' exact element={<Home />} />
+          <Route path='/' exact element={<Home />} />
+          {/* <Route path='/' exact element={<UnderConstruction />} /> */}
           <Route
             path='/chairmans-message'
             exact
             element={<ChairmanMessage />}
           />
           <Route path='/about' exact element={<About />} />
-          <Route
-            path='/staff-and-trustees'
-            exact
-            element={<StaffAndTrustees />}
-          />
+          <Route path='/our-team' exact element={<OurTeam />} />
           <Route path='/gallery' exact element={<Gallery />} />
           <Route path='/frequently-asked-questions' exact element={<Faqs />} />
           <Route path='/contact-us' exact element={<Contact />} />
