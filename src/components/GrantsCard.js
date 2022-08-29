@@ -29,9 +29,7 @@ const GrantsCard = ({
     health: <MdHealthAndSafety size={30} color='#C386C0' />,
     education: <MdSchool size={30} color='#C386C0' />,
     "humanitarian-works": <GiLovers size={30} color='#C386C0' />,
-    "enterprise-and-community-development": (
-      <AiTwotonePieChart size={30} color='#C386C0' />
-    ),
+    "community-development": <AiTwotonePieChart size={30} color='#C386C0' />,
     "social-entrepreneurship": <FaChartLine size={30} color='#C386C0' />,
   };
 
