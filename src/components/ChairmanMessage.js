@@ -11,8 +11,8 @@ const ChairmanMessage = () => {
   return (
     <Section>
       <div className='container'>
-        <div className='row'>
-          <div className='col-lg-6'>
+        <div className='row align-items-center'>
+          <div className='col-lg-4'>
             <Slide left>
               <Image
                 src={ChairmanImage}
@@ -23,7 +23,7 @@ const ChairmanMessage = () => {
               />
             </Slide>
           </div>
-          <div className='col-lg-6'>
+          <div className='col-lg-8'>
             <Slide bottom>
               <h2 className='my-3'>Chairperson's message</h2>
               <p>
@@ -37,7 +37,7 @@ const ChairmanMessage = () => {
                 and climate resilience are made to boost the sustainable
                 recovery of the global economy.
               </p>
-              <p>{paragraph2.slice(0, 500)}...</p>
+              <p>{paragraph2.slice(0, 800)}...</p>
               <Link to='/chairmans-message'>
                 <PrimaryButton title='read more' primary />
               </Link>

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Logo from '../assets/images/Logo.png';
-import { adminMenu } from '../constants/menus';
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Logo from "../assets/images/Logo.png";
+import { adminMenu } from "../constants/menus";
 const AdminNav = () => {
   return (
     <Container>
@@ -15,7 +15,7 @@ const AdminNav = () => {
           <li key={item.id}>
             <NavLink
               to={item.path}
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               {item.name}
             </NavLink>
@@ -47,11 +47,13 @@ const Menu = styled.ul`
   & li {
     font-size: 1.2rem;
     width: 100%;
+
     & a,
     a:link {
       text-decoration: none;
       color: ${colors.white};
       padding: 0.8rem 2.5rem;
+      transition: all 0.5s ease-in;
     }
     & a:hover {
       background-color: ${colors.white};

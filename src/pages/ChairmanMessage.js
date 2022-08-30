@@ -8,10 +8,10 @@ const ChairmanMessage = () => {
     <Layout header="Chairperson's message">
       <Section>
         <div className='row'>
-          <div className='col-lg-6'>
+          <div className='col-lg-4'>
             <ImageBox src={ChairmanImg} />
           </div>
-          <div className='col-lg-6 my-3'>
+          <div className='col-lg-8 my-3'>
             <p>
               Actions that lead to positive impact and development are essential
               parts of the socio-economic growth of any country. However, recent
