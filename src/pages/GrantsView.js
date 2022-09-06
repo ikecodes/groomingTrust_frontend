@@ -33,16 +33,32 @@ const GrantsView = () => {
       <Container>
         <h1 className='my-3 text-capitalize'>{grant?.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: grant?.body }} />
-        <div className='mt-3 text-capitalize'>
-          <Deadline className='p-1 rounded'>application deadline</Deadline>
+        <div className='mt-3 '>
+          <Deadline className='p-1 rounded text-capitalize'>
+            application deadline
+          </Deadline>
+
           <p className='mt-2'>
             {moment(grant?.deadline).format("MMM Do YYYY")}
           </p>
+          {new Date().getTime() > new Date(grant?.deadline).getTime() ? (
+            <h6 className='p-1 rounded'>
+              This grant has expired, we are no longer accepting applications.
+            </h6>
+          ) : null}
         </div>
         <div className='text-center mt-5'>
-          <Link to={`/application?${id}`}>
-            <Button title='apply now' primary />
-          </Link>
+          {new Date().getTime() < new Date(grant?.deadline).getTime() && (
+            <Link to={`/application?${id}`}>
+              <Button
+                title='apply now'
+                primary
+                disabled={
+                  new Date().getTime() > new Date(grant?.deadline).getTime()
+                }
+              />
+            </Link>
+          )}
         </div>
       </Container>
     </Layout>

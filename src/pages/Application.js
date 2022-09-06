@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   doc,
   onSnapshot,
   addDoc,
   collection,
   Timestamp,
-} from 'firebase/firestore';
-import { db } from '../firebase';
-import { useLocation } from 'react-router-dom';
-import Toast from '../utils/Toast';
-import styled from 'styled-components';
-import colors from '../constants/colors';
-import Layout from '../layouts/Layout';
-import Button from '../shared/Button';
+} from "firebase/firestore";
+import { db } from "../firebase";
+import { useLocation } from "react-router-dom";
+import Toast from "../utils/Toast";
+import styled from "styled-components";
+import colors from "../constants/colors";
+import Layout from "../layouts/Layout";
+import Button from "../shared/Button";
 
 const Application = () => {
   const [grant, setGrant] = useState(null);
@@ -21,18 +21,18 @@ const Application = () => {
   const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
     grantName: grant?.title,
-    title: 'Mr',
-    firstName: '',
-    lastName: '',
-    email: '',
+    title: "Mr",
+    firstName: "",
+    lastName: "",
+    email: "",
     createdAt: Timestamp.now().toDate(),
   });
   const location = useLocation();
-  const id = location.search.split('?')[1];
+  const id = location.search.split("?")[1];
 
   useEffect(() => {
     setLoading(true);
-    const grantsRef = doc(db, 'grants', id);
+    const grantsRef = doc(db, "grants", id);
     const unsubscribe = onSnapshot(grantsRef, (doc) => {
       const grant = { ...doc.data(), id: doc.id };
       setGrant(grant);
@@ -56,11 +56,11 @@ const Application = () => {
       !formData.lastName ||
       !formData.email
     ) {
-      Toast('Please fill all the fields', 'info');
+      Toast("Please fill all the fields", "info");
       return;
     }
     setSending(true);
-    const applicationsRef = collection(db, 'applications');
+    const applicationsRef = collection(db, "applications");
     addDoc(applicationsRef, {
       title: formData.title,
       grantName: grant?.title,
@@ -72,19 +72,19 @@ const Application = () => {
       .then(() => {
         setFormData({
           ...formData,
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
         });
-        Toast('Details successfully submitted', 'success');
+        Toast("Details successfully submitted", "success");
         setSending(false);
         setSuccess(true);
       })
       .catch((err) => {
         console.log(err);
         setSending(false);
-        Toast('There was a problem sending your application', 'info');
+        Toast("There was a problem sending your application", "info");
       });
   };
 
@@ -107,7 +107,7 @@ const Application = () => {
           </div>
         ) : (
           <>
-            {' '}
+            {" "}
             <FormHeader className='py-2'>{`${grant?.title} grants application`}</FormHeader>
             <form className='mt-5' onSubmit={handleSubmit}>
               <div className='row mb-4 justify-content-center'>
@@ -175,12 +175,14 @@ const Application = () => {
                 </div>
               </div>
               <div className='text-center'>
-                <Button
-                  title='register for this grant'
-                  primary
-                  disabled={sending}
-                  loading={sending}
-                />
+                {new Date().getTime() < new Date(grant?.deadline).getTime() && (
+                  <Button
+                    title='register for this grant'
+                    primary
+                    disabled={sending}
+                    loading={sending}
+                  />
+                )}
               </div>
             </form>
           </>
