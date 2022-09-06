@@ -13,7 +13,7 @@ const Faqs = () => {
       type: "grooming",
     },
     {
-      q: "Do grooming Endowment give our loans?",
+      q: "Do grooming Endowment give out loans?",
       a: "No, we do not but you can look out for our grant programs that promote businesses ",
       type: "grooming",
     },
@@ -35,11 +35,6 @@ const Faqs = () => {
     {
       q: "How Much Can I Get From A Grant? ",
       a: "Amounts vary according to the grant programs.",
-      type: "grants",
-    },
-    {
-      q: "Is There An Age Limit For The Grant?",
-      a: "Depending on the grant, business-related grant applicants are usually expected to be 18 and above.",
       type: "grants",
     },
   ];
