@@ -15,7 +15,7 @@ const GrantsView = () => {
   const location = useLocation();
   // const id = location.search.split("?")[1];
   const id = location.pathname.split("/")[2];
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
     setLoading(true);
 
