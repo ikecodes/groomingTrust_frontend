@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Carousel } from "react-bootstrap";
 import NavLg from "../layouts/NavLg";
 import NavSm from "../layouts/NavSm";
+import DesktopImg from "../assets/images/desktop/2.jpeg";
 const Slider = () => {
   const [articles, setArticles] = useState([]);
   // const [loading, setLoading] = useState(true);
@@ -34,11 +35,7 @@ const Slider = () => {
         <Carousel.Item className='position-relative' interval={10000}>
           <div className='slider_image_box'>
             <div className='slider_overlay'></div>
-            <img
-              className='slider_image'
-              src='https://picsum.photos/id/123/1200/600'
-              alt='First slide'
-            />
+            <img className='slider_image' src={DesktopImg} alt='First slide' />
           </div>
           <Caption>
             <Carousel.Caption>
