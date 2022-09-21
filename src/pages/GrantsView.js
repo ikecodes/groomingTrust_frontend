@@ -13,10 +13,12 @@ const GrantsView = () => {
   const [grant, setGrant] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const id = location.state;
-
+  // const id = location.search.split("?")[1];
+  const id = location.pathname.split("/")[2];
+  console.log(id);
   useEffect(() => {
     setLoading(true);
+
     const grantsRef = doc(db, "grants", id);
     const unsubscribe = onSnapshot(grantsRef, (doc) => {
       const grant = { ...doc.data(), id: doc.id };

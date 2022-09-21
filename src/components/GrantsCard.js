@@ -53,7 +53,7 @@ const GrantsCard = ({
           <h2 className='my-3 text-capitalize'>{title}</h2>
           {description}
           <div className='mt-3'>
-            <Link to={`/grants/${slug}`} state={id}>
+            <Link to={`/grants/${id}/${slug}`} state={id}>
               <Button title='learn more' primary />
             </Link>
           </div>

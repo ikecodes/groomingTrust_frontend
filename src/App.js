@@ -49,7 +49,7 @@ function App() {
           <Route path='/portfolio' exact element={<Portfolio />} />
           <Route path='/awardees' exact element={<Awardees />} />
           <Route path='/grants' exact element={<Grants />} />
-          <Route path='/grants/:id' exact element={<GrantsView />} />
+          <Route path='/grants/:id/:id' exact element={<GrantsView />} />
           <Route path='/application' exact element={<Application />} />
           <Route path='/blog' exact element={<Blog />} />
           <Route path='/blog/:id' exact element={<BlogView />} />

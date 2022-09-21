@@ -4,6 +4,7 @@ import NavSm from "./NavSm";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Image from "../shared/Image";
+import HeaderImg from "../assets/images/desktop/2.jpeg";
 const Header = ({ headerText }) => {
   return (
     <Container>
@@ -17,7 +18,7 @@ const Header = ({ headerText }) => {
         </p> */}
       </TextBox>
       <Overlay />
-      <Image src='https://picsum.photos/id/123/1200/600' h={60} unit='vh' />
+      <Image src={HeaderImg} h={60} unit='vh' />
     </Container>
   );
 };
