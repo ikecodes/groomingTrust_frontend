@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoMdTrash } from "react-icons/io";
+import { BsReply, BsTrash } from "react-icons/bs";
 import AdminLayout from "../layouts/AdminLayout";
 import paginationFactory, {
   PaginationListStandalone,
@@ -93,7 +93,7 @@ const AdminMessages = () => {
       sort: true,
       formatter: (cellContent, message) => (
         <div className='text-center text-danger pe-auto'>
-          <IoMdTrash
+          <BsTrash
             size={20}
             style={{ cursor: "pointer" }}
             onClick={() => {
@@ -102,6 +102,18 @@ const AdminMessages = () => {
               setDeleteref("messages");
             }}
           />
+        </div>
+      ),
+    },
+    {
+      dataField: "reply",
+      text: "Reply",
+      sort: true,
+      formatter: (cellContent, message) => (
+        <div className='text-center text-success pe-auto'>
+          <a href={`mailto:${message.email}`} className='text-success'>
+            <BsReply size={20} style={{ cursor: "pointer" }} />
+          </a>
         </div>
       ),
     },

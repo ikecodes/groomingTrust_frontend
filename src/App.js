@@ -27,6 +27,7 @@ import AdminMessages from "./pages/AdminMessages";
 import AdminApplications from "./pages/AdminApplications";
 import AdminGallery from "./pages/AdminGallery";
 import AdminStaffTrustees from "./pages/AdminStaffTrustees";
+import AdminAwardees from "./pages/AdminAwardees";
 import AdminProtected from "./utils/AdminProtected";
 
 function App() {
@@ -126,6 +127,15 @@ function App() {
             element={
               <AdminProtected>
                 <AdminStaffTrustees />
+              </AdminProtected>
+            }
+          />
+          <Route
+            path='/admin-awardees'
+            exact
+            element={
+              <AdminProtected>
+                <AdminAwardees />
               </AdminProtected>
             }
           />
