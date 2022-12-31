@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Timestamp, collection, addDoc } from "firebase/firestore";
 import countryList from "react-select-country-list";
+import { Editor } from "@tinymce/tinymce-react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../firebase";
 import AdminLayout from "../layouts/AdminLayout";
@@ -14,10 +15,11 @@ const AdminAwardees = () => {
     name: "",
     businessName: "",
     email: "",
-    country: "",
+    country: "Nigeria",
     gender: "",
     sector: "",
     year: "",
+    about: "",
     image: "",
     imageRef: "",
     createdAt: Timestamp.now().toDate(),
@@ -33,6 +35,10 @@ const AdminAwardees = () => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
+  const handleBodyChange = (text) => {
+    setFormData({ ...formData, about: text });
+  };
+
   const handlePublish = (e) => {
     e.preventDefault();
     if (
@@ -43,16 +49,14 @@ const AdminAwardees = () => {
       !formData.gender ||
       !formData.sector ||
       !formData.year ||
+      !formData.about ||
       !formData.image
     ) {
       Toast("Please fill all the fields", "info");
       return;
     }
-
     setLoading(true);
-    const imageRef = `/${formData.category}/${Date.now()}${
-      formData.image.name
-    }`;
+    const imageRef = `/awardees/${Date.now()}${formData.image.name}`;
     const storageRef = ref(storage, imageRef);
 
     const uploadImage = uploadBytesResumable(storageRef, formData.image);
@@ -61,34 +65,43 @@ const AdminAwardees = () => {
       "state_changed",
       (snapshot) => {},
       (err) => {
-        console.log(err);
+        // console.log(err);
         setLoading(false);
       },
       () => {
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          const membersRef = collection(db, "members");
-          addDoc(membersRef, {
-            category: formData.category,
+          const awardeesRef = collection(db, "awardees");
+
+          addDoc(awardeesRef, {
             name: formData.name,
-            position: formData.position,
+            businessName: formData.businessName,
+            email: formData.email,
+            country: formData.country,
+            gender: formData.gender,
+            sector: formData.sector,
+            year: formData.year,
             about: formData.about,
             imageUrl: url,
             imageRef,
             createdAt: Timestamp.now().toDate(),
           })
             .then(() => {
-              Toast("Member added successfully", "success");
+              Toast("Awardee added successfully", "success");
               setLoading(false);
               setFormData({
                 ...formData,
-                category: "",
                 name: "",
-                position: "",
+                businessName: "",
+                email: "",
+                country: "",
+                gender: "",
+                sector: "",
+                year: "",
                 about: "",
               });
             })
             .catch((err) => {
-              Toast("Error adding grant", "error");
+              Toast("Error adding awardee", "error");
             });
         });
       }
@@ -228,6 +241,24 @@ const AdminAwardees = () => {
             accept='image/*'
             className='form-control'
             onChange={(e) => handleImageChange(e)}
+          />
+        </div>
+        <div className='w-75'>
+          <Editor
+            apiKey='635vw7fla4lvr9tzuknnjxfngq61h86fjr4dntt7e3ai956i'
+            textareaName='content'
+            value={formData.body}
+            init={{
+              height: 300,
+              toolbar:
+                "undo redo | formatselect | " +
+                "bold italic backcolor | alignleft aligncenter " +
+                "alignright alignjustify | bullist numlist outdent indent | " +
+                "removeformat | help",
+              content_style:
+                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+            }}
+            onEditorChange={(text) => handleBodyChange(text)}
           />
         </div>
         <div className='mt-3'>

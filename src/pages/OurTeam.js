@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
-// import styled from "styled-components";
-// import colors from "../constants/colors";
 import Layout from "../layouts/Layout";
 import OurTeamCard from "../components/OurTeamCard";
 
