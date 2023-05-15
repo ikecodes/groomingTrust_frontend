@@ -16,9 +16,9 @@ import Button from "../shared/Button";
 
 const Application = () => {
   const [grant, setGrant] = useState(null);
-  const [success, setSuccess] = useState(true)
-  const [loading, setLoading] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [sending, setSending] = useState(false)
   const [formData, setFormData] = useState({
     grantName: grant?.title,
     title: "Mr",
@@ -26,41 +26,41 @@ const Application = () => {
     lastName: "",
     email: "",
     createdAt: Timestamp.now().toDate(),
-  });
-  const location = useLocation();
-  const id = location.search.split("?")[1];
+  })
+  const location = useLocation()
+  const id = location.search.split("?")[1]
 
   useEffect(() => {
-    setLoading(true);
-    const grantsRef = doc(db, "grants", id);
+    setLoading(true)
+    const grantsRef = doc(db, "grants", id)
     const unsubscribe = onSnapshot(grantsRef, (doc) => {
-      const grant = { ...doc.data(), id: doc.id };
-      setGrant(grant);
-      setLoading(false);
-    });
-    return () => unsubscribe();
+      const grant = { ...doc.data(), id: doc.id }
+      setGrant(grant)
+      setLoading(false)
+    })
+    return () => unsubscribe()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (
       !formData.title ||
       !formData.firstName ||
       !formData.lastName ||
       !formData.email
     ) {
-      Toast("Please fill all the fields", "info");
-      return;
+      Toast("Please fill all the fields", "info")
+      return
     }
-    setSending(true);
-    const applicationsRef = collection(db, "applications");
+    setSending(true)
+    const applicationsRef = collection(db, "applications")
     addDoc(applicationsRef, {
       title: formData.title,
       grantName: grant?.title,
@@ -76,28 +76,28 @@ const Application = () => {
           lastName: "",
           email: "",
           phone: "",
-        });
-        Toast("Details successfully submitted", "success");
-        setSending(false);
-        setSuccess(true);
+        })
+        Toast("Details successfully submitted", "success")
+        setSending(false)
+        setSuccess(true)
       })
       .catch((err) => {
-        console.log(err);
-        setSending(false);
-        Toast("There was a problem sending your application", "info");
-      });
-  };
+        console.log(err)
+        setSending(false)
+        Toast("There was a problem sending your application", "info")
+      })
+  }
 
-  if (loading) return <div className='spinner2'></div>;
+  if (loading) return <div className='spinner2'></div>
   return (
     <Layout header='application'>
       <FormContainer>
         {success ? (
           <div>
             <h6>
-              You are about to register for this grant, please click on the
-              button below and proceed to take our test. Please Ensure you only
-              do once.
+              You have successfully registered for this grant, please click on
+              the button below and proceed to take our test. Please Ensure you
+              only do once.
             </h6>
             <div className='mt-3'>
               <a href={grant?.link} target='_blank' rel='noreferrer'>
