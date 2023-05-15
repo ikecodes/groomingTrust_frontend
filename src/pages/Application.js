@@ -16,7 +16,7 @@ import Button from "../shared/Button";
 
 const Application = () => {
   const [grant, setGrant] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(true)
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
@@ -95,9 +95,9 @@ const Application = () => {
         {success ? (
           <div>
             <h6>
-              You have not successfully registered for this grant, please click
-              on the button below and proceed to take our test. Please Ensure
-              you only do once.
+              You are about to register for this grant, please click on the
+              button below and proceed to take our test. Please Ensure you only
+              do once.
             </h6>
             <div className='mt-3'>
               <a href={grant?.link} target='_blank' rel='noreferrer'>
@@ -189,7 +189,7 @@ const Application = () => {
         )}
       </FormContainer>
     </Layout>
-  );
+  )
 };
 
 const FormHeader = styled.h4`
